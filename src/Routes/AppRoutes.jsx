@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import React from "react"
 
 import HomePage from "../pages/HomePage/HomePage"
-import DestinationPage from "../pages/DestinationPage/DestinationPage"
+import DestinationsPage from "../pages/DestinationsPage/DestinationsPage"
 import ThemesPage from "../pages/ThemesPage/ThemesPage"
 
 const AppRoutes = () => {
@@ -13,7 +13,7 @@ const AppRoutes = () => {
         <Routes>
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/destinations" element={<DestinationPage />} />
+            <Route path="/destinations" element={<DestinationsPage />} />
             <Route path="/themes" element={<ThemesPage />} />
             {/* <Route path="/reviews" element={<ReviewsPage />} />
 
