@@ -1,11 +1,12 @@
 import React from "react"
-const HomePage = () => {
+
+const ThemesPage = () => {
 
     return (
 
-        <div>soy la home page</div>
+        <div>soy la themes page</div>
 
     )
 }
 
-export default HomePage
+export default ThemesPage

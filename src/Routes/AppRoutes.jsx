@@ -3,6 +3,7 @@ import React from "react"
 
 import HomePage from "../pages/HomePage/HomePage"
 import DestinationPage from "../pages/DestinationPage/DestinationPage"
+import ThemesPage from "../pages/ThemesPage/ThemesPage"
 
 const AppRoutes = () => {
 
