@@ -1,9 +1,25 @@
 import React from "react"
+
+import NewTravelForm from "../../components/NewTravelForm/NewTravelForm"
+
+import { Container, Row, Col } from "react-bootstrap"
+
 const HomePage = () => {
 
     return (
 
-       <h1>hola</h1>
+        <Container className="HomePage">
+            <Row>
+                <Col>
+                    <h1>HOME PAGE</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <NewTravelForm />
+                </Col>
+            </Row>
+        </Container>
 
     )
 }
