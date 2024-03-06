@@ -1,8 +1,11 @@
 import React from "react"
 import { useState } from "react"
 import DateRangePickerCalendar from "../DateRangePickerCalendar/DateRangePickerCalendar"
+import axios from "axios"
 
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
+
+const API_BASE_URL = "http://localhost:5005/"
 
 const NewTravelForm = () => {
 
@@ -26,24 +29,104 @@ const NewTravelForm = () => {
         source: ''
     })
 
+    const [loadingImg, setLoadingImg] = useState(false)
+
+    const handleFormSubmit = (e) => {
+
+        e.preventDefault()
+
+        axios
+            .post(`${API_BASE_URL}/travels`, newTravel)
+            .then(() => navigate(`/travels`))
+            .catch(err => console.log(err))
+    }
+
+    const handleInputChange = (e) => {
+
+        const { name, value, type, checked } = e.target
+
+        if (type === "checkbox") {
+            setNewTravel(prevState => ({
+                ...prevState,
+                themes: checked ? [...prevState.themes, value] : prevState.themes.filter(theme => theme !== value)
+            }))
+        } else if (name === "day" || name === "title" || name === "activities" || name === "dayDescription") {
+            const itinerary = [...newTravel.itinerary]
+            const index = itinerary.findIndex(itineraryDay => itineraryDay.day === name)
+            if (index !== -1) {
+                itinerary[index][name] = value
+            } else {
+                itinerary.push({ [name]: value })
+            }
+            setNewTravel({ ...newTravel, itinerary })
+
+        } else {
+            setNewTravel(prevState => ({
+                ...prevState,
+                [name]: value
+            }))
+        }
+    }
+
 
     const addActivity = () => {
-        newTravel.itinerary.activities
+
+    }
+
+    const addDay = () => {
+
+    }
+
+    const handleActivityChange = (e, index) => {
+
+        const { value } = e.target
+
+        setNewTravel(prevState => {
+            const updatedItinerary = [...prevState.itinerary]
+            updatedItinerary[index].activities[0] = value
+            return { ...prevState, itinerary: updatedItinerary }
+        })
+    }
+
+    const handleFileUpload = e => {
+
+        setLoadingImg(true)
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadimage(formData)
+            .then(res => {
+                setNewTravel({ ...newTravel, source: res.data.cloudinary_url })
+                setLoadingImg(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setLoadingImg(false)
+            })
     }
 
     return (
-        <Form>
+        <Form onSubmit={handleFormSubmit}>
             <Row>
                 <Col>
                     <Form.Group>
                         <Form.Label>Destination</Form.Label>
                         <Form.Control
-                            type="string"
+                            type="text"
+                            name="destination"
+                            value={newTravel.destination}
+                            onChange={handleInputChange}
                         />
                     </Form.Group>
                 </Col>
                 <Col>
-                    <Form.Select>
+                    <Form.Select
+                        name="continent"
+                        value={newTravel.continent}
+                        onChange={handleInputChange}
+                    >
                         <option>Choose the continent</option>
                         <option value="Asia">Asia</option>
                         <option value="Africa">Africa</option>
@@ -61,6 +144,7 @@ const NewTravelForm = () => {
                         type="switch"
                         id="accomodationSwitch"
                         label="Includes accomodation?"
+                        onChange={handleInputChange}
                     />
                 </Col>
                 <Col>
@@ -69,6 +153,7 @@ const NewTravelForm = () => {
                         type="switch"
                         id="transportSwitch"
                         label="Includes transport?"
+                        onChange={handleInputChange}
                     />
                 </Col>
             </Row>
@@ -177,6 +262,11 @@ const NewTravelForm = () => {
                                         </Form.Group>
                                     </Col>
                                 </Row>
+                                <Row>
+                                    <Col>
+                                        <Button onClick={addDay}>Add Day</Button>
+                                    </Col>
+                                </Row>
                             </div>
                         ))
                     }
@@ -194,6 +284,9 @@ const NewTravelForm = () => {
                         <InputGroup>
                             <Form.Control
                                 type="number"
+                                name="price"
+                                value={newTravel.price}
+                                onChange={handleInputChange}
                             />
                             <InputGroup.Text>€</InputGroup.Text>
                         </InputGroup>
@@ -202,6 +295,15 @@ const NewTravelForm = () => {
             </Row>
             <Row>
                 <Col>
+                    <Form.Group>
+                        <Form.Label>Imagen (URL)</Form.Label>
+                        <Form.Control type="file" onChange={handleFileUpload} />
+                    </Form.Group>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Button onClick={addDay} disabled={!loadingImg}>{loadingImg ? "Loading Image..." : "Create travel"}</Button>
                 </Col>
             </Row>
         </Form >
