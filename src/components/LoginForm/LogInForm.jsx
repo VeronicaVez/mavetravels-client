@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "./../../context/auth.context.jsx";
 import {Button, Form} from "react-bootstrap"
 
-const API_URL = "http://localhost:5005";
+const API_URL = "http://localhost:5005"
 
 function LoginForm({handleCloseChat}) {
 
