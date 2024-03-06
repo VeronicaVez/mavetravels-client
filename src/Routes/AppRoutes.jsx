@@ -5,6 +5,7 @@ import HomePage from "../pages/HomePage/HomePage"
 import DestinationsPage from "../pages/DestinationsPage/DestinationsPage"
 import ThemesPage from "../pages/ThemesPage/ThemesPage"
 import LogInPage from "../pages/LogInPage/LogInPage"
+import SignUpPage from "../pages/SignUpPage/SignUpPage"
 
 const AppRoutes = () => {
 
@@ -16,9 +17,9 @@ const AppRoutes = () => {
 
             <Route path="/destinations" element={<DestinationsPage />} />
             <Route path="/themes" element={<ThemesPage />} />
-            {/* <Route path="/reviews" element={<ReviewsPage />} />
+            {/* <Route path="/reviews" element={<ReviewsPage />} /> */}
 
-            <Route path="/signup" element={<SignUpPage />} /> */}
+            <Route path="/api/auth/signup" element={<SignUpPage />} />
             <Route path="/api/auth/login" element={<LogInPage />} />
 
             {/* <Route path="/profile" element={<UserProfilePage />} />
