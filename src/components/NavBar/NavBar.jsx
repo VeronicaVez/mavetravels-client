@@ -29,8 +29,8 @@ function NavBar() {
               </NavDropdown>
             </NavDropdown>
             <Nav.Link href="/reviews">Your Experience</Nav.Link>
-            <Nav.Link href="/login">Log In</Nav.Link>
             <Nav.Link href="/signup">Sign up</Nav.Link>
+            <Nav.Link href="/api/auth/login">Log In</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
