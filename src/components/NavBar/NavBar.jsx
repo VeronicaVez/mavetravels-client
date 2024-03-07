@@ -1,10 +1,17 @@
 import React from 'react'
 import "./NavBar.css"
 
+import {Link} from "react-router-dom"
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { useContext } from 'react'
+import { AuthContext } from '../../context/auth.context'
 
 
 function NavBar() {
+
+  const { user, logout } = useContext(AuthContext)
+
+
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -12,7 +19,9 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
+            <Link to="/">
+            <Nav.Link as="span">Home</Nav.Link>
+            </Link>
             <NavDropdown title="Destinations" id="basic-nav-dropdown">
               <NavDropdown title="Asia" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Thailandia</NavDropdown.Item>
@@ -28,9 +37,25 @@ function NavBar() {
                 <NavDropdown.Item href="#action/3.1">Spain</NavDropdown.Item>
               </NavDropdown>
             </NavDropdown>
-            <Nav.Link href="/reviews">Your Experience</Nav.Link>
-            <Nav.Link href="/api/auth/signup">Sign up</Nav.Link>
-            <Nav.Link href="/api/auth/login">Log In</Nav.Link>
+            <Link to="/reviews">
+            <Nav.Link as="span">Your Experience</Nav.Link>
+            </Link>
+            {
+              user
+              ?
+              <>
+            <Link to="/signup">
+            <Nav.Link as="span">Sign up</Nav.Link>
+            </Link>
+            <Link to="/login">
+            <Nav.Link as="span">Log In</Nav.Link>
+            </Link>
+            </>
+            :
+            <>
+              <h1>ops</h1>
+              </>
+             }
           </Nav>
         </Navbar.Collapse>
       </Container>
