@@ -14,11 +14,6 @@ const HomePage = () => {
                     <h1>HOME PAGE</h1>
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <NewTravelForm />
-                </Col>
-            </Row>
         </Container>
 
     )

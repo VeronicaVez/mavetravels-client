@@ -1,12 +1,28 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import DateRangePicker from '@wojtekmaj/react-daterange-picker'
 
-const DateRangePickerCalendar = () => {
+import '@wojtekmaj/react-daterange-picker/dist/DateRangePicker.css'
+import 'react-calendar/dist/Calendar.css'
 
-    const [calendar, setCalendar] = useState([new Date(), new Date()])
 
-    return <DateRangePicker />
+
+const DateRangePickerCalendar = ({ startDate, endDate, onDateChange }) => {
+
+    const [date, setDate] = useState([startDate, endDate])
+
+    const handleChange = (newDate) => {
+        setDate(newDate)
+        onDateChange(newDate)
+    }
+
+    return (
+
+        <DateRangePicker
+            onChange={handleChange}
+            value={date}
+        />
+    )
 }
+
 
 export default DateRangePickerCalendar

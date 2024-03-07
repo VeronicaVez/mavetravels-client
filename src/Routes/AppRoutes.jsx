@@ -6,6 +6,7 @@ import DestinationsPage from "../pages/DestinationsPage/DestinationsPage"
 import ThemesPage from "../pages/ThemesPage/ThemesPage"
 import LogInPage from "../pages/LogInPage/LogInPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
+import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
 
 const AppRoutes = () => {
 
@@ -13,6 +14,7 @@ const AppRoutes = () => {
 
 
         <Routes>
+
             <Route path="/" element={<HomePage />} />
 
             <Route path="/destinations" element={<DestinationsPage />} />
@@ -22,10 +24,13 @@ const AppRoutes = () => {
             <Route path="/api/auth/signup" element={<SignUpPage />} />
             <Route path="/api/auth/login" element={<LogInPage />} />
 
-            {/* <Route path="/profile" element={<UserProfilePage />} />
-            <Route path="/admin-profile" element={<AdminProfilePage />} />
 
-            <Route path="*" element={<NotFoundPage />} /> */}
+            {/* <Route path="/profile" element={<UserProfilePage />} />
+            <Route path="/admin-profile" element={<AdminProfilePage />} /> */}
+
+            <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
+
+            {/* <Route path="*" element={<NotFoundPage />} /> */}
 
         </Routes>
 
