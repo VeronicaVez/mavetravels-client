@@ -1,0 +1,13 @@
+.TravelCard {
+    width: 300px;
+    height: 350px;
+    margin: 30px auto;
+}
+
+.cardImg {
+    height: 200px;
+}
+
+.cardBody {
+    height: 150px;
+}

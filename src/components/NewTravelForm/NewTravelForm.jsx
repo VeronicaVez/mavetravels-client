@@ -50,15 +50,8 @@ const NewTravelForm = () => {
         const { name, value, type, checked } = e.target
 
         if (name === "themes") {
-            const { checked } = e.target
             const { value: theme } = e.target
-
-            let updatedThemes
-            if (checked) {
-                updatedThemes = [...newTravel.themes, theme]
-            } else {
-                updatedThemes = newTravel.themes.filter((t) => t !== theme)
-            }
+            const updatedThemes = checked ? [...newTravel.themes, theme] : newTravel.themes.filter((t) => t !== theme)
             setNewTravel({ ...newTravel, themes: updatedThemes })
 
         } else if (name === "continent") {
@@ -68,8 +61,7 @@ const NewTravelForm = () => {
                 continent: value
             }))
 
-        } else if (name === "day" || name === "title" ||
-            name === "activities" || name === "dayDescription") {
+        } else if (name === "day" || name === "title" || name === "activities" || name === "dayDescription") {
 
             const { index } = e.target.dataset
             const itinerary = [...newTravel.itinerary]
@@ -119,7 +111,7 @@ const NewTravelForm = () => {
     const addDay = () => {
 
         setNewTravel((prevState) => {
-            const updatedItinerary = [
+            const itinerary = [
                 ...prevState.itinerary,
                 {
                     day: prevState.itinerary.length,
@@ -128,7 +120,7 @@ const NewTravelForm = () => {
                     dayDescription: ""
                 }
             ]
-            return { ...prevState, itinerary: updatedItinerary }
+            return { ...prevState, itinerary }
         })
     }
 
@@ -145,16 +137,14 @@ const NewTravelForm = () => {
 
     const handleDateChange = (date) => {
 
-        const [startDate, endDate] = date
-        setStartDate(startDate)
-        setEndDate(endDate)
+        const [start, end] = date
+
+        setStartDate(start)
+        setEndDate(end)
 
         setNewTravel((prevState) => ({
             ...prevState,
-            dates: {
-                start: startDate,
-                end: endDate,
-            }
+            dates: { start, end }
         }))
     }
 

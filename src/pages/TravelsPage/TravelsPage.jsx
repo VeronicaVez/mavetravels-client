@@ -1,20 +1,17 @@
 import React from "react"
 
 import TravelsList from "../../components/TravelsList/TravelsList"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container } from "react-bootstrap"
 
 const TravelsPage = () => {
 
     return (
-
-        <Container>
-            <Row>
-                <Col>
-                    <h1>Travels</h1>
-                    <TravelsList></TravelsList>
-                </Col>
-            </Row>
-        </Container>
+        <div className="TravelsPage">
+            <Container>
+                <h1>Travels</h1>
+                <TravelsList />
+            </Container>
+        </div>
     )
 }
 

@@ -11,6 +11,7 @@ const TravelsList = () => {
 
     useEffect(() => loadTravels(), [])
 
+    // TODO: SERVICIOS
     const loadTravels = () => {
         axios
             .get(`${API_BASE_URL}/api/travels`)
