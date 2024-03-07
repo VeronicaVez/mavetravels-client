@@ -6,6 +6,7 @@ import axios from "axios"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 
 const API_BASE_URL = "http://localhost:5005/"
+const travelThemes = ["Beach life", "Trekking", "Party", "Sports", "Wild life", "Food", "Pet Friendly"]
 
 const NewTravelForm = () => {
 
@@ -42,51 +43,93 @@ const NewTravelForm = () => {
     }
 
     const handleInputChange = (e) => {
+        const { name, value, type, checked } = e.target;
 
-        const { name, value, type, checked } = e.target
+        if (name === "themes") {
+            const { checked } = e.target
+            const { value: theme } = e.target
 
-        if (type === "checkbox") {
-            setNewTravel(prevState => ({
-                ...prevState,
-                themes: checked ? [...prevState.themes, value] : prevState.themes.filter(theme => theme !== value)
-            }))
-        } else if (name === "day" || name === "title" || name === "activities" || name === "dayDescription") {
-            const itinerary = [...newTravel.itinerary]
-            const index = itinerary.findIndex(itineraryDay => itineraryDay.day === name)
-            if (index !== -1) {
-                itinerary[index][name] = value
+            let updatedThemes
+            if (checked) {
+                updatedThemes = [...newTravel.themes, theme]
             } else {
-                itinerary.push({ [name]: value })
+                updatedThemes = newTravel.themes.filter((t) => t !== theme)
             }
-            setNewTravel({ ...newTravel, itinerary })
-
+            setNewTravel({ ...newTravel, themes: updatedThemes })
+        } else if (name === "continent") {
+            setNewTravel((prevState) => ({
+                ...prevState,
+                continent: value
+            }));
+        } else if (
+            name === "day" ||
+            name === "title" ||
+            name === "activities" ||
+            name === "dayDescription"
+        ) {
+            const { index } = e.target.dataset;
+            const itinerary = [...newTravel.itinerary];
+            itinerary[index][name] = value;
+            setNewTravel((prevState) => ({
+                ...prevState,
+                itinerary: itinerary
+            }));
         } else {
-            setNewTravel(prevState => ({
+            setNewTravel((prevState) => ({
                 ...prevState,
                 [name]: value
             }))
         }
     }
 
-
-    const addActivity = () => {
-
+    const handleBooleanChange = (e) => {
+        const { name, checked } = e.target
+        setNewTravel((prevState) => ({
+            ...prevState,
+            [name]: checked
+        }))
     }
+
+    const addActivity = (index) => {
+        setNewTravel((prevState) => {
+            const updatedItinerary = [...prevState.itinerary];
+            updatedItinerary[index].activities.push('');
+            return { ...prevState, itinerary: updatedItinerary };
+        });
+    };
+
+    const removeActivity = (dayIndex, activityIndex) => {
+        setNewTravel((prevState) => {
+            const updatedItinerary = [...prevState.itinerary];
+            updatedItinerary[dayIndex].activities.splice(activityIndex, 1);
+            return { ...prevState, itinerary: updatedItinerary };
+        });
+    };
 
     const addDay = () => {
-
-    }
-
-    const handleActivityChange = (e, index) => {
-
-        const { value } = e.target
-
-        setNewTravel(prevState => {
-            const updatedItinerary = [...prevState.itinerary]
-            updatedItinerary[index].activities[0] = value
+        setNewTravel((prevState) => {
+            const updatedItinerary = [
+                ...prevState.itinerary,
+                {
+                    day: prevState.itinerary.length,
+                    title: "",
+                    activities: [],
+                    dayDescription: ""
+                }
+            ]
             return { ...prevState, itinerary: updatedItinerary }
         })
     }
+
+    const handleActivityChange = (e, index, activityIndex) => {
+        const { value } = e.target
+        setNewTravel((prevState) => {
+            const updatedItinerary = [...prevState.itinerary]
+            updatedItinerary[index].activities[activityIndex] = value
+            return { ...prevState, itinerary: updatedItinerary }
+        })
+    }
+
 
     const handleFileUpload = e => {
 
@@ -144,7 +187,8 @@ const NewTravelForm = () => {
                         type="switch"
                         id="accomodationSwitch"
                         label="Includes accomodation?"
-                        onChange={handleInputChange}
+                        checked={newTravel.includesAccomodation}
+                        onChange={handleBooleanChange}
                     />
                 </Col>
                 <Col>
@@ -153,7 +197,8 @@ const NewTravelForm = () => {
                         type="switch"
                         id="transportSwitch"
                         label="Includes transport?"
-                        onChange={handleInputChange}
+                        checked={newTravel.includesTransport}
+                        onChange={handleBooleanChange}
                     />
                 </Col>
             </Row>
@@ -166,55 +211,26 @@ const NewTravelForm = () => {
                     </Row>
                     <Row>
                         <Col>
-                            <Form.Check
-                                inline
-                                label="Beach life"
-                                name="Beach life"
-                                type="checkbox"
-                                id="Beach life"
-                            />
-                            <Form.Check
-                                inline
-                                label="Trekking"
-                                name="Trekking"
-                                type="checkbox"
-                                id="Trekking"
-                            />
-                            <Form.Check
-                                inline
-                                label="Party"
-                                name="Party"
-                                type="checkbox"
-                                id="Party"
-                            />
-                            <Form.Check
-                                inline
-                                label="Sport"
-                                name="Sport"
-                                type="checkbox"
-                                id="Sport"
-                            />
-                            <Form.Check
-                                inline
-                                label="Wild life"
-                                name="Wild life"
-                                type="checkbox"
-                                id="Wild life"
-                            />
-                            <Form.Check
-                                inline
-                                label="Food"
-                                name="Food"
-                                type="checkbox"
-                                id="Food"
-                            />
-                            <Form.Check
-                                inline
-                                label="Pet Friendly"
-                                name="Pet Friendly"
-                                type="checkbox"
-                                id="Pet Friendly"
-                            />
+
+                            {
+                                travelThemes.map((theme) => {
+                                    return (
+                                        <Form.Check
+                                            className="themesCheckbox"
+                                            inline
+                                            label={theme}
+                                            name="themes"
+                                            type="checkbox"
+                                            id={theme}
+                                            key={theme}
+                                            value={theme}
+                                            checked={newTravel.themes.includes(theme)}
+                                            onChange={handleInputChange}
+                                        />
+                                    )
+                                })
+                            }
+
                         </Col>
                     </Row>
                 </Col>
@@ -228,45 +244,67 @@ const NewTravelForm = () => {
                 <Col>
                     {
                         newTravel.itinerary.map((itineraryDay, index) => (
-                            <div>
-                                <Row key={index}>
+                            <div key={index}>
+                                <Row>
                                     <Col>
                                         <Form.Label>Day Number</Form.Label>
                                         <Form.Control
                                             type="number"
                                             value={itineraryDay.day}
+                                            data-index={index}
+                                            name="day"
+                                            onChange={handleInputChange}
                                         />
                                     </Col>
                                     <Col>
                                         <Form.Label>Title</Form.Label>
                                         <Form.Control
-                                            type="string"
+                                            type="text"
                                             value={itineraryDay.title}
+                                            data-index={index}
+                                            name="title"
+                                            onChange={handleInputChange}
                                         />
                                     </Col>
-                                </Row>
-                                <Row>
                                     <Col>
                                         <Form.Label>Activities</Form.Label>
-                                        <Form.Control
-                                            type="string"
-                                            value={itineraryDay.activities}
-                                        />
-                                        <Button onClick={addActivity}>Add Activity</Button>
-
+                                        {
+                                            itineraryDay.activities.map((activity, activityIndex) => (
+                                                <div key={activityIndex}>
+                                                    <InputGroup>
+                                                        <Form.Control
+                                                            type="text"
+                                                            value={activity}
+                                                            onChange={(e) => handleActivityChange(e, index, activityIndex)}
+                                                        />
+                                                        <Button variant="outline-secondary" onClick={() => removeActivity(index, activityIndex)}>Remove</Button>
+                                                    </InputGroup>
+                                                </div>
+                                            ))
+                                        }
+                                        <Button onClick={() => addActivity(index)}>Add Activity</Button>
                                     </Col>
                                     <Col>
                                         <Form.Group>
                                             <Form.Label>Day description</Form.Label>
-                                            <Form.Control as="textarea" rows={4} />
+                                            <Form.Control
+                                                as="textarea"
+                                                rows={4}
+                                                value={itineraryDay.dayDescription}
+                                                onChange={handleInputChange}
+                                                name="dayDescription"
+                                                data-index={index}
+                                            />
                                         </Form.Group>
                                     </Col>
                                 </Row>
                                 <Row>
                                     <Col>
                                         <Button onClick={addDay}>Add Day</Button>
+
                                     </Col>
                                 </Row>
+
                             </div>
                         ))
                     }
