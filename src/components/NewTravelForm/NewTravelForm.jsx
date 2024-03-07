@@ -6,7 +6,7 @@ import uploadServices from "../../services/upload.services"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './NewTravelForm.css'
 
-const API_BASE_URL = "http://localhost:5005/"
+const API_BASE_URL = "http://localhost:5005"
 const travelThemes = ["Beach life", "Trekking", "Party", "Sports", "Wild life", "Food", "Pet Friendly"]
 
 const NewTravelForm = () => {
@@ -40,7 +40,7 @@ const NewTravelForm = () => {
         e.preventDefault()
 
         axios
-            .post(`${API_BASE_URL}/travels`, newTravel)
+            .post(`${API_BASE_URL}/api/travels`, newTravel)
             .then(() => navigate(`/travels`))
             .catch(err => console.log(err))
     }
@@ -171,7 +171,6 @@ const NewTravelForm = () => {
             .then(res => {
                 setNewTravel({ ...newTravel, source: res.data.cloudinary_url })
                 setLoadingImg(false)
-
             })
             .catch(err => {
                 console.log(err)
@@ -180,6 +179,7 @@ const NewTravelForm = () => {
     }
 
     return (
+
         <Form onSubmit={handleFormSubmit} className="NewTravelForm">
             <Row className="NewTravelFormRow">
                 <Col>
@@ -382,6 +382,7 @@ const NewTravelForm = () => {
                 </Col>
             </Row>
         </Form >
+
     )
 }
 
