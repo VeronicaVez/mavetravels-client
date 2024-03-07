@@ -1,24 +1,20 @@
 import React, { useState, useEffect } from "react"
-import axios from "axios"
 import { Col, Row } from 'react-bootstrap'
-
+import TravelsServices from "../../services/travels.services"
 import TravelCard from "../TravelCard/TravelCard"
-const API_BASE_URL = "http://localhost:5005"
 
 const TravelsList = () => {
 
     const [travels, setTravels] = useState([])
 
-    useEffect(() => loadTravels(), [])
+    useEffect(() => getAllTravels(), [])
 
-    // TODO: SERVICIOS
-    const loadTravels = () => {
-        axios
-            .get(`${API_BASE_URL}/api/travels`)
+    const getAllTravels = () => {
+        TravelsServices
+            .getAllTravels()
             .then(({ data }) => setTravels(data))
-            .catch(err => console.log(err))
+            .catch(err => console.error(err))
     }
-
 
     return (
 

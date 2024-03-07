@@ -4,6 +4,7 @@ import React from "react"
 import HomePage from "../pages/HomePage/HomePage"
 import TravelsPage from "../pages/TravelsPage/TravelsPage"
 import ThemesPage from "../pages/ThemesPage/ThemesPage"
+import TravelDetailsPage from "../pages/TravelDetailsPage/TravelDetailsPage"
 import LogInPage from "../pages/LogInPage/LogInPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
 import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
@@ -22,6 +23,9 @@ const AppRoutes = () => {
             <Route path="/travels" element={<TravelsPage />} />
             <Route path="/themes" element={<ThemesPage />} />
             {/* <Route path="/reviews" element={<ReviewsPage />} /> */}
+            <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
+
+
 
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LogInPage />} />
@@ -32,7 +36,7 @@ const AppRoutes = () => {
             {/* <Route path="/admin-profile" element={<AdminProfilePage />} />
             </Route> */}
 
-            
+
 
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
 
