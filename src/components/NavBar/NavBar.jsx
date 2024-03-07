@@ -5,6 +5,7 @@ import {Link} from "react-router-dom"
 import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AuthContext } from "./../../context/auth.context"
+import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage'
 
 
 function NavBar() {
@@ -14,7 +15,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">React-BootsTravel</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -43,7 +44,12 @@ function NavBar() {
               user
               ?
             <>
-            <h1>holi</h1>
+            <Link to="/users/{_id}">
+            <Nav.Link as="span">Profile</Nav.Link>
+            </Link>
+            <Link onClick={logout}>
+            <Nav.Link as="span">Log Out</Nav.Link>
+            </Link>
             </>
             :
             <>
