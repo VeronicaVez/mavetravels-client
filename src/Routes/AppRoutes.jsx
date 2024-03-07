@@ -32,6 +32,8 @@ const AppRoutes = () => {
             {/* <Route path="/admin-profile" element={<AdminProfilePage />} />
             </Route> */}
 
+            
+
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
 
 
