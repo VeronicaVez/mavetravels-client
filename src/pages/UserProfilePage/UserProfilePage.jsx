@@ -13,22 +13,22 @@ const UserProfilePage = () => {
 
     const deleteUser = () => {
         axios
-        .delete(`${API_BASE_URL}/api/users/${userId}`)
-        .then(()=> navigate('/'))
-        .catch(err=>console.log(err))
+            .delete(`${API_BASE_URL}/api/users/${userId}`)
+            .then(() => navigate('/'))
+            .catch(err => console.log(err))
     }
 
     return (
         <div className="UserProfilePage">
-        <h1>Profile</h1>
-        <h2>Travels</h2>
-        <h2>Reviews</h2>
-        <Link to="/users/edit/:userId">
-            <Button variant="primary">Update</Button>
-        </Link>
-        <Button variant="primary" onClick={deleteUser}>Delete</Button>
+            <h1>Profile</h1>
+            <h2>Travels</h2>
+            <h2>Reviews</h2>
+            <Link to="/users/edit/:userId">
+                <Button variant="primary">Update</Button>
+            </Link>
+            <Button variant="primary" onClick={deleteUser}>Delete</Button>
         </div>
-        )
+    )
 }
 
 export default UserProfilePage

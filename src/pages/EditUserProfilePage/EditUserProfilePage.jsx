@@ -13,33 +13,33 @@ const EditUserProfilePage = () => {
         email: ""
     })
 
-    const {userId} = useParams()
+    const { userId } = useParams()
 
-    useEffect (() => loadUserInfo(), [])
+    useEffect(() => loadUserInfo(), [])
 
     const navigate = useNavigate()
 
-    const loadUserInfo = () =>{
+    const loadUserInfo = () => {
         axios
-        .get(`${API_BASE_URL}/api/users/${userId}`)
-        .then(({data}) => setUserInfo(data))
-        .catch(err=>console.log(err))
+            .get(`${API_BASE_URL}/api/users/${userId}`)
+            .then(({ data }) => setUserInfo(data))
+            .catch(err => console.log(err))
     }
 
     const handleInputChange = e => {
-        const {value, name} = e.target 
-        setUserInfo({...userInfo, [name]: value})
+        const { value, name } = e.target
+        setUserInfo({ ...userInfo, [name]: value })
     }
 
-    const handleFormSubmit = (e) =>{
+    const handleFormSubmit = (e) => {
         e.preventDefault()
         axios
-        .put(`${API_BASE_URL}/api/users/edit/${userId}`, userInfo)
-        .then(()=>navigate(`/users/${userId}`))
-        .catch(err=>console.log(err))
+            .put(`${API_BASE_URL}/api/users/edit/${userId}`, userInfo)
+            .then(() => navigate(`/users/${userId}`))
+            .catch(err => console.log(err))
     }
 
-    return(
+    return (
         <div className="EditUserProfilePage">
             <form onSubmit={handleFormSubmit}>
                 <label>Username:</label>

@@ -1,31 +1,22 @@
 import React from "react"
-import { Card, ListGroup } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
+import { Card } from "react-bootstrap"
+import { Link } from "react-router-dom"
 
 import './TravelCard.css'
+import { formatDate } from "../../utils/date.utils"
 
-const TravelCard = ({ id, destination, themes, dates, price, source }) => {
-
-    const navigate = useNavigate()
-
-    const formatDate = (dateString) => {
-        const date = new Date(dateString)
-        const formattedDate = date.toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' })
-        return formattedDate
-    }
+const TravelCard = ({ _id, destination, themes, dates, price, source }) => {
 
     return (
-        <Link to={`/travel/${id}`} >
-            <Card>
-                <Card.Img variant="top" src={source} />
-                <Card.Body>
+        <Link to={`/travels/${_id}`} >
+            <Card className="TravelCard">
+                <Card.Img variant="top" src={source} className="cardImg" />
+                <Card.Body className="cardBody">
                     <Card.Title>{destination}</Card.Title>
+                    <Card.Text>{themes}</Card.Text>
+                    <Card.Text>{formatDate(dates.start)} - {formatDate(dates.end)}</Card.Text>
+                    <Card.Text>{price}€</Card.Text>
                 </Card.Body>
-                <ListGroup>
-                    <ListGroup.Item>{themes}</ListGroup.Item>
-                    <ListGroup.Item>{formatDate(dates.start)} - {formatDate(dates.end)}</ListGroup.Item>
-                    <ListGroup.Item>{price}€</ListGroup.Item>
-                </ListGroup>
             </Card>
         </Link>
     )

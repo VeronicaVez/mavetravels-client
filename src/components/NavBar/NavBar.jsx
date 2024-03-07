@@ -1,8 +1,8 @@
 import React from 'react'
 import "./NavBar.css"
 
-import {Link} from "react-router-dom"
-import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap'
+import { Link } from "react-router-dom"
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AuthContext } from "./../../context/auth.context"
 import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage'
@@ -19,10 +19,13 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+
             <Link to="/">
-            <Nav.Link as="span">Home</Nav.Link>
+              <Nav.Link as="span">Home</Nav.Link>
             </Link>
+
             <NavDropdown title="Destinations" id="basic-nav-dropdown">
+
               <NavDropdown title="Asia" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Thailandia</NavDropdown.Item>
               </NavDropdown>
@@ -36,12 +39,16 @@ function NavBar() {
               <NavDropdown title="Europe" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Spain</NavDropdown.Item>
               </NavDropdown>
+
             </NavDropdown>
+
             <Link to="/reviews">
-            <Nav.Link as="span">Your Experience</Nav.Link>
+              <Nav.Link as="span">Your Experience</Nav.Link>
             </Link>
+
             {
               user
+<<<<<<< HEAD
               ?
             <>
             <Link to="/users/{_id}">
@@ -61,6 +68,22 @@ function NavBar() {
             </Link>
               </>
              }
+=======
+                ?
+                <>
+                  <h1>holi</h1>
+                </>
+                :
+                <>
+                  <Link to="/signup">
+                    <Nav.Link as="span">Sign up</Nav.Link>
+                  </Link>
+                  <Link to="/login">
+                    <Nav.Link as="span">Log In</Nav.Link>
+                  </Link>
+                </>
+            }
+>>>>>>> 9341fb99ad004930459935397956e189a935cf60
           </Nav>
         </Navbar.Collapse>
       </Container>
