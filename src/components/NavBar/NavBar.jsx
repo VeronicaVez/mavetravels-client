@@ -1,12 +1,10 @@
 import React from 'react'
 import "./NavBar.css"
 
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AuthContext } from "./../../context/auth.context"
-import UserProfilePage from '../../pages/UserProfilePage/UserProfilePage'
-
 
 function NavBar() {
 
@@ -48,10 +46,9 @@ function NavBar() {
 
             {
               user
-<<<<<<< HEAD
               ?
             <>
-            <Link to="/users/{_id}">
+            <Link to={`/users/${user.userId}`}>
             <Nav.Link as="span">Profile</Nav.Link>
             </Link>
             <Link onClick={logout}>
@@ -68,22 +65,6 @@ function NavBar() {
             </Link>
               </>
              }
-=======
-                ?
-                <>
-                  <h1>holi</h1>
-                </>
-                :
-                <>
-                  <Link to="/signup">
-                    <Nav.Link as="span">Sign up</Nav.Link>
-                  </Link>
-                  <Link to="/login">
-                    <Nav.Link as="span">Log In</Nav.Link>
-                  </Link>
-                </>
-            }
->>>>>>> 9341fb99ad004930459935397956e189a935cf60
           </Nav>
         </Navbar.Collapse>
       </Container>
