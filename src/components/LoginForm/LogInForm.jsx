@@ -36,8 +36,8 @@ function LoginForm({handleCloseChat}) {
 
         axios
             .post(`${API_URL}/api/auth/login`, reqBody)
-            .then((response) => {
-                storeToken(response.data.authToken)
+            .then(({data}) => {
+                storeToken(data.authToken)
                 authenticateUser() 
             })
             .then(() => {

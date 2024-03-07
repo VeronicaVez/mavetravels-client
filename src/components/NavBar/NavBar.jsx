@@ -2,15 +2,14 @@ import React from 'react'
 import "./NavBar.css"
 
 import {Link} from "react-router-dom"
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap'
 import { useContext } from 'react'
-import { AuthContext } from '../../context/auth.context'
+import { AuthContext } from "./../../context/auth.context"
 
 
 function NavBar() {
 
   const { user, logout } = useContext(AuthContext)
-
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
@@ -43,17 +42,17 @@ function NavBar() {
             {
               user
               ?
-              <>
+            <>
+            <h1>holi</h1>
+            </>
+            :
+            <>
             <Link to="/signup">
             <Nav.Link as="span">Sign up</Nav.Link>
             </Link>
             <Link to="/login">
             <Nav.Link as="span">Log In</Nav.Link>
             </Link>
-            </>
-            :
-            <>
-              <h1>ops</h1>
               </>
              }
           </Nav>
