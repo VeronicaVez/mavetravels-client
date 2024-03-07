@@ -6,6 +6,9 @@ import DestinationsPage from "../pages/DestinationsPage/DestinationsPage"
 import ThemesPage from "../pages/ThemesPage/ThemesPage"
 import LogInPage from "../pages/LogInPage/LogInPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
+import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
+import PrivateRoutes from "./PrivateRoutes"
+import EditUserProfilePage from "../pages/EditUserProfilePage/EditUserProfilePage"
 
 const AppRoutes = () => {
 
@@ -19,13 +22,16 @@ const AppRoutes = () => {
             <Route path="/themes" element={<ThemesPage />} />
             {/* <Route path="/reviews" element={<ReviewsPage />} /> */}
 
-            <Route path="/api/auth/signup" element={<SignUpPage />} />
-            <Route path="/api/auth/login" element={<LogInPage />} />
+            <Route path="/signup" element={<SignUpPage />} />
+            <Route path="/login" element={<LogInPage />} />
 
-            {/* <Route path="/profile" element={<UserProfilePage />} />
-            <Route path="/admin-profile" element={<AdminProfilePage />} />
+            {/*<Route element={<PrivateRoutes/>}> */}
+             <Route path="/users/:userId" element={<UserProfilePage />} />
+             <Route path="/users/edit/:userId" element={<EditUserProfilePage/>} />
+             {/* <Route path="/admin-profile" element={<AdminProfilePage />} />
+            </Route> */}
 
-            <Route path="*" element={<NotFoundPage />} /> */}
+            {/* <Route path="*" element={<NotFoundPage />} /> */}
 
         </Routes>
 
