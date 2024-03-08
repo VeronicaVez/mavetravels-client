@@ -48,7 +48,7 @@ function NavBar() {
               user
               ?
             <>
-            <Link to={`/users/${user.userId}`}>
+            <Link to={`/users/${user.username}`}>
             <Nav.Link as="span">Profile</Nav.Link>
             </Link>
             <Link onClick={logout}>

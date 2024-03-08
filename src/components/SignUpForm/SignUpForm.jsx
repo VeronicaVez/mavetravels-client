@@ -2,6 +2,7 @@ import React from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
+import { Button, Form } from "react-bootstrap"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -42,36 +43,35 @@ function SignupForm() {
       })
   }
 
-  // TODO: COMPONETIZAR
   return (
-
-
-    <form onSubmit={handleSignupSubmit}>
-      <label>Email:</label>
-      <input
-        type="email"
-        name="email"
-        onChange={handleInputChangeSubmit}
-      />
-
-      <label>Password:</label>
-      <input
-        type="password"
-        name="password"
-        onChange={handleInputChangeSubmit}
-      />
-
-      <label>Username:</label>
-      <input
-        type="text"
-        name="username"
-        onChange={handleInputChangeSubmit}
-      />
-
-      <button type="submit">Sign Up</button>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-    </form>
-
+            <Form onSubmit={handleSignupSubmit}>
+            <Form.Group className="mb-3" controlId="email">
+                <Form.Label>Email Address</Form.Label>
+                <Form.Control
+                    type="email"
+                    placeholder="Enter email"
+                    name="email"
+                    onChange={handleInputChangeSubmit} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="password">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                    onChange={handleInputChangeSubmit} />
+                      <Form.Group className="mb-3" controlId="username">
+                <Form.Label>Username</Form.Label>
+                <Form.Control
+                    type="username"
+                    placeholder="Enter Username"
+                    name="username"
+                    onChange={handleInputChangeSubmit} />
+            </Form.Group>
+                <Button type="submit">Login</Button>
+            </Form.Group>
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+        </Form>
   )
 }
 
