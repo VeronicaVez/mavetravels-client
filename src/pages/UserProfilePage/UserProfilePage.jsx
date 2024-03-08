@@ -1,20 +1,20 @@
 import React from "react"
 import { Button } from "react-bootstrap"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import axios from "axios"
+import UserServices from "../../services/user.services.js"
 
 const API_BASE_URL = 'http://localhost:5005'
 
-const UserProfilePage = () => {
+const UserProfilePage = ( ) => {
 
     const { userId } = useParams()
 
     const navigate = useNavigate()
 
-    const deleteUser = () => {
-        axios
-            .delete(`${API_BASE_URL}/api/users/${userId}`)
-            .then(() => navigate('/'))
+    const deleteUser = (userId) => {
+        UserServices
+            .deleteUser(userId)
+            .then(() => (console.log("funziona?")))
             .catch(err => console.log(err))
     }
 

@@ -40,7 +40,7 @@ const EditUserProfilePage = () => {
     }
 
     return (
-        <div className="EditUserProfilePage">
+        <div className="EditUserProfilePage" key={userId}>
             <form onSubmit={handleFormSubmit}>
                 <label>Username:</label>
                 <input

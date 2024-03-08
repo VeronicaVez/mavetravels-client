@@ -20,8 +20,6 @@ function AuthProviderWrapper(props) {
     const authenticateUser = () => {
 
         const storedToken = localStorage.getItem('authToken')
-        
-        console.log("funziona?", storedToken)
 
         if (storedToken) {
 

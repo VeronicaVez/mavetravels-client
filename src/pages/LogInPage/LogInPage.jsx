@@ -9,8 +9,8 @@ const LogInPage = () => {
 
             <LogInForm />
 
-            <p>Don't have an account yet?</p>
-            <Link to={"/signup"}> Sign Up</Link>
+            <p>Don't have an account yet?  
+            <Link to={"/signup"}>Sign Up</Link> </p>
         </div >
     )
 }

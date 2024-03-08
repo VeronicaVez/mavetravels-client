@@ -40,7 +40,6 @@ function LoginForm({ handleCloseChat }) {
                 storeToken(data.authToken)
                 authenticateUser()
                 navigate('/')
-                handleCloseChat()
             })
             .catch((error) => {
                 setErrorMessage("It seems there is an error in your request, try again.");
@@ -70,7 +69,6 @@ function LoginForm({ handleCloseChat }) {
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
         </Form>
-
 
     )
 }

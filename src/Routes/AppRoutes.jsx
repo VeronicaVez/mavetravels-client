@@ -10,6 +10,7 @@ import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
 import PrivateRoutes from "./PrivateRoutes"
 import EditUserProfilePage from "../pages/EditUserProfilePage/EditUserProfilePage"
 import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
+import UsersPage from "../pages/UsersPage/UsersPage"
 
 const AppRoutes = () => {
 
@@ -27,15 +28,13 @@ const AppRoutes = () => {
             <Route path="/login" element={<LogInPage />} />
 
             {/*<Route element={<PrivateRoutes/>}> */}
+            <Route path="/users" element={<UsersPage />} />
             <Route path="/users/:userId" element={<UserProfilePage />} />
             <Route path="/users/edit/:userId" element={<EditUserProfilePage />} />
             {/* <Route path="/admin-profile" element={<AdminProfilePage />} />
             </Route> */}
 
-            
-
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
-
 
             {/* <Route path="*" element={<NotFoundPage />} /> */}
 
