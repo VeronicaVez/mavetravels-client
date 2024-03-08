@@ -33,7 +33,11 @@ class AdminServices {
     }
 
     createNewTravel = () => {
-        return this.axiosApp.post(`/api/travels`)
+        return this.axiosApp.post(`/api/users/admin`)
+    }
+
+    editTravel = () => {
+        return this.axiosApp.put(`/api/users/admin`)
     }
 }
 

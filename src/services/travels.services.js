@@ -14,6 +14,7 @@ class TravelsServices {
     getTravel(travelId) {
         return this.axiosApi.get(`/api/travels/${travelId}`)
     }
+
 }
 
 export default new TravelsServices()
