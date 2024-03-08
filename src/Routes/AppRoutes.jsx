@@ -12,6 +12,8 @@ import PrivateRoutes from "./PrivateRoutes"
 import EditUserProfilePage from "../pages/EditUserProfilePage/EditUserProfilePage"
 import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
 import UsersPage from "../pages/UsersPage/UsersPage"
+import ReviewsPage from "../pages/ReviewsPage/ReviewsPage"
+import NewReviewForm from "../components/NewReviewForm/NewReviewForm"
 
 const AppRoutes = () => {
 
@@ -23,10 +25,14 @@ const AppRoutes = () => {
 
             <Route path="/travels" element={<TravelsPage />} />
             <Route path="/themes" element={<ThemesPage />} />
+<<<<<<< HEAD
             {/* <Route path="/reviews" element={<ReviewsPage />} /> */}
             <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
 
 
+=======
+            <Route path="/reviews" element={<ReviewsPage />} />
+>>>>>>> vero
 
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LogInPage />} />
@@ -44,6 +50,7 @@ const AppRoutes = () => {
 =======
 >>>>>>> vero
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
+            <Route path="reviews/new-review" element={ <NewReviewForm/>}/>
 
             {/* <Route path="*" element={<NotFoundPage />} /> */}
 
