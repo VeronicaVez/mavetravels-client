@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 class TravelsServices {
-
     constructor() {
         this.axiosApi = axios.create({
             baseURL: import.meta.env.VITE_SERVER_URL
@@ -12,11 +11,12 @@ class TravelsServices {
         return this.axiosApi.get(`/api/travels`)
     }
 
-    createTravel = travelInfo => {
-        return this.axiosApp.post(`/api/projects`, travelInfo)
+    getTravel(travelId) {
+        return this.axiosApi.get(`/api/travels/${travelId}`)
     }
-
 }
 
-const travelsServices = new TravelsServices()
-export default travelsServices
+export default new TravelsServices()
+
+
+
