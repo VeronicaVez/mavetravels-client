@@ -1,11 +1,10 @@
 import React from 'react'
 import "./NavBar.css"
 
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AuthContext } from "./../../context/auth.context"
-
 
 function NavBar() {
 
@@ -14,7 +13,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand href="#home">React-BootsTravel</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -47,20 +46,25 @@ function NavBar() {
 
             {
               user
-                ?
-                <>
-                  <h1>holi</h1>
-                </>
-                :
-                <>
-                  <Link to="/signup">
-                    <Nav.Link as="span">Sign up</Nav.Link>
-                  </Link>
-                  <Link to="/login">
-                    <Nav.Link as="span">Log In</Nav.Link>
-                  </Link>
-                </>
-            }
+              ?
+            <>
+            <Link to={`/users/${user.userId}`}>
+            <Nav.Link as="span">Profile</Nav.Link>
+            </Link>
+            <Link onClick={logout}>
+            <Nav.Link as="span">Log Out</Nav.Link>
+            </Link>
+            </>
+            :
+            <>
+            <Link to="/signup">
+            <Nav.Link as="span">Sign up</Nav.Link>
+            </Link>
+            <Link to="/login">
+            <Nav.Link as="span">Log In</Nav.Link>
+            </Link>
+              </>
+             }
           </Nav>
         </Navbar.Collapse>
       </Container>

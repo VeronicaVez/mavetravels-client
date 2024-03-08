@@ -23,7 +23,7 @@ const UserProfilePage = () => {
             <h1>Profile</h1>
             <h2>Travels</h2>
             <h2>Reviews</h2>
-            <Link to="/users/edit/:userId">
+            <Link to={`/users/edit/${userId}`}>
                 <Button variant="primary">Update</Button>
             </Link>
             <Button variant="primary" onClick={deleteUser}>Delete</Button>
