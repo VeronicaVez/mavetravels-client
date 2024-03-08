@@ -1,33 +1,44 @@
-import React from "react"
-import { Button } from "react-bootstrap"
-import { useParams, useNavigate, Link } from "react-router-dom"
+import React, { useState, useEffect } from "react"
+import { Button, Container, Row, Col } from "react-bootstrap"
+import { useParams, Link } from "react-router-dom"
 import UserServices from "../../services/user.services.js"
 
-const API_BASE_URL = 'http://localhost:5005'
+import './UserProfilePage.css'
 
-const UserProfilePage = ( ) => {
+const UserProfilePage = () => {
 
-    const { userId } = useParams()
+    const [user, setUser] = useState({})
 
-    const navigate = useNavigate()
+    const { username } = useParams()
 
-    const deleteUser = (userId) => {
+    useEffect(() => {
+        getUser()
+    }, [username])
+
+    const getUser = () => {
         UserServices
-            .deleteUser(userId)
-            .then(() => (console.log("funziona?")))
-            .catch(err => console.log(err))
+            .getUser(username)
+            .then(({ data }) => setUser(data))
+            .catch(err => console.error(err))
     }
 
+    const usernameFirstLetterUppercase = username.charAt(0).toUpperCase() + username.slice(1)
+
     return (
-        <div className="UserProfilePage">
-            <h1>Profile</h1>
-            <h2>Travels</h2>
-            <h2>Reviews</h2>
-            <Link to={`/users/edit/${userId}`}>
-                <Button variant="primary">Update</Button>
-            </Link>
-            <Button variant="primary" onClick={deleteUser}>Delete</Button>
-        </div>
+        <Container className="UserProfilePage">
+            <Row>
+                <Col>
+                    <h1>{usernameFirstLetterUppercase} Profile</h1>
+                    <h2>My Travels</h2>
+                    <h2>My Reviews</h2>
+                    <Link to={`/users/edit/${username}`}>
+                        <Button variant="primary">Update</Button>
+                    </Link>
+                    {/* <Button variant="primary" onClick={deleteUser}>Delete</Button> */}
+
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

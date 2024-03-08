@@ -13,7 +13,7 @@ const EditUserProfilePage = () => {
         email: ""
     })
 
-    const { userId } = useParams()
+    const { username } = useParams()
 
     useEffect(() => loadUserInfo(), [])
 
@@ -21,7 +21,7 @@ const EditUserProfilePage = () => {
 
     const loadUserInfo = () => {
         axios
-            .get(`${API_BASE_URL}/api/users/${userId}`)
+            .get(`${API_BASE_URL}/api/users/${username}`)
             .then(({ data }) => setUserInfo(data))
             .catch(err => console.log(err))
     }
@@ -34,13 +34,13 @@ const EditUserProfilePage = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault()
         axios
-            .put(`${API_BASE_URL}/api/users/edit/${userId}`, userInfo)
-            .then(() => navigate(`/users/${userId}`))
+            .put(`${API_BASE_URL}/api/users/edit/${username}`, userInfo)
+            .then(() => navigate(`/users/${username}`))
             .catch(err => console.log(err))
     }
 
     return (
-        <div className="EditUserProfilePage" key={userId}>
+        <div className="EditUserProfilePage" key={username}>
             <form onSubmit={handleFormSubmit}>
                 <label>Username:</label>
                 <input

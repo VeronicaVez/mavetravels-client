@@ -27,22 +27,16 @@ const AppRoutes = () => {
             <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
 
 
-
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LogInPage />} />
 
             {/*<Route element={<PrivateRoutes/>}> */}
             <Route path="/users" element={<UsersPage />} />
-            <Route path="/users/:userId" element={<UserProfilePage />} />
-            <Route path="/users/edit/:userId" element={<EditUserProfilePage />} />
+            <Route path="/users/:username" element={<UserProfilePage />} />
+            <Route path="/users/edit/:username" element={<EditUserProfilePage />} />
             {/* <Route path="/admin-profile" element={<AdminProfilePage />} />
             </Route> */}
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> vero
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
 
             {/* <Route path="*" element={<NotFoundPage />} /> */}
