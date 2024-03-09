@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import axios from "axios"
+import TravelsServices from "../../services/travels.services"
 
 import DateRangePickerCalendar from "../DateRangePickerCalendar/DateRangePickerCalendar"
 import uploadServices from "../../services/upload.services"
@@ -38,6 +39,16 @@ const NewTravelForm = () => {
     const handleFormSubmit = (e) => {
 
         e.preventDefault()
+
+        // NO FUNCIONA
+
+        // const requestBody = { destination, continent, includesAccomodation, includesTransport, themes, itinerary, dates, price, source }
+
+        // TravelsServices
+        //     .createTravel(requestBody)
+        //     .then(() => navigate(`/travels`))
+        //     .catch(err => console.log(err))
+
 
         axios
             .post(`${API_BASE_URL}/api/travels`, newTravel)

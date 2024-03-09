@@ -22,21 +22,20 @@ class UserServices {
     }
     getAllUsers = () => {
         return this.axiosApi.get("/api/users")
-    } 
-
-    getUser = () => {
-        return this.axiosApi.get("/userId")
-    } 
-
-    editUser = () => {
-        return this.axiosApi.put("/edit/userId", data)
     }
 
-    deleteUser = () => {
-        return this.axiosApi.delete("/api/users/userId")
+    getUser(username) {
+        return this.axiosApi.get(`/api/users/${username}`)
+    }
+
+    editUser(username, data) {
+        return this.axiosApi.put(`/api/users/${username}`, data)
+    }
+
+    deleteUser(username) {
+        return this.axiosApi.delete(`/api/user/${username}`)
     }
 
 }
 
-const userServices = new UserServices()
-export default userServices
+export default new UserServices()
