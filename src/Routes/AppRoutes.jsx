@@ -14,6 +14,7 @@ import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
 import UsersPage from "../pages/UsersPage/UsersPage"
 import ReviewsPage from "../pages/ReviewsPage/ReviewsPage"
 import NewReviewForm from "../components/NewReviewForm/NewReviewForm"
+import SpecificReviewPage from "./../pages/SpecificReviewPage/SpecificReviewPage"
 
 const AppRoutes = () => {
 
@@ -26,6 +27,7 @@ const AppRoutes = () => {
             <Route path="/travels" element={<TravelsPage />} />
             <Route path="/themes" element={<ThemesPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
+            <Route path="/reviews/:reviewsId" element={< SpecificReviewPage />} />
             <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
 
             <Route path="/signup" element={<SignUpPage />} />

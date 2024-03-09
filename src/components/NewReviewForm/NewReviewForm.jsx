@@ -1,9 +1,10 @@
 import React from "react"
 import axios from "axios"
-import { useState, useParams } from "react"
+import { useState, useParams, useEffect } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
 import { useNavigate } from "react-router-dom"
+import ReviewsServices from "../../services/reviews.services"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -27,10 +28,13 @@ const NewReviewForm = () => {
          e.preventDefault()
 
         const { user, title, description, rating, source, travel } = newReview
-        const requestBody = { user, title, description, rating, source, travel  }
+        const requestBody = { user, title, description, rating, source, travel }
+        
+        useEffect(() => getAllReviews(), [])
 
-        axios
-            .post(`${API_BASE_URL}/api/reviews`, requestBody)
+        const getAllReviews = () => 
+        ReviewsServices
+            .getAllReviews()
             .then(() => navigate(`/reviews`))
             .catch(err => console.log(err))
     }

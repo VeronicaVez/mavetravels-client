@@ -25,24 +25,13 @@ const UserProfilePage = () => {
     const usernameFirstLetterUppercase = username.charAt(0).toUpperCase() + username.slice(1)
 
     return (
-<<<<<<< HEAD
-        <div className="UserProfilePage">
-            <h1>Welcome</h1>
-            <h2>Travels</h2>
-            <h2>Reviews</h2>
-            <Link to={`/users/edit/${userId}`}>
-                <Button variant="primary">Update</Button>
-            </Link>
-            <Button variant="primary" onClick={deleteUser}>Delete</Button>
-        </div>
-=======
         <Container className="UserProfilePage">
             <Row>
                 <Col>
                     <h1>{usernameFirstLetterUppercase} Profile</h1>
                     <h2>My Travels</h2>
                     <h2>My Reviews</h2>
-                    <Link to={`/users/edit/${username}`}>
+                    {/*<Link to={`/users/edit/${username}`}>
                         <Button variant="primary">Update</Button>
                     </Link>
                     {/* <Button variant="primary" onClick={deleteUser}>Delete</Button> */}
@@ -50,7 +39,6 @@ const UserProfilePage = () => {
                 </Col>
             </Row>
         </Container>
->>>>>>> 886e88b52664db0662d447e84a92b773c2ddfaa0
     )
 }
 

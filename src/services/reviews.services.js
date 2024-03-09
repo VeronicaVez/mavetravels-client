@@ -17,7 +17,7 @@ class ReviewsServices {
     }
 
     deleteReview = () => {
-        return this.axiosApp.delete(`/api/reviews/reviewId`)
+        return this.axiosApi.delete(`/api/reviews/reviewId`)
     }
 
 }
