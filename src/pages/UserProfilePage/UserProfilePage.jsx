@@ -20,7 +20,7 @@ const UserProfilePage = ( ) => {
 
     return (
         <div className="UserProfilePage">
-            <h1>Profile</h1>
+            <h1>Welcome</h1>
             <h2>Travels</h2>
             <h2>Reviews</h2>
             <Link to={`/users/edit/${userId}`}>

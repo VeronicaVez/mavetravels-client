@@ -3,6 +3,7 @@ import axios from "axios"
 import { useState, useParams } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
+import { useNavigate } from "react-router-dom"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -17,19 +18,21 @@ const NewReviewForm = () => {
         travelId: ""
     })
 
+    const navigate = useNavigate()
+
     const [loadingImg, setLoadingImg] = useState(false)
 
     const handleFormSubmit = (e) => {
         
          e.preventDefault()
 
-        const { source, title, description, rating } = newReview
-        const requestBody = { source, title, description, rating  }
+        const { user, title, description, rating, source, travel } = newReview
+        const requestBody = { user, title, description, rating, source, travel  }
 
         axios
             .post(`${API_BASE_URL}/api/reviews`, requestBody)
-            .then(() => {navigate(`/reviews`)})
-            .catch(err => console.error(err))
+            .then(() => navigate(`/reviews`))
+            .catch(err => console.log(err))
     }
 
     const handleChangeReview = (e) => {
