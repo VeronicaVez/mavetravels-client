@@ -5,3 +5,7 @@ input[type=radio]{
 .star{
     cursor:pointer;
 }
+
+.Button{
+    margin-top: 10px;
+}

@@ -17,7 +17,7 @@ const NewReviewForm = () => {
         source: "",
         title: "",
         description: "",
-        rating: "",
+        rating: null,
         user: {
             "Id": "",
             "username": ""
@@ -74,7 +74,8 @@ const NewReviewForm = () => {
 
     return (
         <Form onSubmit={handleFormSubmit}>
-            {[...Array(5)].map((star, index) => {
+            <Form.Group className="mb-3" controlId="form-rating">
+                {[...Array(5)].map((star, index) => {
                 const currentRating = index + 1
                 return (
                     <label>
@@ -83,18 +84,20 @@ const NewReviewForm = () => {
                             name='rating'
                             value={currentRating}
                             onClick={() => setRating(currentRating)}
+                            onChange={handleChangeReview}
                     />
                         <FaStar
                             className="star"
                             size={25}
-                            color={currentRating <= (hover || rating) ? "#F5DD61" : "#000000"}
-                            onMouseEnter={() =>setHover(currentRating)}
+                            color={currentRating <= (hover || newReview.rating) ? "#F5DD61" : "#F6F7C4"}
+                            onMouseEnter={() => setHover(currentRating)}
                             onMouseLeave={() => setHover(null)}
                             />
                         </label>
                 )
             })}
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="form-title">
                 <Form.Control
                     as="textarea"
                     rows={1}
@@ -103,7 +106,7 @@ const NewReviewForm = () => {
                     value={newReview.title}
                     name="title" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+            <Form.Group className="mb-3" controlId="form-description">
                 <Form.Control
                     as="textarea"
                     rows={3}
@@ -112,19 +115,10 @@ const NewReviewForm = () => {
                     value={newReview.description}
                     name="description" />
             </Form.Group>
-            <hr />
-            <Row className="NewReviewFormRow">
-                <Col>
-                    <Form.Group>
-                        <Form.Control type="file" onChange={handleFileUpload} />
-                    </Form.Group>
-                </Col>
-            </Row>
-            <Row className="NewReviewForm">
-                <Col>
-                    <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Create review"}</Button>
-                </Col>
-            </Row>
+                <Form.Group>
+                    <Form.Control type="file" onChange={handleFileUpload} />
+                </Form.Group>
+            <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Create review"}</Button>
         </Form>
 
     )
