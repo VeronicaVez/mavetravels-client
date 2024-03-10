@@ -12,12 +12,12 @@ class ReviewsServices {
         return this.axiosApi.get(`/api/reviews`)
     }
 
-    getReview() {
-        return this.axiosApi.get(`/api/reviews/reviewId`)
+    getReview(reviewId) {
+        return this.axiosApi.get(`/api/reviews/${reviewId}`)
     }
 
-    deleteReview = () => {
-        return this.axiosApi.delete(`/api/reviews/reviewId`)
+    deleteReview(reviewId) {
+        return this.axiosApi.delete(`/reviews/${reviewId}`)
     }
 
 }

@@ -5,6 +5,9 @@ import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
 import { useNavigate } from "react-router-dom"
 import ReviewsServices from "../../services/reviews.services"
+import "./NewReviewForm.css"
+
+import { FaStar } from "react-icons/fa"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -15,8 +18,14 @@ const NewReviewForm = () => {
         title: "",
         description: "",
         rating: "",
-        userId: "",
-        travelId: ""
+        user: {
+            "Id": "",
+            "username": ""
+        },
+        travel: {
+            "Id": "",
+            "destination": ""
+        },
     })
 
     const navigate = useNavigate()
@@ -25,17 +34,11 @@ const NewReviewForm = () => {
 
     const handleFormSubmit = (e) => {
         
-         e.preventDefault()
+        e.preventDefault()
 
-        const { user, title, description, rating, source, travel } = newReview
-        const requestBody = { user, title, description, rating, source, travel }
-        
-        useEffect(() => getAllReviews(), [])
-
-        const getAllReviews = () => 
-        ReviewsServices
-            .getAllReviews()
-            .then(() => navigate(`/reviews`))
+        axios
+            .post(`${API_BASE_URL}/api/reviews`, newReview)
+            .then(() => navigate('/reviews'))
             .catch(err => console.log(err))
     }
 
@@ -43,7 +46,7 @@ const NewReviewForm = () => {
         const { value, name } = e.target
         setNewReview((prevState) => ({
             ...prevState,
-                [name]: value,
+                [name]: name === 'rating' ? parseInt(value, 10) : value,
             }))
     }
 
@@ -66,22 +69,31 @@ const NewReviewForm = () => {
             })
     }
 
+    const [rating, setRating] = useState(null)
+    const [hover, setHover] = useState(null)
+
     return (
         <Form onSubmit={handleFormSubmit}>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                <Form.Label>Rate in a scale of 1 to 5</Form.Label>
-                <Form.Select
-                    type='number'
-                    value={newReview.rating}
-                    onChange={handleChangeReview}
-                    name={'rating'}>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </Form.Select>
-            </Form.Group>
+            {[...Array(5)].map((star, index) => {
+                const currentRating = index + 1
+                return (
+                    <label>
+                    <input
+                            type='radio'
+                            name='rating'
+                            value={currentRating}
+                            onClick={() => setRating(currentRating)}
+                    />
+                        <FaStar
+                            className="star"
+                            size={25}
+                            color={currentRating <= (hover || rating) ? "#F5DD61" : "#000000"}
+                            onMouseEnter={() =>setHover(currentRating)}
+                            onMouseLeave={() => setHover(null)}
+                            />
+                        </label>
+                )
+            })}
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Control
                     as="textarea"

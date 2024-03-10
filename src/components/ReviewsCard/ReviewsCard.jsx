@@ -1,37 +1,28 @@
 import React, { useEffect } from "react"
 import { Card, CloseButton } from 'react-bootstrap'
 import reviewsServices from "../../services/reviews.services"
+import { Link } from "react-router-dom"
+import "./../../components/ReviewsCard/ReviewsCard.css"
+import { FaStar } from "react-icons/fa"
 
 
-function ReviewsCard({ id, userId, title, description, rating, source, travelId, reviews, setReviews }) {
-
-      useEffect(() => deleteReview(), [])
-
-      const deleteReview = (id) => {
-        reviewsServices
-            .deleteReview()
-            .then(() => {
-                const filteredReviews = reviews.filter(elm => elm.id !== id);
-                setReviews(filteredReviews)
-            })
-            .catch(err => console.log(err))
-    }
+function ReviewsCard({ id, user, title, description, rating, source, travel, reviews, setReviews, deleteReview}) {
     
   return (
-    <div className="ReviewsCard">
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="left" src={source} />
+    <article className="ReviewsCard">
+    <Card>
+      <Card.Img src={source} />
       <CloseButton className="btn-close" onClick={() => { deleteReview(id) }} />
-      <Card.Body>
-        <Card.Title>{title}</Card.Title>
-          <Card.Subtitle>{userId} - {travelId}</Card.Subtitle>  
+        <Card.Body>
+          <Card.Text>The rating is {rating}</Card.Text>
+        <Link className="LinkStyle" to={`/reviews/${id}`}><Card.Title>{title}</Card.Title></Link>
+          <Card.Subtitle>{user} - {travel}</Card.Subtitle>  
             <Card.Text>
-            {rating}
             {description}
         </Card.Text>
       </Card.Body>
       </Card>
-      </div>
+      </article>
   )
 }
 

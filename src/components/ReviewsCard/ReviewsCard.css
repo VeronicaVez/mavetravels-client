@@ -1,0 +1,32 @@
+.ReviewsCard:first-child {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.ReviewsCard .card-img-left {
+    padding: 10px;
+}
+
+.ReviewsCard .card-body {
+    flex-direction: column;
+    display: flex;
+    color: #FAA300;
+    padding: 10px;
+}
+
+.LinkStyle {
+    text-decoration: none;
+    color: #F4538A;
+}
+
+.ReviewsCard .card-text {
+    font-style: italic;
+}
+
+.ReviewsCard .card-title {
+    font-size: 2em;
+}
+
+.ReviewsCard .btn-close {
+    align-self: flex-end;
+}

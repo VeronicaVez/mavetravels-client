@@ -14,7 +14,7 @@ const SpecificReviewPage = () => {
 
     useEffect(() => {
         getReview()
-    }, [reviewId])
+        }, [reviewId])
 
     const getReview = () => {
         ReviewsServices
@@ -23,13 +23,14 @@ const SpecificReviewPage = () => {
             .catch(err => console.error(err))
     }
 
-
     return (
         <Container className="SpecificReviewPage">
             <h1> {review.title}</h1>
+            <h2>{review.user} - {review.travel}</h2>
             <Row>
                 <Col>
                     <Card>
+                        <img src={review.source} alt="user-photos"/>
                         <Card.Body>Description: {review.description} </Card.Body>
                     </Card>
                 </Col>
