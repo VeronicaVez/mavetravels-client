@@ -15,6 +15,7 @@ import UsersPage from "../pages/UsersPage/UsersPage"
 import ReviewsPage from "../pages/ReviewsPage/ReviewsPage"
 import NewReviewForm from "../components/NewReviewForm/NewReviewForm"
 import SpecificReviewPage from "./../pages/SpecificReviewPage/SpecificReviewPage"
+import EditTravelPage from "../pages/EditTravelPage/EditTravelPage"
 
 const AppRoutes = () => {
 
@@ -42,6 +43,10 @@ const AppRoutes = () => {
 
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
             <Route path="reviews/new-review" element={<NewReviewForm />} />
+
+            <Route path="/admin-profile/edit-travel/:travelId" element={<EditTravelPage />} />
+
+
 
             {/* <Route path="*" element={<NotFoundPage />} /> */}
 
