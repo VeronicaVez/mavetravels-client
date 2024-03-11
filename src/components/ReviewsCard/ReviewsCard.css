@@ -10,7 +10,6 @@
 .ReviewsCard .card-body {
     flex-direction: column;
     display: flex;
-    color: #FAA300;
     padding: 10px;
 }
 

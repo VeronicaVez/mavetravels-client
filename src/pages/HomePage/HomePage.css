@@ -1,3 +1,8 @@
 .HomePage {
     margin: 30px auto;
 }
+
+.coverImage {
+    width: 100%;
+    left: 0;
+}

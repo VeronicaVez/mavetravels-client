@@ -1,53 +1,52 @@
 import React from "react"
-import axios from "axios"
-import { useState, useParams, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import reviewsServices from "../../services/reviews.services"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
-import { useNavigate } from "react-router-dom"
-import ReviewsServices from "../../services/reviews.services"
-import "./NewReviewForm.css"
+import { AuthContext } from "../../context/auth.context"
 
 import { FaStar } from "react-icons/fa"
 
-const API_BASE_URL = "http://localhost:5005"
 
-const NewReviewForm = () => {
+const EditReviewForm = () => {
 
-    const [newReview, setNewReview] = useState({
-        source: "",
+    const [reviewData, setReviewData] = useState({
         title: "",
+        source: "",
         description: "",
-        rating: null,
-        user: {
-            "Id": "",
-            "username": ""
-        },
-        travel: {
-            "Id": "",
-            "destination": ""
-        },
+        rating: ""
     })
-
-    const navigate = useNavigate()
+    
+    const { reviewId } = useParams()
 
     const [loadingImg, setLoadingImg] = useState(false)
 
-    const handleFormSubmit = (e) => {
-        
-        e.preventDefault()
+    useEffect(() => getReview(reviewId), [reviewId])
 
-        axios
-            .post(`${API_BASE_URL}/api/reviews`, newReview)
-            .then(() => navigate('/reviews'))
-            .catch(err => console.log(err))
+    const navigate = useNavigate()
+    
+    const getReview = (reviewId) => {
+
+        reviewsServices
+            .getReview(reviewId)
+            .then(({ data }) => setReviewData(data))
+            .catch(err => console.error(err))
     }
 
-    const handleChangeReview = (e) => {
+    const handleInputChange = (e) => {
         const { value, name } = e.target
-        setNewReview((prevState) => ({
-            ...prevState,
-                [name]: name === 'rating' ? parseInt(value, 10) : value,
-            }))
+        setReviewData({ ...reviewData, [name]: value })
+    }
+
+    const handleFormSubmit = (e) => {
+
+        e.preventDefault()
+
+        reviewsServices
+            .editReview(reviewId, reviewData)
+            .then(() => navigate(`/reviews/${reviewId}`))
+            .catch(err => console.log(error))
     }
 
     const handleFileUpload = e => {
@@ -60,7 +59,7 @@ const NewReviewForm = () => {
         uploadServices
             .uploadimage(formData)
             .then(res => {
-                setNewReview({ ...newReview, source: res.data.cloudinary_url })
+                setReviewData({ ...reviewData, source: res.data.cloudinary_url })
                 setLoadingImg(false)
             })
             .catch(err => {
@@ -71,6 +70,7 @@ const NewReviewForm = () => {
 
     const [rating, setRating] = useState(null)
     const [hover, setHover] = useState(null)
+
 
     return (
         <Form onSubmit={handleFormSubmit}>
@@ -84,12 +84,12 @@ const NewReviewForm = () => {
                             name='rating'
                             value={currentRating}
                             onClick={() => setRating(currentRating)}
-                            onChange={handleChangeReview}
+                            onChange={handleInputChange}
                     />
                         <FaStar
                             className="star"
                             size={25}
-                            color={currentRating <= (hover || newReview.rating) ? "#F5DD61" : "#F6F7C4"}
+                            color={currentRating <= (hover || reviewData.rating) ? "#F5DD61" : "#F6F7C4"}
                             onMouseEnter={() => setHover(currentRating)}
                             onMouseLeave={() => setHover(null)}
                             />
@@ -101,26 +101,26 @@ const NewReviewForm = () => {
                 <Form.Control
                     as="textarea"
                     rows={1}
-                    placeholder="Title"
-                    onChange={handleChangeReview}
-                    value={newReview.title}
+                    onChange={handleInputChange}
+                    value={reviewData.title}
                     name="title" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="form-description">
                 <Form.Control
                     as="textarea"
                     rows={3}
-                    placeholder="Describe your experience with us here!"
-                    onChange={handleChangeReview}
-                    value={newReview.description}
+                    onChange={handleInputChange}
+                    value={reviewData.description}
                     name="description" />
             </Form.Group>
                 <Form.Group>
                     <Form.Control type="file" onChange={handleFileUpload} />
                 </Form.Group>
-            <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Create review"}</Button>
+            <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Change reviewData"}</Button>
         </Form>
-
     )
+
 }
-export default NewReviewForm
+
+
+export default EditReviewForm

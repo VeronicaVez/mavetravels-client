@@ -23,6 +23,7 @@ import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
 import EditTravelPage from "../pages/EditTravelPage/EditTravelPage"
 
 import NewReviewForm from "../components/NewReviewForm/NewReviewForm"
+import EditReviewPage from "./../pages/EditReviewPage/EditReviewPage"
 
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
 
@@ -41,6 +42,8 @@ const AppRoutes = () => {
             <Route path="/themes" element={<ThemesPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/reviews/:reviewId" element={< SpecificReviewPage />} />
+            <Route path="/reviews/new-review" element={<NewReviewForm />} />
+            <Route path="/reviews/edit/:reviewId" element={<EditReviewPage />} />
             <Route path="/travels/:travelId" element={<TravelDetailsPage />} />
 
             <Route path="/signup" element={<SignUpPage />} />
@@ -54,6 +57,7 @@ const AppRoutes = () => {
             <Route path="/admin-profile" element={<AdminProfilePage />} />
 
             <Route path="reviews/new-review" element={<NewReviewForm />} />
+            {/* <Route path="/admin-profile" element={<AdminProfilePage />} /> */}
 
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />
             <Route path="/admin-profile/edit-travel/:travelId" element={<EditTravelPage />} />

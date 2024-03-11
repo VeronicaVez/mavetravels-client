@@ -18,7 +18,7 @@ function LoginForm({ handleCloseChat }) {
     const { storeToken, authenticateUser } = useContext(AuthContext)
     const [errorMessage, setErrorMessage] = useState(undefined);
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const handleInputChange = (e) => {
         const { value, name } = e.target

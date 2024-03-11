@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+import { Container, Card, Row, Col, Button } from "react-bootstrap"
 
-import { Container, Card, Row, Col } from "react-bootstrap"
-
-import ReviewsServices from "../../services/reviews.services"
+import reviewsServices from "../../services/reviews.services"
 
 
-const SpecificReviewPage = () => {
+const SpecificReviewPage = ({ _id}) => {
 
     const [review, setReview] = useState({})
 
@@ -17,7 +16,7 @@ const SpecificReviewPage = () => {
         }, [reviewId])
 
     const getReview = () => {
-        ReviewsServices
+        reviewsServices
             .getReview(reviewId)
             .then(({ data }) => setReview(data))
             .catch(err => console.error(err))
@@ -32,6 +31,7 @@ const SpecificReviewPage = () => {
                     <Card>
                         <img src={review.source} alt="user-photos"/>
                         <Card.Body>Description: {review.description} </Card.Body>
+                        <Link className="LinkStyle" to={`/reviews/edit/${reviewId}`}><Button>Edit your experience</Button></Link>
                     </Card>
                 </Col>
             </Row>
