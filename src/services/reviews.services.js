@@ -17,7 +17,7 @@ class ReviewsServices {
     }
 
     editReview(reviewId, updatedReview) {
-        return this.axiosApi.put(`/api/reviews/edit/${reviewId}`, updatedReview)
+        return this.axiosApi.put(`/api/reviews/${reviewId}`, updatedReview)
     }
 
     deleteReview(reviewId) {

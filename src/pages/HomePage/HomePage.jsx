@@ -1,6 +1,7 @@
 import React from "react"
-
+import Cover from "./../../images/foto-capadocia.jpg"
 import NewTravelForm from "../../components/NewTravelForm/NewTravelForm"
+import "./HomePage.css"
 
 import { Container, Row, Col } from "react-bootstrap"
 
@@ -8,13 +9,11 @@ const HomePage = () => {
 
     return (
 
-        <Container className="HomePage">
-            <Row>
-                <Col>
-                    <h1>HOME PAGE</h1>
-                </Col>
-            </Row>
-        </Container>
+        <div className="HomePage">
+            <header>
+                    <img src={Cover} alt="Capadocia" className="coverImage" />
+            </header>
+        </div>
 
     )
 }

@@ -1,9 +1,10 @@
 import React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import reviewsServices from "../../services/reviews.services"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
+import { AuthContext } from "../../context/auth.context"
 
 import { FaStar } from "react-icons/fa"
 
@@ -12,8 +13,6 @@ const EditReviewForm = () => {
 
     const [reviewData, setReviewData] = useState({
         title: "",
-        user: "",
-        travel: "",
         source: "",
         description: "",
         rating: ""
@@ -47,7 +46,7 @@ const EditReviewForm = () => {
         reviewsServices
             .editReview(reviewId, reviewData)
             .then(() => navigate(`/reviews/${reviewId}`))
-            .catch(err => console.log("que pasa?"))
+            .catch(err => console.log(error))
     }
 
     const handleFileUpload = e => {

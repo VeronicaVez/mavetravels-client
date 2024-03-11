@@ -2,14 +2,35 @@
     font-size: 1.2em;
 }
 
-.NavBar a {
+.NavBar a, 
+.navbar-nav .nav-link{
     text-decoration: none;
     color: #F4538A;
+}
+
+.NavBar .navbar-nav .nav-link {
+    text-decoration: none;
+    color: #F4538A;
+    margin: 0 20px;
 }
 
 .NavBar a:hover {
     text-decoration: none;
     color: #FAA300;
+    background-color: transparent
+}
+
+.NavBar .navbar-nav:hover {
+    text-decoration: none;
+    color: #FAA300;
+}
+.NavBar .nav-link:hover {
+    text-decoration: none;
+    color: #FAA300;
+}
+
+.NavBar .nav-item.dropdown:hover .nav-link {
+    color: orange;
 }
 
 .NavBar img{

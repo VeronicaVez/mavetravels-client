@@ -15,31 +15,31 @@ function NavBar() {
   return (
     <div className="NavBar">
 
-    <Navbar expand="lg" className="NavBar">
-
-      <Container>
-
+      <Navbar expand="lg">
+        <Container>
         <Link to="/">
           <img src={Logo} alt="logo"/>
-        </Link>
-
+          </Link>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggle" />
+        <Navbar.Collapse id="basic-navbar-nav">
         <Nav>
           <NavDropdown title="Destinations">
-            <NavDropdown.Item >Europe</NavDropdown.Item>
-            <NavDropdown.Item >Asia</NavDropdown.Item>
-            <NavDropdown.Item >Africa</NavDropdown.Item>
-            <NavDropdown.Item >North America</NavDropdown.Item>
-            <NavDropdown.Item >South America</NavDropdown.Item>
-            <NavDropdown.Item >Australia & Oceania</NavDropdown.Item>
+            <NavDropdown.Item>Europe</NavDropdown.Item>
+            <NavDropdown.Item>Asia</NavDropdown.Item>
+            <NavDropdown.Item>Africa</NavDropdown.Item>
+            <NavDropdown.Item>North America</NavDropdown.Item>
+            <NavDropdown.Item>South America</NavDropdown.Item>
+            <NavDropdown.Item>Australia & Oceania</NavDropdown.Item>
             <Link to="/travels">
-              <NavDropdown.Item as="span"><strong>All destinations</strong></NavDropdown.Item>
+              <NavDropdown.Item><strong>All destinations</strong></NavDropdown.Item>
             </Link>
           </NavDropdown>
 
           <Link to="/reviews">
             <Nav.Link as="span">Your Experience</Nav.Link>
           </Link>
-
+          </Nav>
+          <Nav>
           {
             user
               ?
@@ -61,8 +61,9 @@ function NavBar() {
                 </Link>
               </>
           }
-        </Nav>
-      </Container>
+          </Nav>
+          </Navbar.Collapse>
+          </Container>
       </Navbar >
       </div>
 
