@@ -1,10 +1,10 @@
 import React from "react"
 import { useState, useEffect, useContext } from "react"
-import reviewsServices from "../../services/reviews.services"
+import reviewsServices from "../../../services/reviews.services"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import { Form, Button, Row, Col } from "react-bootstrap"
-import uploadServices from "../../services/upload.services"
-import { AuthContext } from "../../context/auth.context"
+import uploadServices from "../../../services/upload.services"
+import { AuthContext } from "../../../context/auth.context"
 
 import { FaStar } from "react-icons/fa"
 
@@ -17,7 +17,7 @@ const EditReviewForm = () => {
         description: "",
         rating: ""
     })
-    
+
     const { reviewId } = useParams()
 
     const [loadingImg, setLoadingImg] = useState(false)
@@ -25,7 +25,7 @@ const EditReviewForm = () => {
     useEffect(() => getReview(reviewId), [reviewId])
 
     const navigate = useNavigate()
-    
+
     const getReview = (reviewId) => {
 
         reviewsServices
@@ -76,26 +76,26 @@ const EditReviewForm = () => {
         <Form onSubmit={handleFormSubmit}>
             <Form.Group className="mb-3" controlId="form-rating">
                 {[...Array(5)].map((star, index) => {
-                const currentRating = index + 1
-                return (
-                    <label>
-                    <input
-                            type='radio'
-                            name='rating'
-                            value={currentRating}
-                            onClick={() => setRating(currentRating)}
-                            onChange={handleInputChange}
-                    />
-                        <FaStar
-                            className="star"
-                            size={25}
-                            color={currentRating <= (hover || reviewData.rating) ? "#F5DD61" : "#F6F7C4"}
-                            onMouseEnter={() => setHover(currentRating)}
-                            onMouseLeave={() => setHover(null)}
+                    const currentRating = index + 1
+                    return (
+                        <label>
+                            <input
+                                type='radio'
+                                name='rating'
+                                value={currentRating}
+                                onClick={() => setRating(currentRating)}
+                                onChange={handleInputChange}
+                            />
+                            <FaStar
+                                className="star"
+                                size={25}
+                                color={currentRating <= (hover || reviewData.rating) ? "#F5DD61" : "#F6F7C4"}
+                                onMouseEnter={() => setHover(currentRating)}
+                                onMouseLeave={() => setHover(null)}
                             />
                         </label>
-                )
-            })}
+                    )
+                })}
             </Form.Group>
             <Form.Group className="mb-3" controlId="form-title">
                 <Form.Control
@@ -113,9 +113,9 @@ const EditReviewForm = () => {
                     value={reviewData.description}
                     name="description" />
             </Form.Group>
-                <Form.Group>
-                    <Form.Control type="file" onChange={handleFileUpload} />
-                </Form.Group>
+            <Form.Group>
+                <Form.Control type="file" onChange={handleFileUpload} />
+            </Form.Group>
             <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Change reviewData"}</Button>
         </Form>
     )

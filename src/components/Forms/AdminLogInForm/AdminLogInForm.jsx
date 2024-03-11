@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { AuthContext } from './../../context/auth.context.jsx'
+import { AuthContext } from '../../../context/auth.context.jsx'
 import { Button, Form } from 'react-bootstrap'
 
 const API_URL = "http://localhost:5005"

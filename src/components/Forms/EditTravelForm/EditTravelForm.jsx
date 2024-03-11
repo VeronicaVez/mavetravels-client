@@ -4,17 +4,45 @@ import axios from "axios"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './EditTravelForm.css'
 
-import DateRangePickerCalendar from './../DateRangePickerCalendar/DateRangePickerCalendar'
+import DateRangePickerCalendar from '../../DateRangePickerCalendar/DateRangePickerCalendar'
 
 const API_BASE_URL = "http://localhost:5005"
 const travelThemes = ["Beach life", "Trekking", "Party", "Sports", "Wild life", "Food", "Pet Friendly"]
 
 
-const EditTravelForm = () => {
+const EditTravelForm = ({
+    _id,
+    destination,
+    continent,
+    includesAccomodation,
+    includesTransport,
+    theme,
+    itinerary,
+    dates,
+    price,
+    source
+}) => {
+
+    const [travelData, setTravelData] = useState({
+
+        _id,
+        destination,
+        continent,
+        includesAccomodation,
+        includesTransport,
+        theme,
+        itinerary,
+        dates,
+        price,
+        source
+
+    })
+    const [checked, setChecked] = useState({})
+
+
     const { travelId } = useParams()
     const navigate = useNavigate()
 
-    const [travelData, setTravelData] = useState({})
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {

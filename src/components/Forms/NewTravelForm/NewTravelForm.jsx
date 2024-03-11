@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import TravelsServices from "../../services/travels.services"
+import TravelsServices from "../../../services/travels.services"
 
 
-import DateRangePickerCalendar from "../DateRangePickerCalendar/DateRangePickerCalendar"
-import uploadServices from "../../services/upload.services"
+import DateRangePickerCalendar from "../../DateRangePickerCalendar/DateRangePickerCalendar"
+import uploadServices from "../../../services/upload.services"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './NewTravelForm.css'
 
