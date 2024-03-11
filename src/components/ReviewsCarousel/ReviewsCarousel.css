@@ -1,0 +1,10 @@
+.carousel .paragraph{
+    color: white;
+    font-size: 1.2em;
+}
+
+.carousel .img{
+    width: 100%;
+    padding: 150px 0px;
+    justify-self: center;
+}

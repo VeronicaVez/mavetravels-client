@@ -2,3 +2,79 @@
     width: 100%;
     left:0;
 }
+
+.HomePage h2 {
+    font-size: 3em;
+    padding: 40px 20px;
+    color: #F4538A;
+    text-align: center;
+}
+
+footer{
+    left: 0;
+    margin-bottom: -20px;
+    width: 100%;
+    background-color: #F4538A;
+    color: white;
+    text-align: center;
+}
+
+.Thailand{
+    width: 40%;
+    padding: 10px;
+    justify-content: flex-start;
+    float: left;
+}
+
+.Namibia {
+    width: 50%;
+    padding: 10px;
+    justify-content: left;
+}
+
+.Brazil {
+    width: 50%;
+    padding: 10px;
+    justify-content: right;
+}
+
+.favTrips{
+    display: block;
+    font-size: 2em;
+    padding: 20px;
+    color: #FAA300;
+    text-align: center;
+}
+
+.paragr{
+    font-size: 1em;
+    padding: 0px 40px;
+    text-align: center;
+}
+
+.carousel-reviews{
+    background-color: #FAA300;
+}
+
+.Morocco{
+    padding: 60px 60px;
+    width: 50%;
+}
+
+.phrase{
+    display: flex;
+}
+
+.authoronly {
+    font-size: 1em;
+    text-align: center;
+}
+
+.phraseonly {
+    padding: 175px 50px 0px 60px;
+    font-size: 2em;
+    text-align: center;
+}
+
+
+
