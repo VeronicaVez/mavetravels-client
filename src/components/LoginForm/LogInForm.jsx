@@ -73,4 +73,4 @@ function LoginForm({ handleCloseChat }) {
     )
 }
 
-export default LoginForm;
+export default LoginForm

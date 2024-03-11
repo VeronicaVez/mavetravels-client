@@ -1,8 +1,10 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
-import NewTravelForm from "../../components/NewTravelForm/NewTravelForm"
+import { Container, Row, Col, Button } from "react-bootstrap"
+import './HomePage.css'
 
-import { Container, Row, Col } from "react-bootstrap"
+import airplane from './../../assets/images/airplane.jpeg'
 
 const HomePage = () => {
 
@@ -12,6 +14,13 @@ const HomePage = () => {
             <Row>
                 <Col>
                     <h1>HOME PAGE</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Link to={`/travels`}>
+                        <img src={airplane} alt="Airplane image" />
+                    </Link>
                 </Col>
             </Row>
         </Container>
