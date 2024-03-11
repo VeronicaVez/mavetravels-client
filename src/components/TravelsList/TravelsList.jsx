@@ -22,7 +22,7 @@ const TravelsList = () => {
             {
                 travels.map((travel) => (
                     <Col key={travel.id} md={4}>
-                        <TravelCard {...travel} />
+                        <TravelCard {...travel} key={travel.id} />
                     </Col>
                 ))
             }

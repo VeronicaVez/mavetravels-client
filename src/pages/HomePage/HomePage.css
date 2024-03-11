@@ -1,5 +1,10 @@
+.HomePage {
+    margin: 30px auto;
+}
+
 .coverImage {
     width: 100%;
+<<<<<<< HEAD
     left:0;
 }
 
@@ -78,3 +83,7 @@ footer{
 
 
 
+=======
+    left: 0;
+}
+>>>>>>> a5224412d589982d05719fa7d66ff7eb4db554aa

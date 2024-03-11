@@ -1,88 +1,83 @@
 import React, { useState, useEffect } from "react"
+import { useParams, useNavigate, Link } from "react-router-dom"
 import axios from "axios"
-import { useParams } from "react-router-dom"
-import TravelsServices from "../../services/travels.services"
-import DateRangePickerCalendar from "../DateRangePickerCalendar/DateRangePickerCalendar"
-import uploadServices from "../../services/upload.services"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './EditTravelForm.css'
+
+import DateRangePickerCalendar from '../../DateRangePickerCalendar/DateRangePickerCalendar'
 
 const API_BASE_URL = "http://localhost:5005"
 const travelThemes = ["Beach life", "Trekking", "Party", "Sports", "Wild life", "Food", "Pet Friendly"]
 
-const EditTravelForm = () => {
+
+const EditTravelForm = ({
+    _id,
+    destination,
+    continent,
+    includesAccomodation,
+    includesTransport,
+    theme,
+    itinerary,
+    dates,
+    price,
+    source
+}) => {
+
+    const [travelData, setTravelData] = useState({
+
+        _id,
+        destination,
+        continent,
+        includesAccomodation,
+        includesTransport,
+        theme,
+        itinerary,
+        dates,
+        price,
+        source
+
+    })
+    const [checked, setChecked] = useState({})
+
 
     const { travelId } = useParams()
+    const navigate = useNavigate()
 
-    const [travel, setTravel] = useState({})
-    const [loadingImg, setLoadingImg] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        getTravel()
+        loadTravelDetails()
     }, [])
 
-    const getTravel = () => {
-        TravelsServices
-            .getTravel(travelId)
-            .then(({ data }) => setTravel(data))
-            .catch(err => console.error(err))
+    const loadTravelDetails = () => {
+        axios.get(`${API_BASE_URL}/api/travels/${travelId}`)
+            .then(({ data }) => setTravelData(data))
+            .catch(err => console.log(err))
     }
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
 
-        axios
-            .put(`${API_BASE_URL}/api/travels/${travelId}`, travel)
-            .then(() => window.location.href = "/travels")
-            .catch(err => console.log(err))
+        axios.put(`${API_BASE_URL}/api/travels/${travelId}`, travelData)
+            .then(() => {
+                setLoading(false)
+                navigate(`/travels/${travelId}`)
+            })
+            .catch(err => {
+                setLoading(false)
+                console.log(err)
+            })
     }
 
     const handleInputChange = (e) => {
-        const { name, value, type, checked } = e.target
-
-        if (name === "themes") {
-            const { value: theme } = e.target
-            const updatedThemes = checked ? [...travel.themes, theme] : travel.themes.filter((t) => t !== theme)
-            setTravel({ ...travel, themes: updatedThemes })
-        } else {
-            setTravel({ ...travel, [name]: value })
-        }
+        const { name, value } = e.target
+        setTravelData({ ...travelData, [name]: value })
     }
 
-    const handleBooleanChange = (e) => {
-        const { name, checked } = e.target
-        setTravel({ ...travel, [name]: checked })
-    }
-
-    const handleActivityChange = (e, index, activityIndex) => {
-        const { value } = e.target
-        const updatedItinerary = [...travel.itinerary]
-        updatedItinerary[index].activities[activityIndex] = value
-        setTravel({ ...travel, itinerary: updatedItinerary })
-    }
-
-    const handleDateChange = (date) => {
-        const [start, end] = date
-        setTravel({ ...travel, dates: { start, end } })
-    }
-
-    const handleFileUpload = (e) => {
-        setLoadingImg(true)
-        const formData = new FormData()
-        formData.append('imageData', e.target.files[0])
-        uploadServices
-            .uploadimage(formData)
-            .then(res => {
-                setTravel({ ...travel, source: res.data.cloudinary_url })
-                setLoadingImg(false)
-            })
-            .catch(err => {
-                console.log(err)
-                setLoadingImg(false)
-            })
-    }
 
     return (
+
         <Form onSubmit={handleFormSubmit} className="EditTravelForm">
             <Row className="EditTravelFormRow">
                 <Col>
@@ -91,8 +86,8 @@ const EditTravelForm = () => {
                         <Form.Control
                             type="text"
                             name="destination"
-                            value={travel.destination}
                             onChange={handleInputChange}
+                            value={travelData.destination}
                         />
                     </Form.Group>
                 </Col>
@@ -101,10 +96,10 @@ const EditTravelForm = () => {
                         <Form.Label className="editTravelFormLabel">Continent</Form.Label>
                         <Form.Select
                             name="continent"
-                            value={travel.continent}
-                            onChange={handleInputChange}
+                            value={travelData.continent}
+                        //onChange={handleInputChange}
                         >
-                            <option>Choose the continent</option>
+                            <option value={'choose'}>Choose the continent</option>
                             <option value="Asia">Asia</option>
                             <option value="Africa">Africa</option>
                             <option value="North America">North America</option>
@@ -121,8 +116,8 @@ const EditTravelForm = () => {
                         type="switch"
                         id="accomodationSwitch"
                         label="Includes accomodation?"
-                        checked={travel.includesAccomodation}
-                        onChange={handleBooleanChange}
+                        checked={travelData.includesAccomodation}
+                    //onChange={handleBooleanChange}
                     />
                 </Col>
                 <Col>
@@ -130,8 +125,8 @@ const EditTravelForm = () => {
                         type="switch"
                         id="transportSwitch"
                         label="Includes transport?"
-                        checked={travel.includesTransport}
-                        onChange={handleBooleanChange}
+                        checked={travelData.includesTransport}
+                    //onChange={handleBooleanChange}
                     />
                 </Col>
             </Row>
@@ -157,8 +152,8 @@ const EditTravelForm = () => {
                                             id={theme}
                                             key={theme}
                                             value={theme}
-                                            checked={travel.themes.includes(theme)}
-                                            onChange={handleInputChange}
+                                        //checked={travelData.themes.includes(theme)}
+                                        //onChange={handleInputChange}
                                         />
                                     )
                                 })
@@ -173,7 +168,7 @@ const EditTravelForm = () => {
                 <Col>
                     <Form.Label className="newTravelFormLabel">Itinerary</Form.Label>
                     {
-                        travel.itinerary.map((itineraryDay, index) => (
+                        travelData.itinerary?.map((itineraryDay, index) => (
                             <div key={index}>
                                 <Row>
                                     <Col>
@@ -182,8 +177,9 @@ const EditTravelForm = () => {
                                             type="number"
                                             value={itineraryDay.day}
                                             data-index={index}
+                                            placeholder={itineraryDay.day}
                                             name="day"
-                                            onChange={handleInputChange}
+                                        //onChange={handleInputChange}
                                         />
                                     </Col>
                                     <Col>
@@ -191,9 +187,10 @@ const EditTravelForm = () => {
                                         <Form.Control
                                             type="text"
                                             value={itineraryDay.title}
+                                            placeholder={itineraryDay.title}
                                             data-index={index}
                                             name="title"
-                                            onChange={handleInputChange}
+                                        //onChange={handleInputChange}
                                         />
                                     </Col>
                                 </Row>
@@ -207,7 +204,9 @@ const EditTravelForm = () => {
                                                         <Form.Control
                                                             type="text"
                                                             value={activity}
-                                                            onChange={(e) => handleActivityChange(e, index, activityIndex)}
+                                                            placeholder={activity}
+
+                                                        //onChange={(e) => handleActivityChange(e, index, activityIndex)}
                                                         />
                                                         <Button variant="outline-secondary">Remove</Button>
                                                     </InputGroup>
@@ -223,7 +222,8 @@ const EditTravelForm = () => {
                                                 as="textarea"
                                                 rows={4}
                                                 value={itineraryDay.dayDescription}
-                                                onChange={handleInputChange}
+                                                placeholder={itineraryDay.dayDescription}
+                                                //onChange={handleInputChange}
                                                 name="dayDescription"
                                                 data-index={index}
                                             />
@@ -253,8 +253,10 @@ const EditTravelForm = () => {
                             <Form.Control
                                 type="number"
                                 name="price"
-                                value={travel.price}
-                                onChange={handleInputChange}
+                                value={travelData.price}
+                                placeholder={travelData.price}
+
+                            //onChange={handleInputChange}
                             />
                             <InputGroup.Text>€</InputGroup.Text>
                         </InputGroup>
@@ -266,16 +268,24 @@ const EditTravelForm = () => {
                 <Col>
                     <Form.Group>
                         <Form.Label className="newTravelFormLabel">Image</Form.Label>
-                        <Form.Control type="file" onChange={handleFileUpload} />
+                        <Form.Control
+                            type="file"
+                        //onChange={handleFileUpload}
+                        />
                     </Form.Group>
                 </Col>
             </Row>
             <Row className="EditTravelFormRow">
                 <Col>
-                    <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Save Changes"}</Button>
+                    <Link to={`/travels/${travelId}`}>
+                        {/* <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Save Changes"}</Button> */}
+                        <Button type="submit" >Save Changes</Button>
+
+                    </Link>
                 </Col>
             </Row>
         </Form >
+
     )
 }
 
