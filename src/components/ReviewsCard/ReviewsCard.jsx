@@ -6,7 +6,7 @@ import "./../../components/ReviewsCard/ReviewsCard.css"
 import { FaStar } from "react-icons/fa"
 
 
-function ReviewsCard({ id, user, title, description, rating, source, travel, reviews, setReviews, deleteReview}) {
+function ReviewsCard({ _id, user, title, description, rating, source, travel, reviews, setReviews, deleteReview}) {
     
   const [displayRating, setDisplayRating] = useState(rating);
 
@@ -20,7 +20,7 @@ function ReviewsCard({ id, user, title, description, rating, source, travel, rev
     <article className="ReviewsCard">
     <Card>
       <Card.Img src={source} />
-      <CloseButton className="btn-close" onClick={() => { deleteReview(id) }} />
+      <CloseButton className="btn-close" onClick={() => { deleteReview(_id) }} />
         <Card.Body>
           <Card.Text>
              {[...Array(rating)].map((star, index) => {
@@ -38,7 +38,7 @@ function ReviewsCard({ id, user, title, description, rating, source, travel, rev
                 )
             })}
           </Card.Text>
-        <Link className="LinkStyle" to={`/reviews/${id}`}><Card.Title>{title}</Card.Title></Link>
+        <Link className="LinkStyle" to={`/reviews/${_id}`}><Card.Title>{title}</Card.Title></Link>
           <Card.Subtitle>{user} - {travel}</Card.Subtitle>  
             <Card.Text>
             {description}

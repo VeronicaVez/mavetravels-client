@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { AuthContext } from "./../../context/auth.context"
+import Logo from "./../../images/Logo.png"
 
 import TravelsPage from '../../pages/TravelsPage/TravelsPage'
 import "./NavBar.css"
@@ -12,13 +13,14 @@ function NavBar() {
 
 
   return (
+    <div className="NavBar">
 
     <Navbar expand="lg" className="NavBar">
 
       <Container>
 
         <Link to="/">
-          <Navbar.Brand className='logo'>React-BootsTravel</Navbar.Brand>
+          <img src={Logo} alt="logo"/>
         </Link>
 
         <Nav>
@@ -61,7 +63,8 @@ function NavBar() {
           }
         </Nav>
       </Container>
-    </Navbar >
+      </Navbar >
+      </div>
 
   )
 }
