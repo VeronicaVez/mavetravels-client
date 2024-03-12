@@ -6,12 +6,12 @@ import { Container } from "react-bootstrap"
 const TravelsPage = () => {
 
     return (
-        <div className="TravelsPage">
-            <Container>
-                <h1>Travels</h1>
-                <TravelsList />
-            </Container>
-        </div>
+
+        <Container className="TravelsPage">
+            <h1>Travels</h1>
+            <TravelsList />
+        </Container>
+
     )
 }
 

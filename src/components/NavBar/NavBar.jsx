@@ -10,7 +10,7 @@ import "./NavBar.css"
 
 function NavBar() {
 
-  const { user, isLoggedIn, logout, role} = useContext(AuthContext)
+  const { user, isLoggedIn, logout, role } = useContext(AuthContext)
 
 
   return (
@@ -18,60 +18,67 @@ function NavBar() {
 
       <Navbar expand="lg">
         <Container>
-        <Link to="/">
-          <img src={Logo} alt="logo"/>
+          <Link to="/">
+            <img src={Logo} alt="logo" />
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggle" />
-        <Navbar.Collapse id="basic-navbar-nav">
-        <Nav>
-          <NavDropdown title="Destinations">
-            <NavDropdown.Item>Europe</NavDropdown.Item>
-            <NavDropdown.Item>Asia</NavDropdown.Item>
-            <NavDropdown.Item>Africa</NavDropdown.Item>
-            <NavDropdown.Item>North America</NavDropdown.Item>
-            <NavDropdown.Item>South America</NavDropdown.Item>
-            <NavDropdown.Item>Australia & Oceania</NavDropdown.Item>
-            <Link to="/travels">
-              <NavDropdown.Item><strong>All destinations</strong></NavDropdown.Item>
-            </Link>
-          </NavDropdown>
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav>
+              <NavDropdown title="Destinations">
+                <NavDropdown.Item as={Link} to="/travels/europe">Europe</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/asia">Asia</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/africa">Africa</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/north-america">North America</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/south-america">South America</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/australia-oceania">Australia & Oceania</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels"><strong>All destinations</strong></NavDropdown.Item>
 
-          <Link to="/reviews">
-            <Nav.Link as="span">Your Experience</Nav.Link>
-          </Link>
-          </Nav>
-            <Nav>       
+              </NavDropdown>
+
+              <Link to="/reviews">
+                <Nav.Link as="span">Your Experience</Nav.Link>
+              </Link>
+            </Nav>
+            <Nav>
               {isLoggedIn && (
                 <>
-                <Link to={`/users/${user.username}`}>
-                      <Nav.Link as="span">Profile</Nav.Link>
-                    </Link>
-                { user.role === "admin" ? (
-                  <Link to="/admin-profile/create-travel">
-                    <Nav.Link as="span">Create Travel</Nav.Link>
-                  </Link>)
-                : null
-                }
-                      <Link onClick={logout}>
-                        <Nav.Link as="span">Log Out</Nav.Link>
+                  <Link to={`/users/${user.username}`}>
+                    <Nav.Link as="span">Profile</Nav.Link>
                   </Link>
+                  {
+                    user.role === "admin"
+                      ?
+                      (
+                        <Link to="/admin-profile/create-travel">
+                          <Nav.Link as="span">Create Travel</Nav.Link>
+                        </Link>
+                      )
+                      :
+                      null
+                  }
+                  <Link onClick={logout}>
+                    <Nav.Link as="span">Log Out</Nav.Link>
+                  </Link>
+                </>
+              )}
+              {
+                !isLoggedIn &&
+                (
+                  <>
+                    <Link to="/signup">
+                      <Nav.Link as="span">Sign up</Nav.Link>
+                    </Link>
+                    <Link to="/login">
+                      <Nav.Link as="span">Log In</Nav.Link>
+                    </Link>
                   </>
-                  )}
-              {!isLoggedIn && (
-              <>
-                <Link to="/signup">
-                  <Nav.Link as="span">Sign up</Nav.Link>
-                </Link>
-                <Link to="/login">
-                  <Nav.Link as="span">Log In</Nav.Link>
-            </Link>
-            </>
-            )}
-          </Nav>
+                )
+              }
+            </Nav>
           </Navbar.Collapse>
-          </Container>
+        </Container>
       </Navbar >
-      </div>
+    </div>
   )
 }
 
