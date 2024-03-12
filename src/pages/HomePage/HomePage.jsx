@@ -27,13 +27,6 @@ const HomePage = () => {
             </Row>
             <Row>
                 <Col>
-                    <Link to={`/travels`}>
-                        <img src={airplane} alt="Airplane image" />
-                    </Link>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
                     <header>
                         <img src={Cover} alt="Capadocia" className="coverImage" />
                     </header>
