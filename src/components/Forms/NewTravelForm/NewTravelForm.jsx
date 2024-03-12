@@ -1,9 +1,11 @@
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
-import TravelsServices from "../../services/travels.services"
+import TravelsServices from "../../../services/travels.services"
 
-import DateRangePickerCalendar from "../DateRangePickerCalendar/DateRangePickerCalendar"
-import uploadServices from "../../services/upload.services"
+
+import DateRangePickerCalendar from "../../DateRangePickerCalendar/DateRangePickerCalendar"
+import uploadServices from "../../../services/upload.services"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './NewTravelForm.css'
 
@@ -14,7 +16,7 @@ const NewTravelForm = () => {
 
     const [newTravel, setNewTravel] = useState({
         destination: '',
-        continent: [],
+        continent: 'choose',
         includesAccomodation: true,
         includesTransport: true,
         themes: [],
@@ -35,6 +37,9 @@ const NewTravelForm = () => {
     const [startDate, setStartDate] = useState(new Date())
     const [endDate, setEndDate] = useState(new Date())
     const [loadingImg, setLoadingImg] = useState(false)
+
+    const navigate = useNavigate()
+
 
     const handleFormSubmit = (e) => {
 
@@ -182,7 +187,7 @@ const NewTravelForm = () => {
     return (
 
         <Form onSubmit={handleFormSubmit} className="NewTravelForm">
-            <Row className="NewTravelFormRow">
+            <Row className="NewTravelFormRow Destination&ContinentForm">
                 <Col>
                     <Form.Group>
                         <Form.Label className="newTravelFormLabel">Destination</Form.Label>
@@ -202,7 +207,7 @@ const NewTravelForm = () => {
                             value={newTravel.continent}
                             onChange={handleInputChange}
                         >
-                            <option>Choose the continent</option>
+                            <option value={'choose'}>Choose the continent</option>
                             <option value="Asia">Asia</option>
                             <option value="Africa">Africa</option>
                             <option value="North America">North America</option>
@@ -213,7 +218,7 @@ const NewTravelForm = () => {
                     </Form.Group>
                 </Col>
             </Row>
-            <Row className="NewTravelFormRow">
+            <Row className="NewTravelFormRow includesForm">
                 <Col>
                     <Form.Check
                         type="switch"
@@ -233,7 +238,7 @@ const NewTravelForm = () => {
                     />
                 </Col>
             </Row>
-            <Row className="NewTravelFormRow">
+            <Row className="NewTravelFormRow themesForm">
                 <Col>
                     <Row>
                         <Col >
@@ -283,7 +288,7 @@ const NewTravelForm = () => {
                                             <Form.Control
                                                 type="number"
                                                 value={itineraryDay.day}
-                                                data-index={index}
+                                                data-index={index + 1}
                                                 name="day"
                                                 onChange={handleInputChange}
                                             />

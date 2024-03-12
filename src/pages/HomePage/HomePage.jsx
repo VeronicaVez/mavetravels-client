@@ -9,7 +9,7 @@ import Brazil from "./../../images/Brazil.jpg"
 import ReviewsCarousel from "./../../components/ReviewsCarousel/ReviewsCarousel.jsx"
 import "./HomePage.css"
 
-import { Container, Row, Col } from "react-bootstrap"
+import airplane from './../../assets/images/airplane.jpeg'
 
 const HomePage = () => {
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
-import { Container, Card, Row, Col } from "react-bootstrap"
+import { Container, Card, Row, Col, Button } from "react-bootstrap"
 
 import './TravelDetailsPage.css'
 import ItineraryList from "../../components/ItineraryList/ItineraryList"
@@ -45,8 +45,8 @@ const TravelDetailsPage = () => {
             <Row>
                 <Col>
                     <Card>
-                        <Card.Body>Includes Accomodation {travel.includesaccomodation ? "✅" : "❌"}</Card.Body>
-                        <Card.Body>Includes Transport {travel.includesaccomodation ? "✅" : "❌"}</Card.Body>
+                        <Card.Body>Includes Accomodation {travel.includesaccomodation ? "❌" : "✅"}</Card.Body>
+                        <Card.Body>Includes Transport {travel.includesaccomodation ? "❌" : "✅"}</Card.Body>
                     </Card>
                 </Col>
 
@@ -65,9 +65,18 @@ const TravelDetailsPage = () => {
                     <ItineraryList />
                 </Col>
             </Row>
+            <Row>
+                <Col>
+                    <Link to={`/admin-profile/edit-travel/${travelId}`}>
+                        <Button variant="secondary" size="lg">
+                            Edit form
+                        </Button>
+                    </Link>
+                </Col>
+            </Row>
 
 
-        </Container>
+        </Container >
     )
 }
 

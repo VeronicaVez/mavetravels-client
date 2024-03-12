@@ -1,15 +1,15 @@
 import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
-import EditReviewForm from "./../../components/EditReviewForm/EditReviewForm"
+import EditReviewForm from "./../../components/Forms/EditReviewForm/EditReviewForm"
 
 const EditReviewPage = () => {
 
-        return (
+    return (
         <Container className="EditReviewPage">
             <h1>Edit your experience</h1>
             <Row>
                 <Col>
-                <EditReviewForm/>
+                    <EditReviewForm />
                 </Col>
             </Row>
         </Container>
