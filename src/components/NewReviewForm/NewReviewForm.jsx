@@ -38,7 +38,7 @@ const NewReviewForm = () => {
 
         axios
             .post(`${API_BASE_URL}/api/reviews`, newReview)
-            .then(() => navigate('/reviews'))
+            .then(() => navigate("/reviews"))
             .catch(err => console.log(err))
     }
 
