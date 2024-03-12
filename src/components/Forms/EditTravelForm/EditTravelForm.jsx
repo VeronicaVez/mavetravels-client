@@ -36,8 +36,6 @@ const EditTravelForm = ({
         source
     })
 
-
-
     const { travelId } = useParams()
     const navigate = useNavigate()
 
