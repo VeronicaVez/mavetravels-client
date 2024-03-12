@@ -3,9 +3,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { Button, Form } from "react-bootstrap"
-
-const API_BASE_URL = "http://localhost:5005"
-
+import authServices from "../../../services/auth.services"
 
 function SignupForm() {
 
@@ -33,8 +31,8 @@ function SignupForm() {
     const { email, password, username } = signUp
     const requestBody = { email, password, username }
 
-    axios
-      .post(`${API_BASE_URL}/api/auth/signup`, requestBody)
+    authServices
+      .signupUser(requestBody)
       .then(() => {
         navigate('/login')
       })

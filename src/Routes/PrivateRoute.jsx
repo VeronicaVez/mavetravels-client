@@ -8,7 +8,7 @@ const PrivateRoute = ({ adminAccess }) => {
     const { user, isLoading } = useContext(AuthContext)
 
     if (isLoading) {
-        return (<h1>Loading</h1>)
+        return (console.log("holi"))
     }
 
     if (!user) {

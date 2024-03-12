@@ -1,7 +1,7 @@
-import axios from "axios"
 import React from "react"
 import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import userServices from "../../services/user.services"
 
 const API_BASE_URL = 'http://localhost:5005'
 
@@ -20,8 +20,8 @@ const EditUserProfilePage = () => {
     const navigate = useNavigate()
 
     const loadUserInfo = () => {
-        axios
-            .get(`${API_BASE_URL}/api/users/${username}`)
+        userServices
+            .getUser(username)
             .then(({ data }) => setUserInfo(data))
             .catch(err => console.log(err))
     }
@@ -33,8 +33,9 @@ const EditUserProfilePage = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        axios
-            .put(`${API_BASE_URL}/api/users/edit/${username}`, userInfo)
+        
+        userServices
+            .editUser(username, data)
             .then(() => navigate(`/users/${username}`))
             .catch(err => console.log(err))
     }

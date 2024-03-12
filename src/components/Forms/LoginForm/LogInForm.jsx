@@ -1,11 +1,9 @@
 import React from 'react'
 import { useContext, useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/auth.context.jsx";
 import { Button, Form } from "react-bootstrap"
-
-const API_URL = "http://localhost:5005"
+import authServices from '../../../services/auth.services.js';
 
 function LoginForm() {
 
@@ -34,8 +32,8 @@ function LoginForm() {
         const { email, password } = loginData
         const reqBody = { email, password }
 
-        axios
-            .post(`${API_URL}/api/auth/login`, reqBody)
+        authServices
+            .loginUser(reqBody)
             .then(({ data }) => {
                 storeToken(data.authToken)
                 authenticateUser()
