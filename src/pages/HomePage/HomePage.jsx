@@ -1,15 +1,13 @@
 import React from "react"
 import Cover from "./../../images/Turkey.jpg"
-import NewTravelForm from "../../components/NewTravelForm/NewTravelForm"
+import NewTravelForm from "./../../components/Forms/NewTravelForm/NewTravelForm.jsx"
 import Morocco from "./../../images/Morocco.jpg"
 import Namibia from "./../../images/Namibia.jpg"
 import Thailand from "./../../images/Thailand.jpg"
-import Turkey from "./../../images/Turkey.jpg"
 import Brazil from "./../../images/Brazil.jpg"
 import ReviewsCarousel from "./../../components/ReviewsCarousel/ReviewsCarousel.jsx"
 import "./HomePage.css"
-
-import airplane from './../../assets/images/airplane.jpeg'
+import {Container, Col, Row} from "react-bootstrap"
 
 const HomePage = () => {
 
