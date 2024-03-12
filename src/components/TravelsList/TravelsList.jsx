@@ -4,6 +4,9 @@ import TravelsServices from "../../services/travels.services"
 import TravelCard from "../TravelCard/TravelCard"
 
 import SearchBar from "../SearchBar/SearchBar"
+import axios from "axios"
+
+const API_BASE_URL = "http://localhost:5005"
 
 const TravelsList = () => {
 
@@ -40,8 +43,8 @@ const TravelsList = () => {
                 <Row>
                     {
                         travels.map((travel) => (
-                            <Col key={travel.id} md={4}>
-                                <TravelCard {...travel} key={travel.id} />
+                            <Col key={travel._id} md={4}>
+                                <TravelCard {...travel} key={travel._id} />
                             </Col>
                         ))
                     }

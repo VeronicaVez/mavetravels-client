@@ -1,4 +1,6 @@
 import { Form, InputGroup } from 'react-bootstrap'
+import React from 'react'
+import axios from 'axios'
 
 import './SearchBar.css'
 

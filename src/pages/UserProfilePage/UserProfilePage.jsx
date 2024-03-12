@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col } from "react-bootstrap"
+import { Button, Container, Row, Col, Offcanvas } from "react-bootstrap"
 import { useParams, Link } from "react-router-dom"
 import UserServices from "../../services/user.services.js"
+import OffcanvasUsers from "../../components/OffcanvasUsers/OffcanvasUsers.jsx"
 
 import './UserProfilePage.css'
 
@@ -36,6 +37,11 @@ const UserProfilePage = () => {
                     </Link>
                     {/* <Button variant="primary" onClick={deleteUser}>Delete</Button> */}
 
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <OffcanvasUsers />
                 </Col>
             </Row>
         </Container>
