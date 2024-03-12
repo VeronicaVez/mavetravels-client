@@ -2,8 +2,11 @@ import React from 'react'
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/auth.context.jsx";
-import { Button, Form } from "react-bootstrap"
+import { Button, Container, Form, Row, Col } from "react-bootstrap"
 import authServices from '../../../services/auth.services.js';
+import "./LoginForm.css"
+
+import Fly from "./../../../images/fly-together.png"
 
 function LoginForm() {
 
@@ -46,7 +49,12 @@ function LoginForm() {
 
 
     return (
-
+        <div className="LoginForm">
+        <div>
+                <img src={Fly} alt="Plane" className="image" />
+        </div>
+        <div>
+        <Container>
         <Form onSubmit={handleLoginSubmit}>
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email Address</Form.Label>
@@ -66,8 +74,18 @@ function LoginForm() {
                 <Button type="submit">Login</Button>
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </Form>
-
+                    </Form>
+                <Row>
+                <Col>
+                    <p>
+                        Don't have an account yet? 
+                        <Link to={"/signup"}className="Link"> Sign up here!</Link>
+                    </p>
+                </Col>
+            </Row>
+            </Container>
+        </div>
+        </div>
     )
 }
 

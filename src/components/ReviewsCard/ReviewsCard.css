@@ -1,6 +1,7 @@
 .ReviewsCard:first-child {
     margin-bottom: 20px;
     font-size: 1.2em;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .ReviewsCard .card-img-left {
@@ -29,3 +30,4 @@
 .ReviewsCard .btn-close {
     align-self: flex-end;
 }
+

@@ -7,26 +7,20 @@ import './LogInPage.css'
 
 const LogInPage = () => {
     return (
+        <div className="LoginPage">
         <Container className="LoginPage">
             <Row>
-                <Col>
-                    <h1>LogIn</h1>
+                <Col className="title">
+                        <h1>Welcome back, log in here and let's fly together!</h1>
                 </Col>
-            </Row>
+                </Row>
             <Row>
                 <Col>
                     <LogInForm />
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <p>
-                        Don't have an account yet?
-                        <Link to={"/signup"}>Sign Up</Link>
-                    </p>
-                </Col>
-            </Row>
-        </Container >
+            </Container >
+        </div>
     )
 }
 

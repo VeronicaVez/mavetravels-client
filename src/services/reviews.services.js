@@ -16,6 +16,10 @@ class ReviewsServices {
         return this.axiosApi.get(`/api/reviews/${reviewId}`)
     }
 
+    postReview(newReview) {
+        return this.axiosApi.post(`/api/reviews`, newReview)
+    }
+
     editReview(reviewId, updatedReview) {
         return this.axiosApi.put(`/api/reviews/${reviewId}`, updatedReview)
     }

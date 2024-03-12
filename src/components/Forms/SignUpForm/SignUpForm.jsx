@@ -2,8 +2,11 @@ import React from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import { Button, Form } from "react-bootstrap"
+import { Button, Form, Container } from "react-bootstrap"
 import authServices from "../../../services/auth.services"
+import "./SignUpForm.css"
+
+import Fly from "./../../../images/fly-together.png"
 
 function SignupForm() {
 
@@ -42,6 +45,12 @@ function SignupForm() {
   }
 
   return (
+    <div className="SignUpForm">
+      <div>
+          <img src={Fly} alt="Plane" className="image" />
+        </div>
+        <div>
+      <Container>
             <Form onSubmit={handleSignupSubmit}>
             <Form.Group className="mb-3" controlId="email">
                 <Form.Label>Email Address</Form.Label>
@@ -70,6 +79,9 @@ function SignupForm() {
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
         </Form>
+        </Container>
+      </div>
+      </div>
   )
 }
 

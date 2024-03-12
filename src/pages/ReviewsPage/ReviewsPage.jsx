@@ -1,4 +1,5 @@
 import React from "react"
+import "./ReviewsPage.css"
 
 import { Container } from "react-bootstrap"
 import ReviewsList from "../../components/ReviewsList/ReviewsList"
