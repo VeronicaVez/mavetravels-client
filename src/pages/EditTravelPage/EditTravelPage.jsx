@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import EditTravelForm from '../../components/EditTravelForm/EditTravelForm'
+import EditTravelForm from '../../components/Forms/EditTravelForm/EditTravelForm'
 
 import './EditTravelPage.css'
 
