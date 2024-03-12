@@ -3,10 +3,10 @@ import { useParams, useNavigate, Link } from "react-router-dom"
 import axios from "axios"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './EditTravelForm.css'
+import travelsServices from "../../../services/travels.services"
 
 import DateRangePickerCalendar from '../../DateRangePickerCalendar/DateRangePickerCalendar'
 
-const API_BASE_URL = "http://localhost:5005"
 const travelThemes = ["Beach life", "Trekking", "Party", "Sports", "Wild life", "Food", "Pet Friendly"]
 
 
@@ -46,7 +46,8 @@ const EditTravelForm = ({
     }, [])
 
     const loadTravelDetails = () => {
-        axios.get(`${API_BASE_URL}/api/travels/${travelId}`)
+        travelsServices
+            .getAllTravels()
             .then(({ data }) => setTravelData(data))
             .catch(err => console.log(err))
     }
@@ -55,7 +56,8 @@ const EditTravelForm = ({
         e.preventDefault()
         setLoading(true)
 
-        axios.put(`${API_BASE_URL}/api/travels/${travelId}`, travelData)
+        travelsServices
+            .getTravel(travelData)
             .then(() => {
                 setLoading(false)
                 navigate(`/travels/${travelId}`)

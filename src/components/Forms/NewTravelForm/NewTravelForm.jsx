@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import axios from "axios"
 import TravelsServices from "../../../services/travels.services"
 
 
@@ -9,7 +8,6 @@ import uploadServices from "../../../services/upload.services"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './NewTravelForm.css'
 
-const API_BASE_URL = "http://localhost:5005"
 const travelThemes = ["Beach life", "Trekking", "Party", "Sports", "Wild life", "Food", "Pet Friendly"]
 
 const NewTravelForm = () => {
@@ -55,8 +53,8 @@ const NewTravelForm = () => {
         //     .catch(err => console.log(err))
 
 
-        axios
-            .post(`${API_BASE_URL}/api/travels`, newTravel)
+        TravelsServices
+            .editTravel(newTravel)
             .then(() => navigate(`/travels`))
             .catch(err => console.log(err))
     }

@@ -15,6 +15,10 @@ class TravelsServices {
         return this.axiosApi.get(`/api/travels/${travelId}`)
     }
 
+    editTravel() {
+        return this.axiosApi.post(`/api/travels`)
+    }
+
 }
 
 export default new TravelsServices()

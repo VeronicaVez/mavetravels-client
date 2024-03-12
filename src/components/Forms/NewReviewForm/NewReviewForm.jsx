@@ -1,5 +1,4 @@
 import React from "react"
-import axios from "axios"
 import { useState, useParams, useEffect } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../../services/upload.services"
@@ -8,6 +7,7 @@ import ReviewsServices from "../../../services/reviews.services"
 import "./NewReviewForm.css"
 
 import { FaStar } from "react-icons/fa"
+import reviewsServices from "../../../services/reviews.services"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -36,8 +36,8 @@ const NewReviewForm = () => {
 
         e.preventDefault()
 
-        axios
-            .post(`${API_BASE_URL}/api/reviews`, newReview)
+        reviewsServices
+            .getAllReviews(newReview)
             .then(() => navigate("/reviews"))
             .catch(err => console.log(err))
     }
