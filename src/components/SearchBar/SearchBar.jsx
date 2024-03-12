@@ -1,3 +1,4 @@
+import React from "react"
 import { Form, InputGroup } from 'react-bootstrap'
 
 import './SearchBar.css'

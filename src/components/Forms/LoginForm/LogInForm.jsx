@@ -7,7 +7,7 @@ import { Button, Form } from "react-bootstrap"
 
 const API_URL = "http://localhost:5005"
 
-function LoginForm({ handleCloseChat }) {
+function LoginForm() {
 
     const [loginData, setLogin] = useState({
         email: "",

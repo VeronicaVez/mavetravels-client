@@ -3,13 +3,14 @@ import { Link } from "react-router-dom"
 import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { AuthContext } from "./../../context/auth.context"
 import Logo from "./../../images/Logo.png"
+import NewTravelFormPage from "./../../pages/NewTravelFormPage/NewTravelFormPage.jsx"
 
 import TravelsPage from '../../pages/TravelsPage/TravelsPage'
 import "./NavBar.css"
 
 function NavBar() {
 
-  const { user, logout } = useContext(AuthContext)
+  const { user, isLoggedIn, logout, role} = useContext(AuthContext)
 
 
   return (
@@ -39,34 +40,38 @@ function NavBar() {
             <Nav.Link as="span">Your Experience</Nav.Link>
           </Link>
           </Nav>
-          <Nav>
-          {
-            user
-              ?
-              <>
+            <Nav>       
+              {isLoggedIn && (
+                <>
                 <Link to={`/users/${user.username}`}>
-                  <Nav.Link as="span">Profile</Nav.Link>
-                </Link>
-                <Link onClick={logout}>
-                  <Nav.Link as="span">Log Out</Nav.Link>
-                </Link>
-              </>
-              :
+                      <Nav.Link as="span">Profile</Nav.Link>
+                    </Link>
+                { user.role === "admin" ? (
+                  <Link to="/admin-profile/create-travel">
+                    <Nav.Link as="span">Create Travel</Nav.Link>
+                  </Link>)
+                : null
+                }
+                      <Link onClick={logout}>
+                        <Nav.Link as="span">Log Out</Nav.Link>
+                  </Link>
+                  </>
+                  )}
+              {!isLoggedIn && (
               <>
                 <Link to="/signup">
                   <Nav.Link as="span">Sign up</Nav.Link>
                 </Link>
                 <Link to="/login">
                   <Nav.Link as="span">Log In</Nav.Link>
-                </Link>
-              </>
-          }
+            </Link>
+            </>
+            )}
           </Nav>
           </Navbar.Collapse>
           </Container>
       </Navbar >
       </div>
-
   )
 }
 
