@@ -1,12 +1,12 @@
-.LoginPage h1{
+.SignUpPage h1 {
     padding: 0px 0px 40px 0px;
     font-size: 3em;
     color: #FAA300;
     text-align: center;
 }
 
-.LoginPage p,
-.Link{
+.SignUpPage p,
+.Link {
     font-size: 1em;
     color: #F4538A;
     text-decoration: none;

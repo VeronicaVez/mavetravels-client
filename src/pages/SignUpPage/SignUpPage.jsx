@@ -1,11 +1,23 @@
 import React from "react"
 import SignUpForm from "../../components/Forms/SignUpForm/SignUpForm"
+import { Container, Row, Col, Button } from "react-bootstrap"
+import "./SignUpPage.css"
 
 const SignUpPage = () => {
     return (
         <div className="SignupPage">
-            <h1>Sign Up</h1>
-            <SignUpForm />
+                    <Container className="SignUpPage">
+            <Row>
+                <Col className="title">
+                        <h1>Sign up!</h1>
+                </Col>
+                </Row>
+            <Row>
+                <Col>
+                    <SignUpForm />
+                </Col>
+            </Row>
+            </Container >
         </div >
     )
 }
