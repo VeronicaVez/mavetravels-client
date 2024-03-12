@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Container, Row, Col, Button } from "react-bootstrap"
-import AdminLogInForm from "../../components/AdminLogInForm/AdminLogInForm"
+import AdminLogInForm from "../../components/Forms/AdminLogInForm/AdminLogInForm"
 
 const AdminLogInPage = () => {
 

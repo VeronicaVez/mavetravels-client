@@ -24,7 +24,6 @@ const EditTravelForm = ({
 }) => {
 
     const [travelData, setTravelData] = useState({
-
         _id,
         destination,
         continent,
@@ -35,9 +34,8 @@ const EditTravelForm = ({
         dates,
         price,
         source
-
     })
-    const [checked, setChecked] = useState({})
+
 
 
     const { travelId } = useParams()
@@ -71,7 +69,9 @@ const EditTravelForm = ({
     }
 
     const handleInputChange = (e) => {
+
         const { name, value } = e.target
+
         setTravelData({ ...travelData, [name]: value })
     }
 

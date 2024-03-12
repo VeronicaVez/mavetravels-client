@@ -1,5 +1,5 @@
 import React from "react"
-import LogInForm from "./../../components/LoginForm/LogInForm"
+import LogInForm from "./../../components/Forms/LoginForm/LogInForm"
 import { Link } from "react-router-dom"
 import { Container, Row, Col, Button } from "react-bootstrap"
 

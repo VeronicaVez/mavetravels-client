@@ -22,7 +22,7 @@ import EditUserProfilePage from "../pages/EditUserProfilePage/EditUserProfilePag
 import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
 import EditTravelPage from "../pages/EditTravelPage/EditTravelPage"
 
-import NewReviewForm from "../components/NewReviewForm/NewReviewForm"
+import NewReviewForm from "../components/Forms/NewReviewForm/NewReviewForm"
 import EditReviewPage from "./../pages/EditReviewPage/EditReviewPage"
 
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
@@ -56,7 +56,7 @@ const AppRoutes = () => {
             <Route path="/users/edit/:username" element={<EditUserProfilePage />} />
             <Route path="/admin-profile" element={<AdminProfilePage />} />
 
-            <Route path="reviews/new-review" element={<NewReviewForm />} />
+            {/* <Route path="reviews/new-review" element={<NewReviewForm />} /> */}
             {/* <Route path="/admin-profile" element={<AdminProfilePage />} /> */}
 
             <Route path="/admin-profile/create-travel" element={<NewTravelFormPage />} />

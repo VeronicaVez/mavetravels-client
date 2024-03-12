@@ -4,8 +4,7 @@
 
 .coverImage {
     width: 100%;
-<<<<<<< HEAD
-    left:0;
+    left: 0;
 }
 
 .HomePage h2 {
@@ -15,7 +14,7 @@
     text-align: center;
 }
 
-footer{
+footer {
     left: 0;
     margin-bottom: -20px;
     width: 100%;
@@ -24,7 +23,7 @@ footer{
     text-align: center;
 }
 
-.Thailand{
+.Thailand {
     width: 40%;
     padding: 10px;
     justify-content: flex-start;
@@ -43,7 +42,7 @@ footer{
     justify-content: right;
 }
 
-.favTrips{
+.favTrips {
     display: block;
     font-size: 2em;
     padding: 20px;
@@ -51,22 +50,22 @@ footer{
     text-align: center;
 }
 
-.paragr{
+.paragr {
     font-size: 1em;
     padding: 0px 40px;
     text-align: center;
 }
 
-.carousel-reviews{
+.carousel-reviews {
     background-color: #FAA300;
 }
 
-.Morocco{
+.Morocco {
     padding: 60px 60px;
     width: 50%;
 }
 
-.phrase{
+.phrase {
     display: flex;
 }
 
@@ -80,10 +79,3 @@ footer{
     font-size: 2em;
     text-align: center;
 }
-
-
-
-=======
-    left: 0;
-}
->>>>>>> a5224412d589982d05719fa7d66ff7eb4db554aa
