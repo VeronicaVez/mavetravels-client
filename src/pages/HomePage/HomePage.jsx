@@ -1,12 +1,5 @@
 import React from "react"
-<<<<<<< HEAD
 import Cover from "./../../images/Turkey.jpg"
-=======
-import { Link } from "react-router-dom"
-import { Container, Row, Col, Button } from "react-bootstrap"
-
-import Cover from "./../../images/foto-capadocia.jpg"
->>>>>>> a5224412d589982d05719fa7d66ff7eb4db554aa
 import NewTravelForm from "../../components/NewTravelForm/NewTravelForm"
 import Morocco from "./../../images/Morocco.jpg"
 import Namibia from "./../../images/Namibia.jpg"
@@ -22,7 +15,6 @@ const HomePage = () => {
 
     return (
 
-<<<<<<< HEAD
         <div className="HomePage">
                 <img src={Cover} alt="Capadocia" className="coverImage" />
             <Container>
@@ -71,30 +63,6 @@ const HomePage = () => {
             <p>Developed by Maria and Veronica</p>
             </footer>
         </div>
-=======
-        <Container className="HomePage">
-            <Row>
-                <Col>
-                    <h1>HOME PAGE</h1>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Link to={`/travels`}>
-                        <img src={airplane} alt="Airplane image" />
-                    </Link>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <header>
-                        <img src={Cover} alt="Capadocia" className="coverImage" />
-                    </header>
-                </Col>
-            </Row>
-        </Container>
-
->>>>>>> a5224412d589982d05719fa7d66ff7eb4db554aa
 
     )
 }
