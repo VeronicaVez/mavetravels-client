@@ -15,13 +15,12 @@ class TravelsServices {
         return this.axiosApi.get(`/api/travels/${travelId}`)
     }
 
-<<<<<<< HEAD
     getTravelsByContinent(continent) {
         return this.axiosApi.get(`/api/travels/continent/${continent}`)
-=======
+    }
+
     editTravel() {
         return this.axiosApi.post(`/api/travels`)
->>>>>>> 39ec409fbd4771b2268f34145be811a63b4dca7f
     }
 
 }
