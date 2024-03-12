@@ -6,6 +6,7 @@ import { formatDate } from "../../utils/date.utils"
 import ItineraryList from "../../components/ItineraryList/ItineraryList"
 import TravelsServices from "../../services/travels.services"
 import FavButton from "./../../components/FavButton/FavButton"
+import ReviewsList from "../../components/ReviewsList/ReviewsList"
 
 import './TravelDetailsPage.css'
 
@@ -32,21 +33,21 @@ const TravelDetailsPage = () => {
     }
 
     const handleFavButtonClick = () => {
-        const updatedIsFavorited = !isFavorited;
-        setIsFavorited(updatedIsFavorited);
+        const updatedIsFavorited = !isFavorited
+        setIsFavorited(updatedIsFavorited)
 
-        // Llamar a la API para marcar o desmarcar el viaje como favorito
-        const action = updatedIsFavorited ? 'mark' : 'unmark'; // Determinar la acción basada en el estado actual de favoritos
+
+        const action = updatedIsFavorited ? 'mark' : 'unmark'
         TravelsServices.updateFavoriteStatus(travelId, action)
             .then(() => {
-                console.log(`El viaje se ha ${action}ado correctamente como favorito.`);
+                console.log(`El viaje se ha ${action}ado correctamente como favorito.`)
             })
             .catch(err => {
-                console.error(`Error al ${action}ar el viaje como favorito:`, err);
-                // Si ocurre un error, revertir el estado de favoritos
-                setIsFavorited(!updatedIsFavorited);
-            });
-    };
+                console.error(`Error al ${action}ar el viaje como favorito:`, err)
+
+                setIsFavorited(!updatedIsFavorited)
+            })
+    }
 
 
     return (
@@ -96,11 +97,7 @@ const TravelDetailsPage = () => {
             </Row>
             <Row>
                 <Col>
-                    <Link to={`/admin-profile/edit-travel/${travelId}`}>
-                        <Button variant="secondary" size="lg">
-                            Edit form
-                        </Button>
-                    </Link>
+                    <ReviewsList />
                 </Col>
             </Row>
             <Row>
