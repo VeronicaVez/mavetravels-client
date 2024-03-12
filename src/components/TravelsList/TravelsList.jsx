@@ -15,7 +15,10 @@ const TravelsList = () => {
 
     const { continent } = useParams()
 
+
     useEffect(() => loadTravels(), [continent])
+    //useEffect(() => loadAllTravels(), [])
+
 
     const loadTravels = () => {
         TravelsServices
@@ -23,6 +26,13 @@ const TravelsList = () => {
             .then(({ data }) => setTravels(data))
             .catch(err => console.error(err))
     }
+
+    // const loadAllTravels = () => {
+    //     TravelsServices
+    //         .getAllTravels
+    //         .then(({ data }) => setTravels(data))
+    //         .catch(err => console.error(err))
+    // }
 
     const loadSearchedTravels = travelId => {
         axios

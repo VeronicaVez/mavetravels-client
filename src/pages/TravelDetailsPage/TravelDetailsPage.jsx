@@ -5,7 +5,7 @@ import { formatDate } from "../../utils/date.utils"
 
 import ItineraryList from "../../components/ItineraryList/ItineraryList"
 import TravelsServices from "../../services/travels.services"
-import FavButton from "./../../components/FavButton/FavButton"
+import userServices from "../../services/user.services"
 import ReviewsList from "../../components/ReviewsList/ReviewsList"
 
 import './TravelDetailsPage.css'
@@ -25,6 +25,7 @@ const TravelDetailsPage = () => {
         setIsFavorited(travel.isFavorited || false)
     }, [travel])
 
+
     const getTravel = () => {
         TravelsServices
             .getTravel(travelId)
@@ -32,21 +33,14 @@ const TravelDetailsPage = () => {
             .catch(err => console.error(err))
     }
 
-    const handleFavButtonClick = () => {
-        const updatedIsFavorited = !isFavorited
-        setIsFavorited(updatedIsFavorited)
-
-
-        const action = updatedIsFavorited ? 'mark' : 'unmark'
-        TravelsServices.updateFavoriteStatus(travelId, action)
-            .then(() => {
-                console.log(`El viaje se ha ${action}ado correctamente como favorito.`)
-            })
-            .catch(err => {
-                console.error(`Error al ${action}ar el viaje como favorito:`, err)
-
-                setIsFavorited(!updatedIsFavorited)
-            })
+    const handleAddToUser = async () => {
+        try {
+            await userServices.addTravelToUser(travelId)
+            alert("Travel added to your list!")
+        } catch (error) {
+            console.error("Error adding travel to user:", error)
+            alert("Failed to add travel to your list. Please try again later.")
+        }
     }
 
 
@@ -57,7 +51,7 @@ const TravelDetailsPage = () => {
                     <h1> {travel.destination} Travel Details</h1>
                 </Col>
                 <Col>
-                    <FavButton />
+                    <Button onClick={handleAddToUser}>♡</Button>
                 </Col>
             </Row>
             <Row>

@@ -36,6 +36,14 @@ class UserServices {
         return this.axiosApi.delete(`/api/user/${username}`)
     }
 
+    addTravelToUser = async (travelId) => {
+        try {
+            await axios.put(`/api/users/add-travel/${travelId}`)
+        } catch (error) {
+            throw error
+        }
+    }
+
 }
 
 export default new UserServices()

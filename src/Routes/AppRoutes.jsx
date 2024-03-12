@@ -6,7 +6,6 @@ import HomePage from "../pages/HomePage/HomePage"
 import TravelsPage from "../pages/TravelsPage/TravelsPage"
 import TravelsDestinationsPage from '../pages/TravelsDestinationsPage/TravelsDestinationsPage.jsx'
 
-import ThemesPage from "../pages/ThemesPage/ThemesPage"
 import ReviewsPage from "../pages/ReviewsPage/ReviewsPage"
 
 import TravelDetailsPage from "../pages/TravelDetailsPage/TravelDetailsPage"
@@ -15,13 +14,9 @@ import SpecificReviewPage from "./../pages/SpecificReviewPage/SpecificReviewPage
 import LogInPage from "../pages/LogInPage/LogInPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
 
-import UsersPage from "../pages/UsersPage/UsersPage"
 import UserProfilePage from "../pages/UserProfilePage/UserProfilePage"
-import AdminProfilePage from "../pages/AdminProfilePage/AdminProfilePage"
-import EditUserProfilePage from "../pages/EditUserProfilePage/EditUserProfilePage"
 
 import NewTravelFormPage from "../pages/NewTravelFormPage/NewTravelFormPage"
-import EditTravelPage from "../pages/EditTravelPage/EditTravelPage"
 
 import NewReviewForm from "../components/Forms/NewReviewForm/NewReviewForm"
 import EditReviewPage from "./../pages/EditReviewPage/EditReviewPage"
@@ -39,11 +34,9 @@ const AppRoutes = () => {
 
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/travels" element={<TravelsPage />} />
+            <Route path="/alltravels" element={<TravelsPage />} />
             <Route path="/travels/:continent" element={<TravelsDestinationsPage />} />
 
-
-            <Route path="/themes" element={<ThemesPage />} />
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/reviews/:reviewId" element={< SpecificReviewPage />} />
             <Route path="/travels/details/:travelId" element={<TravelDetailsPage />} />
@@ -61,7 +54,6 @@ const AppRoutes = () => {
                 <Route path="/create-travel" element={<NewTravelFormPage />} />
             </Route>
 
-            {/* <Route path="/admin-profile/edit-travel/:travelId" element={<EditTravelPage />} /> */}
 
             <Route path="*" element={<NotFoundPage />} />
 
