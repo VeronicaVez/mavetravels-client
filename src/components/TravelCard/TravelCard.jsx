@@ -9,7 +9,7 @@ const TravelCard = ({ _id, destination, themes, dates, price, source }) => {
 
 
     return (
-        <Link to={`/travels/${_id}`} >
+        <Link to={`/travels/details/${_id}`} >
             <Card className="TravelCard">
                 <Card.Img variant="top" src={source} className="cardImg" />
                 <Card.Body className="cardBody">

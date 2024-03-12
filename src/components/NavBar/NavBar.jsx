@@ -10,7 +10,7 @@ import "./NavBar.css"
 
 function NavBar() {
 
-  const { user, isLoggedIn, logout, role } = useContext(AuthContext)
+  const { user, isLoggedIn, logout } = useContext(AuthContext)
 
 
   return (
@@ -25,12 +25,12 @@ function NavBar() {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
               <NavDropdown title="Destinations">
-                <NavDropdown.Item as={Link} to="/travels/europe">Europe</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/travels/asia">Asia</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/travels/africa">Africa</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/travels/north-america">North America</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/travels/south-america">South America</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/travels/australia-oceania">Australia & Oceania</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/Europe">Europe</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/Asia">Asia</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/Africa">Africa</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/North America">North America</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/South America">South America</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/Australia & Oceania">Australia & Oceania</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/travels"><strong>All destinations</strong></NavDropdown.Item>
 
               </NavDropdown>
@@ -49,7 +49,7 @@ function NavBar() {
                     user.role === "admin"
                       ?
                       (
-                        <Link to="/admin-profile/create-travel">
+                        <Link to="/create-travel">
                           <Nav.Link as="span">Create Travel</Nav.Link>
                         </Link>
                       )

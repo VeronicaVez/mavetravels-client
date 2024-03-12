@@ -5,6 +5,7 @@ import TravelCard from "../TravelCard/TravelCard"
 
 import SearchBar from "../SearchBar/SearchBar"
 import axios from "axios"
+import { useParams } from "react-router-dom"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -12,11 +13,13 @@ const TravelsList = () => {
 
     const [travels, setTravels] = useState([])
 
-    useEffect(() => getAllTravels(), [])
+    const { continent } = useParams()
 
-    const getAllTravels = () => {
+    useEffect(() => loadTravels(), [continent])
+
+    const loadTravels = () => {
         TravelsServices
-            .getAllTravels()
+            .getTravelsByContinent(continent)
             .then(({ data }) => setTravels(data))
             .catch(err => console.error(err))
     }

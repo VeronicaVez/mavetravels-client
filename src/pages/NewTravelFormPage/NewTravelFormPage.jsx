@@ -2,7 +2,6 @@ import React from "react"
 import { Link, useParams } from "react-router-dom"
 import { Container, Row, Col, Button } from "react-bootstrap"
 import NewTravelForm from "../../components/Forms/NewTravelForm/NewTravelForm"
-import EditTravelPage from "../EditTravelPage/EditTravelPage"
 
 import './NewTravelFormPage.css'
 

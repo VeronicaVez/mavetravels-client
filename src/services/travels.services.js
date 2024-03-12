@@ -15,6 +15,10 @@ class TravelsServices {
         return this.axiosApi.get(`/api/travels/${travelId}`)
     }
 
+    getTravelsByContinent(continent) {
+        return this.axiosApi.get(`/api/travels/continent/${continent}`)
+    }
+
 }
 
 export default new TravelsServices()
