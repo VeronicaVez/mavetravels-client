@@ -5,13 +5,15 @@ import { AuthContext } from "./../context/auth.context"
  
 const PrivateRoute = () => {
  
-    const { user } = useContext(AuthContext)
+    const { user, isLoading } = useContext(AuthContext)
  
-    if (!user) {
-        return <Navigate to="/api/auth/login" />
+    if (isLoading) {
+        return (<h1>Loading</h1>)
     }
  
-    return <Outlet />
+    if (!user) {
+        return <Navigate to="/login" />
+    }
 }
  
 export default PrivateRoute

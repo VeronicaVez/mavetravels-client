@@ -12,11 +12,6 @@ const LogInPage = () => {
                 <Col>
                     <h1>LogIn</h1>
                 </Col>
-                <Col>
-                    <Link to={"/signup/admin"}>
-                        <Button>ADMIN</Button>
-                    </Link>
-                </Col>
             </Row>
             <Row>
                 <Col>
