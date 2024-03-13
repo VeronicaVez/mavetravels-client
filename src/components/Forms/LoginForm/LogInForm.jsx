@@ -78,8 +78,8 @@ function LoginForm() {
                 <Row>
                 <Col>
                     <p>
-                        Don't have an account yet? 
-                        <Link to={"/signup"}className="Link"> Sign up here!</Link>
+                        Don't have an account yet? No worries, 
+                        <Link to={"/signup"}className="Link"> sign up here!</Link>
                     </p>
                 </Col>
             </Row>

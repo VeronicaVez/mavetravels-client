@@ -1,4 +1,4 @@
-.SignupForm{
+.SignUpForm{
     margin-bottom: 20px;
     padding: 20px;
     font-size: 1.2em;
@@ -7,13 +7,11 @@
 }
 
 .SignUpForm Button {
-    margin: 20px 0px 0px 0px;
     background-color: #FAA300;
     border: #FAA300;
 }
 
 .SignUpForm Button:hover {
-    margin: 20px 0px 0px 0px;
     background-color: #F4538A;
     border: #F4538A;
 }

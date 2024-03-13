@@ -2,7 +2,7 @@ import React from "react"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
-import { Button, Form, Container } from "react-bootstrap"
+import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import authServices from "../../../services/auth.services"
 import "./SignUpForm.css"
 
@@ -78,7 +78,14 @@ function SignupForm() {
                 <Button type="submit">Login</Button>
             </Form.Group>
             {errorMessage && <p className="error-message">{errorMessage}</p>}
-        </Form>
+          </Form>
+                          <Row>
+                <Col>
+                    <p>
+                        Let's discover amazing destinations worldwide together!
+                    </p>
+                </Col>
+            </Row>
         </Container>
       </div>
       </div>

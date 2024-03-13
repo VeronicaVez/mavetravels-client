@@ -9,7 +9,7 @@ const SignUpPage = () => {
                     <Container className="SignUpPage">
             <Row>
                 <Col className="title">
-                        <h1>Sign up!</h1>
+                        <h1>Sign up and explore wonderful destinations!</h1>
                 </Col>
                 </Row>
             <Row>
