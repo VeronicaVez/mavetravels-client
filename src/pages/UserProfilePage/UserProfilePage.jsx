@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { Button, Container, Row, Col, Offcanvas } from "react-bootstrap"
-import { useParams, Link } from "react-router-dom"
+import { Container, Row, Col } from "react-bootstrap"
+import { useParams } from "react-router-dom"
 import UserServices from "../../services/user.services.js"
 import OffcanvasUsers from "../../components/OffcanvasUsers/OffcanvasUsers.jsx"
 
