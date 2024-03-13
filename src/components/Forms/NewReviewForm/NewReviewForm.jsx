@@ -1,31 +1,27 @@
 import React from "react"
-import { useState, useParams, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import uploadServices from "../../../services/upload.services"
-import { useNavigate } from "react-router-dom"
-import ReviewsServices from "../../../services/reviews.services"
+import { useNavigate, useParams } from "react-router-dom"
+import ReviewsServices from "./../../../services/reviews.services"
 import "./NewReviewForm.css"
 
 import { FaStar } from "react-icons/fa"
-import reviewsServices from "../../../services/reviews.services"
-
-const API_BASE_URL = "http://localhost:5005"
+import { AuthContext } from "../../../context/auth.context"
 
 const NewReviewForm = () => {
+
+    const { user } = useContext(AuthContext)
+    
+    const { travelId } = useParams()
 
     const [newReview, setNewReview] = useState({
         source: "",
         title: "",
         description: "",
         rating: null,
-        user: {
-            "Id": "",
-            "username": ""
-        },
-        travel: {
-            "Id": "",
-            "destination": ""
-        },
+        username: user?.username,
+        travel: travelId
     })
 
     const navigate = useNavigate()
@@ -36,9 +32,9 @@ const NewReviewForm = () => {
 
         e.preventDefault()
 
-        reviewsServices
-            .getAllReviews(newReview)
-            .then(() => navigate("/reviews"))
+        ReviewsServices
+            .newReview(newReview)
+            .then(() => navigate(`/reviews`))
             .catch(err => console.log(err))
     }
 

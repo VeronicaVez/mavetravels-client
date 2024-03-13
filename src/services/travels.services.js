@@ -19,8 +19,8 @@ class TravelsServices {
         return this.axiosApi.get(`/api/travels/continent/${continent}`)
     }
 
-    editTravel() {
-        return this.axiosApi.post(`/api/travels`)
+    createTravel(newTravel) {
+        return this.axiosApi.post(`/api/travels`, newTravel)
     }
 
     searchTravelsByName(query) {
