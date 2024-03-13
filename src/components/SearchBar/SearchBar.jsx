@@ -13,7 +13,7 @@ const SearchBar = ({ searchHandler }) => {
     return (
 
         <InputGroup className="SearchBar">
-            <InputGroup.Text>🕵</InputGroup.Text>
+            <InputGroup.Text>🔎</InputGroup.Text>
             <Form.Control
                 aria-label="SearchBar"
                 type='text'

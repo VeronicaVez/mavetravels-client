@@ -23,6 +23,10 @@ class TravelsServices {
         return this.axiosApi.post(`/api/travels`)
     }
 
+    searchTravelsByName(query) {
+        return this.axiosApi.get(`/api/travels/?name_like=${query}`);
+    }
+
 }
 
 export default new TravelsServices()

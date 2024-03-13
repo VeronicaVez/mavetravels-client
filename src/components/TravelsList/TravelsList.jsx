@@ -34,23 +34,21 @@ const TravelsList = () => {
     //         .catch(err => console.error(err))
     // }
 
-    const loadSearchedTravels = travelId => {
-        axios
-            .get(`${API_BASE_URL}/travels/${travelId}`)
-            .then(({ data }) => setTravels(data))
-            .catch(err => console.log(err))
+    const loadSearchedTravels = (query) => {
+        TravelsServices
+            .searchTravelsByName(query)
+            .then(response => setTravels(response.data))
+            .catch(error => console.error('Error searching travels:', error))
     }
 
-    const searchHandler = (searchTravel) => {
-        loadSearchedTravels(searchTravel)
-    }
+
 
     return (
         <Row>
             <Col>
                 <Row>
                     <Col>
-                        <SearchBar searchHandler={searchHandler} />
+                        <SearchBar searchHandler={loadSearchedTravels} />
                     </Col>
                 </Row>
                 <Row>
