@@ -22,14 +22,6 @@ const NewReviewModal = () => {
                 <Modal.Body>
                     <NewReviewForm />
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Cancel
-                    </Button>
-                    <Button variant="primary" onClick={handleClose}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
             </Modal>
         </>
     )
