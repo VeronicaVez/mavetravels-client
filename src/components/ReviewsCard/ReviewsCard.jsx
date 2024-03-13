@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Card, CloseButton } from 'react-bootstrap'
+import { Card, CloseButton, Container } from 'react-bootstrap'
 import "./../../components/ReviewsCard/ReviewsCard.css"
 import { FaStar } from "react-icons/fa"
 
@@ -14,7 +14,7 @@ function ReviewsCard({ _id, username, title, description, rating, source, travel
   const [hover, setHover] = useState()
 
   return (
-    <article className="ReviewsCard">
+    <Container className="ReviewsCard">
       <Card>
         <Card.Img src={source} />
         <CloseButton className="btn-close" onClick={() => deleteReview(_id)} />
@@ -42,7 +42,7 @@ function ReviewsCard({ _id, username, title, description, rating, source, travel
           </Card.Text>
         </Card.Body>
       </Card>
-    </article>
+    </Container>
   )
 }
 

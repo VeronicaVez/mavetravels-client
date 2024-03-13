@@ -1,10 +1,9 @@
 import React from "react"
 import { useState, useEffect, useContext } from "react"
 import reviewsServices from "../../../services/reviews.services"
-import { Link, useNavigate, useParams } from "react-router-dom"
-import { Form, Button, Row, Col } from "react-bootstrap"
+import { useNavigate, useParams } from "react-router-dom"
+import { Form, Button } from "react-bootstrap"
 import uploadServices from "../../../services/upload.services"
-import { AuthContext } from "../../../context/auth.context"
 
 import { FaStar } from "react-icons/fa"
 

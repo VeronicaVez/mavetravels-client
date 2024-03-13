@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import TravelsServices from "../../../services/travels.services"
 
-
 import DateRangePickerCalendar from "../../DateRangePickerCalendar/DateRangePickerCalendar"
 import uploadServices from "../../../services/upload.services"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
@@ -42,16 +41,6 @@ const NewTravelForm = () => {
     const handleFormSubmit = (e) => {
 
         e.preventDefault()
-
-        // NO FUNCIONA
-
-        // const requestBody = { destination, continent, includesAccomodation, includesTransport, themes, itinerary, dates, price, source }
-
-        // TravelsServices
-        //     .createTravel(requestBody)
-        //     .then(() => navigate(`/travels`))
-        //     .catch(err => console.log(err))
-
 
         TravelsServices
             .createTravel(newTravel)

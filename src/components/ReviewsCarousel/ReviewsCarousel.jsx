@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Carousel from 'react-bootstrap/Carousel'
-import White from "./../../images/White.png"
 import "./ReviewsCarousel.css"
 
 function ReviewCarousel() {
