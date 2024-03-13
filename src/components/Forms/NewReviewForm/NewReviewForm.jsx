@@ -11,7 +11,7 @@ import { AuthContext } from "../../../context/auth.context"
 
 const NewReviewForm = () => {
 
-    const { username } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     
     const { travelId } = useParams()
 
@@ -20,7 +20,7 @@ const NewReviewForm = () => {
         title: "",
         description: "",
         rating: null,
-        user: username,
+        username: user?.username,
         travel: travelId
     })
 
@@ -34,7 +34,7 @@ const NewReviewForm = () => {
 
         ReviewsServices
             .newReview(newReview)
-            .then(() => navigate("/reviews"))
+            .then(() => navigate(`/reviews`))
             .catch(err => console.log(err))
     }
 
