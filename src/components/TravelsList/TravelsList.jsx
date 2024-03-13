@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react"
 import { Col, Row } from 'react-bootstrap'
+import { useParams } from "react-router-dom"
+
 import TravelsServices from "../../services/travels.services"
 import TravelCard from "../TravelCard/TravelCard"
 import SearchBar from "../SearchBar/SearchBar"
-import { useParams } from "react-router-dom"
 import travelsServices from "../../services/travels.services"
 
 const TravelsList = () => {
@@ -39,6 +40,7 @@ const TravelsList = () => {
     }
 
     return (
+
         <Row>
             <Col>
                 <Row>

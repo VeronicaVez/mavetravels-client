@@ -3,7 +3,6 @@ import React from "react"
 
 import HomePage from "../pages/HomePage/HomePage"
 
-import TravelsPage from "../pages/TravelsPage/TravelsPage"
 import TravelsDestinationsPage from '../pages/TravelsDestinationsPage/TravelsDestinationsPage.jsx'
 
 import ReviewsPage from "../pages/ReviewsPage/ReviewsPage"

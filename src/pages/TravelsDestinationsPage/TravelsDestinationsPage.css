@@ -1,0 +1,12 @@
+.TravelsPage {
+    margin: 30px auto;
+}
+
+.travelsTitle {
+    font-size: 3em;
+    padding: 40px 20px;
+    color: #F4538A;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+}

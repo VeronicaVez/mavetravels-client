@@ -8,7 +8,7 @@ class TravelsServices {
     }
 
     getAllTravels() {
-        return this.axiosApi.get(`/api/travels`)
+        return this.axiosApi.get(`/api/travels/All`)
     }
 
     getTravel(travelId) {

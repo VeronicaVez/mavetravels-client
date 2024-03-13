@@ -1,17 +1,18 @@
 .NavBar {
     font-size: 1.2em;
-}
-
-.NavBar a, 
-.navbar-nav .nav-link{
     text-decoration: none;
     color: #F4538A;
+    height: 80px;
 }
 
-.NavBar .navbar-nav .nav-link {
+
+
+.NavBar a {
     text-decoration: none;
     color: #F4538A;
     margin: 0 20px;
+    font-weight: 400;
+    margin-top: 25px;
 }
 
 .NavBar a:hover {
@@ -24,15 +25,18 @@
     text-decoration: none;
     color: #FAA300;
 }
-.NavBar .nav-link:hover {
-    text-decoration: none;
-    color: #FAA300;
-}
 
 .NavBar .nav-item.dropdown:hover .nav-link {
     color: orange;
 }
 
-.NavBar img{
-    width: 15%;
+.NavBar img {
+    height: 90px;
+}
+
+.navBarTags {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    align-items: baseline;
 }

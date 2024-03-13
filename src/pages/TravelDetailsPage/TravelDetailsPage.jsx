@@ -52,47 +52,52 @@ const TravelDetailsPage = () => {
         <Container className="TravelDetailsPage">
             <Row>
                 <Col>
-                    <h1> {travel.destination} Travel Details</h1>
+                    <h1> {travel.destination}</h1>
                 </Col>
-                <Col>
-                    {
-                        isLoggedIn && <OverlayTrigger
-                            placement="right"
-                            delay={{ show: 250, hide: 400 }}
-                            overlay={renderTooltip}
-                        >
-                            <Button variant="danger" onClick={handleAddFavTravel}>♡</Button>
-                        </OverlayTrigger>}
-                </Col>
+
             </Row>
             <Row>
-                <Col>
-                    <Card>
-                        <Card.Body>From {formatDate(travel.dates?.start)} to {formatDate(travel.dates?.end)} </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card>
-                        <Card.Body>Price: {travel.price}€ </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <Card>
-                        <Card.Body>Includes Accomodation {travel.includesaccomodation ? "❌" : "✅"}</Card.Body>
-                        <Card.Body>Includes Transport {travel.includesaccomodation ? "❌" : "✅"}</Card.Body>
+                <Col md={10}>
+                    <Card className="TDtext">
+                        <Card.Body>
+                            Embark on a unique journey with our exciting trip to <strong>{travel.destination}</strong>!
+                        </Card.Body>
+
+                        <Card.Body>
+                            From <strong>{formatDate(travel.dates?.start)} </strong>to <strong>{formatDate(travel.dates?.end)}</strong>, immerse yourself in the culture and beauty of this captivating destination. For just <strong>{travel.price}€</strong>, you'll have the opportunity to explore breathtaking landscapes, savor delicious local cuisine, and engage in thrilling activities.
+                        </Card.Body>
+                        <Card.Body>
+                            Moreover, our package includes accommodation to ensure you feel at home throughout your stay. Don't miss out on this incredible opportunity for adventure and fun! Book now and get ready to experience unforgettable moments in {travel.destination}.
+                        </Card.Body>
                     </Card>
                 </Col>
 
-                <Col>
-                    <Card>
-                        {
-                            travel.themes?.map((theme, idx) => {
-                                return <Card.Body key={idx}>{theme}</Card.Body>
-                            })
-                        }
-                    </Card>
+                <Col md={2}>
+                    <Row>
+                        <Col>
+                            {
+                                isLoggedIn && <OverlayTrigger
+                                    placement="right"
+                                    delay={{ show: 250, hide: 400 }}
+                                    overlay={renderTooltip}
+                                >
+                                    <Button variant="danger" onClick={handleAddFavTravel}>♡</Button>
+                                </OverlayTrigger>
+                            }
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <Card>
+                                {
+                                    travel.themes?.map((theme, idx) => {
+                                        return <Card.Body key={idx}>{theme}</Card.Body>
+                                    })
+                                }
+                            </Card>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
             <Row>
