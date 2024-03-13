@@ -1,13 +1,11 @@
 import React from "react"
 import { Container, Col, Row } from "react-bootstrap"
-
 import Cover from "./../../images/Turkey.jpg"
 import Morocco from "./../../images/Morocco.jpg"
 import Namibia from "./../../images/Namibia.jpg"
 import Thailand from "./../../images/Thailand.jpg"
 import Brazil from "./../../images/Brazil.jpg"
 import ReviewsCarousel from "./../../components/ReviewsCarousel/ReviewsCarousel.jsx"
-
 import "./HomePage.css"
 
 const HomePage = () => {

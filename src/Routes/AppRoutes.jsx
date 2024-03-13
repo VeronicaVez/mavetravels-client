@@ -20,6 +20,7 @@ import NewReviewForm from "../components/Forms/NewReviewForm/NewReviewForm"
 import EditReviewPage from "./../pages/EditReviewPage/EditReviewPage"
 
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage"
+import AboutUsPage from "./../pages/AboutUsPage/AboutUsPage.jsx"
 
 import PrivateRoute from "./PrivateRoute.jsx"
 
@@ -36,6 +37,7 @@ const AppRoutes = () => {
 
             <Route path="/reviews" element={<ReviewsPage />} />
             <Route path="/travels/details/:travelId" element={<TravelDetailsPage />} />
+            <Route path="/about-us" element={<AboutUsPage/>} />
 
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LogInPage />} />
@@ -49,7 +51,6 @@ const AppRoutes = () => {
             <Route element={<PrivateRoute adminAccess />}>
                 <Route path="/create-travel" element={<NewTravelFormPage />} />
             </Route>
-
 
             <Route path="*" element={<NotFoundPage />} />
 

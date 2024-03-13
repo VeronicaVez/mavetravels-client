@@ -14,8 +14,7 @@ function ReviewsCard({ _id, username, title, description, rating, source, travel
   const [hover, setHover] = useState()
 
   return (
-    <Container className="ReviewsCard">
-      <Card>
+      <Card className="ReviewsCard">
         <Card.Img src={source} />
         <CloseButton className="btn-close" onClick={() => deleteReview(_id)} />
         <Card.Body>
@@ -42,7 +41,6 @@ function ReviewsCard({ _id, username, title, description, rating, source, travel
           </Card.Text>
         </Card.Body>
       </Card>
-    </Container>
   )
 }
 

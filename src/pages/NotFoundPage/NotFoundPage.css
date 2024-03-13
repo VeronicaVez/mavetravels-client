@@ -1,0 +1,28 @@
+.NotFoundPage{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 120px;
+}
+
+.NotFoundPage h1{
+    color: #F4538A;
+    font-size: 3em;
+}
+
+.NotFoundPage h2 {
+    color: #F4538A;
+    font-size: 2em;
+}
+
+.NotFoundPage Button {
+    margin: 20px 0px 0px 0px;
+    background-color: #FAA300;
+    border: #FAA300;
+}
+
+.NotFoundPage Button:hover {
+    margin: 20px 0px 0px 0px;
+    background-color: #F4538A;
+    border: #F4538A;
+}
