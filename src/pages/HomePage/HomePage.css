@@ -1,5 +1,5 @@
 .HomePage {
-    margin: 10px auto;
+    margin: 30px auto;
 }
 
 .coverImage {
@@ -12,15 +12,8 @@
     padding: 40px 20px;
     color: #F4538A;
     text-align: center;
-}
-
-footer {
-    left: 0;
-    margin-bottom: -20px;
-    width: 100%;
-    background-color: #F4538A;
-    color: white;
-    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
 }
 
 .Thailand {
@@ -48,12 +41,15 @@ footer {
     padding: 20px;
     color: #FAA300;
     text-align: center;
+    font-weight: 600;
 }
 
-.paragr {
-    font-size: 1em;
-    padding: 0px 40px;
+.favTripsParagraf {
+    font-size: 1.1em;
+    padding-right: 10px;
+    padding-left: 20px;
     text-align: center;
+    font-weight: 400;
 }
 
 .carousel-reviews {
