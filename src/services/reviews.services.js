@@ -16,8 +16,8 @@ class ReviewsServices {
         return this.axiosApi.get(`/api/reviews/${reviewId}`)
     }
 
-    newReview(newReview) {
-        return this.axiosApi.post(`/api/travels/details`, newReview)
+    newReview(travelId, newReview) {
+        return this.axiosApi.post(`/api/reviews/${travelId}`, newReview)
     }
 
     editReview(reviewId, updatedReview) {

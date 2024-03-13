@@ -12,7 +12,7 @@ import { AuthContext } from "../../../context/auth.context"
 const NewReviewForm = () => {
 
     const { user } = useContext(AuthContext)
-    
+
     const { travelId } = useParams()
 
     const [newReview, setNewReview] = useState({
@@ -33,7 +33,7 @@ const NewReviewForm = () => {
         e.preventDefault()
 
         ReviewsServices
-            .newReview(newReview)
+            .newReview(travelId, newReview)
             .then(() => navigate(`/reviews`))
             .catch(err => console.log(err))
     }

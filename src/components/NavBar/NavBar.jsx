@@ -31,7 +31,7 @@ function NavBar() {
                 <NavDropdown.Item as={Link} to="/travels/North America">North America</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/travels/South America">South America</NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/travels/Australia & Oceania">Australia & Oceania</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/alltravels"><strong>All destinations</strong></NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/travels/All"><strong>All destinations</strong></NavDropdown.Item>
 
               </NavDropdown>
 

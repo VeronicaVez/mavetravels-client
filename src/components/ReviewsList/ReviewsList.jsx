@@ -5,13 +5,15 @@ import reviewsServices from "../../services/reviews.services"
 import { useNavigate } from "react-router-dom"
 
 const ReviewsList = () => {
-    
+
     const [reviews, setReviews] = useState([])
 
     const navigate = useState()
 
     useEffect(() => getAllReviews(), [])
-    
+
+
+
     const getAllReviews = () => {
         reviewsServices
             .getAllReviews()
@@ -28,15 +30,15 @@ const ReviewsList = () => {
 
     return (
         <div className="ReviewsList">
-                <Row>
-                    {
-                    reviews.map((review)=>(
+            <Row>
+                {
+                    reviews.map((review) => (
                         <Col key={review.id} md={4}>
-                            <ReviewsCard {...review} deleteReview={deleteReview}/>
+                            <ReviewsCard {...review} deleteReview={deleteReview} />
                         </Col>
-                        ))
-                    }
-                </Row>
+                    ))
+                }
+            </Row>
         </div>
     )
 }

@@ -6,6 +6,7 @@ import TravelCard from "../TravelCard/TravelCard"
 import SearchBar from "../SearchBar/SearchBar"
 import axios from "axios"
 import { useParams } from "react-router-dom"
+import travelsServices from "../../services/travels.services"
 
 const API_BASE_URL = "http://localhost:5005"
 
@@ -21,8 +22,12 @@ const TravelsList = () => {
 
 
     const loadTravels = () => {
-        TravelsServices
-            .getTravelsByContinent(continent)
+
+        const transaction = continent === 'All' ?
+            TravelsServices.getAllTravels() :
+            TravelsServices.getTravelsByContinent(continent)
+
+        transaction
             .then(({ data }) => setTravels(data))
             .catch(err => console.error(err))
     }
@@ -34,21 +39,23 @@ const TravelsList = () => {
     //         .catch(err => console.error(err))
     // }
 
-    const loadSearchedTravels = (query) => {
-        TravelsServices
-            .searchTravelsByName(query)
-            .then(response => setTravels(response.data))
-            .catch(error => console.error('Error searching travels:', error))
+    const loadSearchedTravels = textQuery => {
+        travelsServices
+            .searchTravelsByName(textQuery)
+            .then(({ data }) => setTravels(data))
+            .catch(err => console.error(err))
     }
 
-
+    const searchHandler = (searchTravel) => {
+        loadSearchedTravels(searchTravel)
+    }
 
     return (
         <Row>
             <Col>
                 <Row>
                     <Col>
-                        <SearchBar searchHandler={loadSearchedTravels} />
+                        <SearchBar searchHandler={searchHandler} />
                     </Col>
                 </Row>
                 <Row>

@@ -23,8 +23,8 @@ class TravelsServices {
         return this.axiosApi.post(`/api/travels`, newTravel)
     }
 
-    searchTravelsByName(query) {
-        return this.axiosApi.get(`/api/travels/?name_like=${query}`);
+    searchTravelsByName(textQuery) {
+        return this.axiosApi.get(`/api/travels/search?country_query=${textQuery}`);
     }
 
 }

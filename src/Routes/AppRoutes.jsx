@@ -9,7 +9,6 @@ import TravelsDestinationsPage from '../pages/TravelsDestinationsPage/TravelsDes
 import ReviewsPage from "../pages/ReviewsPage/ReviewsPage"
 
 import TravelDetailsPage from "../pages/TravelDetailsPage/TravelDetailsPage"
-import SpecificReviewPage from "./../pages/SpecificReviewPage/SpecificReviewPage"
 
 import LogInPage from "../pages/LogInPage/LogInPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
@@ -34,11 +33,9 @@ const AppRoutes = () => {
 
             <Route path="/" element={<HomePage />} />
 
-            <Route path="/alltravels" element={<TravelsPage />} />
             <Route path="/travels/:continent" element={<TravelsDestinationsPage />} />
 
             <Route path="/reviews" element={<ReviewsPage />} />
-            <Route path="/reviews/:reviewId" element={< SpecificReviewPage />} />
             <Route path="/travels/details/:travelId" element={<TravelDetailsPage />} />
 
             <Route path="/signup" element={<SignUpPage />} />
@@ -48,7 +45,7 @@ const AppRoutes = () => {
                 <Route path="/users/:username" element={<UserProfilePage />} />
                 <Route path="/reviews/new-review" element={<NewReviewForm />} />
                 <Route path="/reviews/edit/:reviewId" element={<EditReviewPage />} />
-            </Route> 
+            </Route>
 
             <Route element={<PrivateRoute adminAccess />}>
                 <Route path="/create-travel" element={<NewTravelFormPage />} />

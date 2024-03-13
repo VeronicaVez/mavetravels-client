@@ -11,7 +11,7 @@ const TravelsDestinationsPage = () => {
 
     return (
         <Container className="TravelsPage">
-            <h1>{continent} Travels</h1>
+            <h1>{continent} travels</h1>
             <TravelsList />
         </Container>
     )

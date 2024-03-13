@@ -1,51 +1,48 @@
 import React, { useEffect, useState } from "react"
 import { Card, CloseButton } from 'react-bootstrap'
-import reviewsServices from "../../services/reviews.services"
-import { Link } from "react-router-dom"
 import "./../../components/ReviewsCard/ReviewsCard.css"
 import { FaStar } from "react-icons/fa"
 
+function ReviewsCard({ _id, username, title, description, rating, source, travel, reviews, setReviews, deleteReview }) {
 
-function ReviewsCard({ _id, user, title, description, rating, source, travel, reviews, setReviews, deleteReview}) {
-    
   const [displayRating, setDisplayRating] = useState(rating);
 
   useEffect(() => {
     setDisplayRating(rating);
   }, [rating])
 
-    const [hover, setHover] = useState()
+  const [hover, setHover] = useState()
 
   return (
     <article className="ReviewsCard">
-    <Card>
-      <Card.Img src={source} />
-      <CloseButton className="btn-close" onClick={() => { deleteReview(_id) }} />
+      <Card>
+        <Card.Img src={source} />
+        <CloseButton className="btn-close" onClick={() => deleteReview(_id)} />
         <Card.Body>
           <Card.Text>
-             {[...Array(rating)].map((star, index) => {
-                const currentRating = index + 1
-                return (
-                    <label>
-                    <input
-                            type='radio'
-                    />
-                        <FaStar
-                            size={25}
-                            color={currentRating <= (hover || rating) ? "#F5DD61" : "#F2F597"}
-                            />
-                        </label>
-                )
+            {[...Array(rating)].map((star, index) => {
+              const currentRating = index + 1
+              return (
+                <label>
+                  <input
+                    type='radio'
+                  />
+                  <FaStar
+                    size={25}
+                    color={currentRating <= (hover || rating) ? "#F5DD61" : "#F2F597"}
+                  />
+                </label>
+              )
             })}
           </Card.Text>
-        <Link className="LinkStyle" to={`/reviews/${_id}`}><Card.Title>{title}</Card.Title></Link>
-          <Card.Subtitle>{user} - {travel}</Card.Subtitle>  
-            <Card.Text>
+          <Card.Title>{title}</Card.Title>
+          <Card.Subtitle>Publicada por {username} - {travel?.destination}</Card.Subtitle>
+          <Card.Text>
             {description}
-        </Card.Text>
-      </Card.Body>
+          </Card.Text>
+        </Card.Body>
       </Card>
-      </article>
+    </article>
   )
 }
 
