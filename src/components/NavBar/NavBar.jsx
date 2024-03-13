@@ -35,6 +35,9 @@ function NavBar() {
               <Link to="/reviews">
                 <Nav.Link as="span">Your Experience</Nav.Link>
               </Link>
+              <Link to="/about-us">
+                <Nav.Link as="span">About Us</Nav.Link>
+              </Link>
             </Nav>
             <Nav>
               {isLoggedIn && (
