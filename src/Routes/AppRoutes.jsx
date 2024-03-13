@@ -44,15 +44,15 @@ const AppRoutes = () => {
             <Route path="/signup" element={<SignUpPage />} />
             <Route path="/login" element={<LogInPage />} />
 
-            <Route element={<PrivateRoute />}>
+            {/* <Route element={<PrivateRoute />}> */}
                 <Route path="/users/:username" element={<UserProfilePage />} />
                 <Route path="/reviews/new-review" element={<NewReviewForm />} />
                 <Route path="/reviews/edit/:reviewId" element={<EditReviewPage />} />
-            </Route>
+            {/* </Route> */}
 
-            <Route element={<PrivateRoute adminAccess />}>
+            {/* <Route element={<PrivateRoute adminAccess />}> */}
                 <Route path="/create-travel" element={<NewTravelFormPage />} />
-            </Route>
+            {/* </Route> */}
 
 
             <Route path="*" element={<NotFoundPage />} />

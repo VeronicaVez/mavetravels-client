@@ -54,8 +54,8 @@ const NewTravelForm = () => {
 
 
         TravelsServices
-            .editTravel(newTravel)
-            .then(() => navigate(`/travels`))
+            .createTravel(newTravel)
+            .then(() => navigate(`/alltravels`))
             .catch(err => console.log(err))
     }
 
