@@ -7,6 +7,7 @@ import ItineraryList from "../../components/ItineraryList/ItineraryList"
 import TravelsServices from "../../services/travels.services"
 import userServices from "../../services/user.services"
 import ReviewsList from "../../components/ReviewsList/ReviewsList"
+import NewReviewModal from "../../components/NewReviewModal/NewReviewModal"
 
 import { AuthContext } from './../../context/auth.context'
 
@@ -111,6 +112,9 @@ const TravelDetailsPage = () => {
                             Back
                         </Button>
                     </Link>
+                </Col>
+                <Col>
+                    <NewReviewModal />
                 </Col>
             </Row>
 

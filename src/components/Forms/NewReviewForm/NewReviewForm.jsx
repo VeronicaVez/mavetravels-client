@@ -74,30 +74,32 @@ const NewReviewForm = () => {
 
     return (
         <Form onSubmit={handleFormSubmit}>
-            <Form.Group className="mb-3" controlId="form-rating">
-                {[...Array(5)].map((star, index) => {
-                    const currentRating = index + 1
-                    return (
-                        <label>
-                            <input
-                                type='radio'
-                                name='rating'
-                                value={currentRating}
-                                onClick={() => setRating(currentRating)}
-                                onChange={handleChangeReview}
-                            />
-                            <FaStar
-                                className="star"
-                                size={25}
-                                color={currentRating <= (hover || newReview.rating) ? "#F5DD61" : "#F6F7C4"}
-                                onMouseEnter={() => setHover(currentRating)}
-                                onMouseLeave={() => setHover(null)}
-                            />
-                        </label>
-                    )
-                })}
+            <Form.Group controlId="form-rating">
+                {
+                    [...Array(5)].map((star, index) => {
+                        const currentRating = index + 1
+                        return (
+                            <label key={index}>
+                                <input
+                                    type='radio'
+                                    name='rating'
+                                    value={currentRating}
+                                    onMouseEnter={() => setRating(currentRating)}
+                                    onChange={handleChangeReview}
+                                />
+                                <FaStar
+                                    className="star"
+                                    size={25}
+                                    color={currentRating <= (hover || newReview.rating) ? "#F5DD61" : "#F6F7C4"}
+                                    onMouseEnter={() => setHover(currentRating)}
+                                    onMouseLeave={() => setHover(null)}
+                                />
+                            </label>
+                        )
+                    })
+                }
             </Form.Group>
-            <Form.Group className="mb-3" controlId="form-title">
+            <Form.Group controlId="form-title">
                 <Form.Control
                     as="textarea"
                     rows={1}
@@ -106,7 +108,7 @@ const NewReviewForm = () => {
                     value={newReview.title}
                     name="title" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="form-description">
+            <Form.Group controlId="form-description">
                 <Form.Control
                     as="textarea"
                     rows={3}
