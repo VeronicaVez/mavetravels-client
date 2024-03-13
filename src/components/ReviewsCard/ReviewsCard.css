@@ -1,18 +1,19 @@
 .ReviewsCard {
-    margin-bottom: 20px;
-    font-size: 1.2em;
-    border-radius: 20;
+    width: 350px;
+    margin: 30px auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.ReviewsCard .card-img-left {
-    padding: 10px;
+.ReviewsCard img {
+    width: auto;
 }
 
 .ReviewsCard .card-body {
     flex-direction: column;
     display: flex;
     padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
 }
 
 .LinkStyle {
@@ -25,7 +26,6 @@
 }
 
 .ReviewsCard .card-title {
-    font-size: 2em;
     color:#F4538A
 }
 
