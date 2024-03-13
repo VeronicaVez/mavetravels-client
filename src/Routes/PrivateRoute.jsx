@@ -2,13 +2,14 @@ import React from "react"
 import { useContext } from "react"
 import { Outlet, Navigate } from "react-router-dom"
 import { AuthContext } from "./../context/auth.context"
+import LoadingPage from "./../pages/LoadingPage/LoadingPage.jsx"
 
 const PrivateRoute = ({ adminAccess }) => {
 
     const { user, isLoading } = useContext(AuthContext)
 
     if (isLoading) {
-        return (console.log("holi"))
+        return <LoadingPage/>
     }
 
     if (!user) {

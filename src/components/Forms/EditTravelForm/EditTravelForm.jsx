@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
-import axios from "axios"
 import { Form, Row, Col, Button, InputGroup } from "react-bootstrap"
 import './EditTravelForm.css'
 import travelsServices from "../../../services/travels.services"

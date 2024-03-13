@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import UserServices from "../../services/user.services"
 import { formatDate } from "../../utils/date.utils"
 import { Table } from "react-bootstrap"
-
 import './UserList.css'
 
 const UserList = () => {

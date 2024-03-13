@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react"
 import { Col, Row } from 'react-bootstrap'
 import TravelsServices from "../../services/travels.services"
 import TravelCard from "../TravelCard/TravelCard"
-
 import SearchBar from "../SearchBar/SearchBar"
-import axios from "axios"
 import { useParams } from "react-router-dom"
 import travelsServices from "../../services/travels.services"
-
-const API_BASE_URL = "http://localhost:5005"
 
 const TravelsList = () => {
 
@@ -18,7 +14,6 @@ const TravelsList = () => {
 
 
     useEffect(() => loadTravels(), [continent])
-    //useEffect(() => loadAllTravels(), [])
 
 
     const loadTravels = () => {
@@ -31,13 +26,6 @@ const TravelsList = () => {
             .then(({ data }) => setTravels(data))
             .catch(err => console.error(err))
     }
-
-    // const loadAllTravels = () => {
-    //     TravelsServices
-    //         .getAllTravels
-    //         .then(({ data }) => setTravels(data))
-    //         .catch(err => console.error(err))
-    // }
 
     const loadSearchedTravels = textQuery => {
         travelsServices
@@ -69,9 +57,6 @@ const TravelsList = () => {
                 </Row>
             </Col>
         </Row>
-
-
-
     )
 }
 

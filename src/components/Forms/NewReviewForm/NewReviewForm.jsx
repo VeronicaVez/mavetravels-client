@@ -1,11 +1,10 @@
 import React from "react"
-import { useState, useEffect, useContext } from "react"
-import { Form, Button, Row, Col } from "react-bootstrap"
+import { useState, useContext } from "react"
+import { Form, Button } from "react-bootstrap"
 import uploadServices from "../../../services/upload.services"
 import { useNavigate, useParams } from "react-router-dom"
 import ReviewsServices from "./../../../services/reviews.services"
 import "./NewReviewForm.css"
-
 import { FaStar } from "react-icons/fa"
 import { AuthContext } from "../../../context/auth.context"
 
