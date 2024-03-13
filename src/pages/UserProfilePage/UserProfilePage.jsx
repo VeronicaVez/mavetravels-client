@@ -30,20 +30,22 @@ const UserProfilePage = () => {
             <Row>
                 <Col>
                     <h1>{usernameFirstLetterUppercase} Profile</h1>
-                    <h2>My Travels</h2>
-                    <h2>My Reviews</h2>
-                    {/*<Link to={`/users/edit/${username}`}>
-                        <Button variant="primary">Update</Button>
-                    </Link>
-                    {/* <Button variant="primary" onClick={deleteUser}>Delete</Button> */}
-
                 </Col>
-            </Row>
-            <Row>
                 <Col>
                     <OffcanvasUsers />
                 </Col>
             </Row>
+            <Row>
+                <Col>
+                    <h2>My Tavels</h2>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    {user.travels}
+                </Col>
+            </Row>
+
         </Container>
     )
 }

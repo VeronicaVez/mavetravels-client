@@ -1,29 +1,28 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useParams, Link } from "react-router-dom"
-import { Container, Card, Row, Col, Button } from "react-bootstrap"
+import { Container, Card, Row, Col, Button, OverlayTrigger, Tooltip } from "react-bootstrap"
 import { formatDate } from "../../utils/date.utils"
 
 import ItineraryList from "../../components/ItineraryList/ItineraryList"
 import TravelsServices from "../../services/travels.services"
 import userServices from "../../services/user.services"
 import ReviewsList from "../../components/ReviewsList/ReviewsList"
+import NewReviewModal from "../../components/NewReviewModal/NewReviewModal"
+
+import { AuthContext } from './../../context/auth.context'
 
 import './TravelDetailsPage.css'
 
 const TravelDetailsPage = () => {
 
     const [travel, setTravel] = useState({})
-    const [isFavorited, setIsFavorited] = useState(false)
 
-    const { travelId } = useParams()
+    const { user, isLoggedIn } = useContext(AuthContext)
+    const { travelId, username } = useParams()
 
     useEffect(() => {
         getTravel()
     }, [travelId])
-
-    useEffect(() => {
-        setIsFavorited(travel.isFavorited || false)
-    }, [travel])
 
 
     const getTravel = () => {
@@ -33,15 +32,20 @@ const TravelDetailsPage = () => {
             .catch(err => console.error(err))
     }
 
-    const handleAddToUser = async () => {
-        try {
-            await userServices.addTravelToUser(travelId)
-            alert("Travel added to your list!")
-        } catch (error) {
-            console.error("Error adding travel to user:", error)
-            alert("Failed to add travel to your list. Please try again later.")
-        }
+    const handleAddFavTravel = () => {
+
+        userServices
+            .addFavTravel(travelId, user.username)
+            .then(({ data }) => console.log('EL FAV YA TA', data))
+            .catch(err => console.error(err))
     }
+
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+            Add to my travels list
+        </Tooltip>
+    )
+
 
 
     return (
@@ -51,7 +55,14 @@ const TravelDetailsPage = () => {
                     <h1> {travel.destination} Travel Details</h1>
                 </Col>
                 <Col>
-                    <Button onClick={handleAddToUser}>♡</Button>
+                    {
+                        isLoggedIn && <OverlayTrigger
+                            placement="right"
+                            delay={{ show: 250, hide: 400 }}
+                            overlay={renderTooltip}
+                        >
+                            <Button variant="danger" onClick={handleAddFavTravel}>♡</Button>
+                        </OverlayTrigger>}
                 </Col>
             </Row>
             <Row>
@@ -101,6 +112,9 @@ const TravelDetailsPage = () => {
                             Back
                         </Button>
                     </Link>
+                </Col>
+                <Col>
+                    <NewReviewModal />
                 </Col>
             </Row>
 
