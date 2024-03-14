@@ -41,7 +41,7 @@ class UserServices {
     }
 
     addFavTravel(travelId, username) {
-        return this.axiosApi.put(`/ api / users / add - fav - travel / ${travelId}`, { username })
+        return this.axiosApi.put(`/api/users/add-fav-travel/${travelId}`, { username })
     }
 
 }

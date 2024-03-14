@@ -10,8 +10,6 @@ const UserProfilePage = () => {
 
     const [user, setUser] = useState({})
 
-
-
     const { username } = useParams()
 
     useEffect(() => {
@@ -54,7 +52,7 @@ const UserProfilePage = () => {
                                     <Card.Img variant="top" src={travel?.source} />
                                     <Card.Body>
                                         <Card.Title>{travel?.destination}</Card.Title>
-                                        <Card.Text>{formatDate(travel.dates.start)} - {formatDate(travel.dates.end)}</Card.Text>
+                                        <Card.Text>{formatDate(travel?.dates.start)} - {formatDate(travel?.dates.end)}</Card.Text>
                                     </Card.Body>
                                 </Card>
                             )
