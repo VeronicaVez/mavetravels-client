@@ -1,10 +1,10 @@
 .HomePage {
-    margin: 30px auto;
+    margin: 20px 0px;
 }
 
 .coverImage {
     width: 100%;
-    left: 0;
+    margin: 0px;
 }
 
 .HomePage h2 {
@@ -49,10 +49,6 @@
     padding-left: 480px;
     text-align: center;
     font-weight: 400;
-}
-
-.carousel-reviews {
-    background-color: #FAA300;
 }
 
 .Morocco {

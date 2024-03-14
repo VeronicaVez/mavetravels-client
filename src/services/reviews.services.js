@@ -24,6 +24,10 @@ class ReviewsServices {
         return this.axiosApi.put(`/api/reviews/${reviewId}`, updatedReview)
     }
 
+    getReviewsByTravelId(travelId) {
+        return this.axiosApi.get(`/api/travels/details/${travelId}`, travelId)
+    }
+
     deleteReview(reviewId) {
         return this.axiosApi.delete(`/api/reviews/${reviewId}`)
     }

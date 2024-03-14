@@ -23,6 +23,10 @@ class TravelsServices {
         return this.axiosApi.post(`/api/travels`, newTravel)
     }
 
+    getReviewsByTravelId(travelId) {
+        return this.axiosApi.get(`/api/travels/details/${travelId}`, travelId)
+    }
+
     searchTravelsByName(textQuery) {
         return this.axiosApi.get(`/api/travels/search?country_query=${textQuery}`);
     }

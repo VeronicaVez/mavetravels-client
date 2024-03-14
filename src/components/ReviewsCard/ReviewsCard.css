@@ -1,11 +1,10 @@
 .ReviewsCard {
-    width: 350px;
     margin: 30px auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .ReviewsCard img {
-    width: auto;
+    height: 30vh;
 }
 
 .ReviewsCard .card-body {
@@ -14,6 +13,7 @@
     padding: 10px;
     text-align: center;
     font-size: 1.2em;
+    height: 30vh
 }
 
 .LinkStyle {

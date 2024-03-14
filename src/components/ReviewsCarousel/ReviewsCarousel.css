@@ -1,10 +1,14 @@
+.carousel{
+    background-color: #FAA300;
+}
+
 .carousel .paragraph{
     color: white;
     font-size: 1.2em;
 }
 
 .carousel .img{
-    width: 100%;
-    padding: 150px 0px;
+    width: auto;
     justify-self: center;
+    padding: 150px 0px;
 }
