@@ -28,16 +28,20 @@ class UserServices {
         return this.axiosApi.get(`/api/users/${username}`)
     }
 
+    getUserTravels(username) {
+        return this.axiosApi.get(`/api/users/${username}/travels`)
+    }
+
     editUser(username, data) {
-        return this.axiosApi.put(`/api/users/${username}`, data)
+        return this.axiosApi.put(`/ api / users / ${username}`, data)
     }
 
     deleteUser(username) {
-        return this.axiosApi.delete(`/api/users/${username}`)
+        return this.axiosApi.delete(`/ api / users / ${username}`)
     }
 
     addFavTravel(travelId, username) {
-        return this.axiosApi.put(`/api/users/add-fav-travel/${travelId}`, { username })
+        return this.axiosApi.put(`/ api / users / add - fav - travel / ${travelId}`, { username })
     }
 
 }

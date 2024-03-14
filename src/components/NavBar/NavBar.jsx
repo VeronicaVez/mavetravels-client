@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import { AuthContext } from "./../../context/auth.context"
 import Logo from "./../../images/Logo.png"
 import "./NavBar.css"
@@ -35,27 +35,29 @@ function NavBar() {
           <Nav.Link as="span">Your Experience</Nav.Link>
         </Link>
 
-        {isLoggedIn && (
-          <>
-            <Link to={`/users/${user.username}`}>
-              <Nav.Link as="span">Profile</Nav.Link>
-            </Link>
-            {
-              user.role === "admin"
-                ?
-                (
-                  <Link to="/create-travel">
-                    <Nav.Link as="span">Create Travel</Nav.Link>
-                  </Link>
-                )
-                :
-                null
-            }
-            <Link onClick={logout}>
-              <Nav.Link as="span">Log Out</Nav.Link>
-            </Link>
-          </>
-        )}
+        {
+          isLoggedIn && (
+            <>
+              <Link to={`/users/${user.username}`}>
+                <Nav.Link as="span">Profile</Nav.Link>
+              </Link>
+              {
+                user.role === "admin"
+                  ?
+                  (
+                    <Link to="/create-travel">
+                      <Nav.Link as="span">Create Travel</Nav.Link>
+                    </Link>
+                  )
+                  :
+                  null
+              }
+              <Link onClick={logout}>
+                <Nav.Link as="span">Log Out</Nav.Link>
+              </Link>
+            </>
+          )
+        }
         {
           !isLoggedIn &&
           (
