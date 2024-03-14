@@ -47,3 +47,7 @@
 .TravelDetailsRow {
     margin-bottom: 50px;
 }
+
+.card {
+    border: none !important;
+}

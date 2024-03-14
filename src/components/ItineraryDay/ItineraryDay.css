@@ -1,1 +1,6 @@
 .accordionHeader {}
+
+.accordion-button:not(.collapsed) {
+    color: black !important;
+    background-color: #fcd284 !important;
+}
