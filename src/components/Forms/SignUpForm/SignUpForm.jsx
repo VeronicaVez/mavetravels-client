@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import { Button, Form, Container, Row, Col } from "react-bootstrap"
 import authServices from "../../../services/auth.services"
 import "./SignUpForm.css"
+
 import Fly from "./../../../images/fly-together.png"
 
 function SignupForm() {
