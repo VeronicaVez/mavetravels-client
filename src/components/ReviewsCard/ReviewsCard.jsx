@@ -35,7 +35,7 @@ function ReviewsCard({ _id, username, title, description, rating, source, travel
             })}
           </Card.Text>
           <Card.Title>{title}</Card.Title>
-          <Card.Subtitle> {travel?.destination} - Reviewed by {username}</Card.Subtitle>
+          <Card.Subtitle>{travel?.destination} - {username}</Card.Subtitle>
           <Card.Text>
             {description}
           </Card.Text>

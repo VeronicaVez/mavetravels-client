@@ -52,18 +52,6 @@
     border: none !important;
 }
 
-.TravelDetailsPage Button {
-    margin: 20px 0px 0px 0px;
-    background-color: #FAA300;
-    border: #FAA300;
-}
-
-.TravelDetailsPage Button:hover {
-    margin: 20px 0px 0px 0px;
-    background-color: #F4538A;
-    border: #F4538A;
-}
-
 .buttonsContainer {
     display: flex;
     justify-content: space-evenly;
@@ -71,14 +59,11 @@
 
 .theme {
     text-align: end;
-    color: #FAA300 !important;
     font-weight: 500;
-
 }
 
 .themeTitle {
     text-align: end;
-    color: #FAA300 !important;
     font-weight: 500;
     font-size: 1.1em;
 }

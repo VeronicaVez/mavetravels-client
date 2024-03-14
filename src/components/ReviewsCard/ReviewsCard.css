@@ -1,10 +1,11 @@
 .ReviewsCard {
     margin: 30px auto;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    height: 100vh;
 }
 
 .ReviewsCard img {
-    height: 30vh;
+    height: 30vh
 }
 
 .ReviewsCard .card-body {
@@ -12,8 +13,8 @@
     display: flex;
     padding: 10px;
     text-align: center;
-    font-size: 1.2em;
-    height: 30vh
+    font-size: 0.8em;
+    height: 60vh;
 }
 
 .LinkStyle {
@@ -27,6 +28,10 @@
 
 .ReviewsCard .card-title {
     color:#F4538A
+}
+
+.ReviewsCard .card-subtitle {
+    padding: 10px
 }
 
 .ReviewsCard .btn-close {

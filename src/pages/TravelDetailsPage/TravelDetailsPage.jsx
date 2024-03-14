@@ -111,7 +111,7 @@ const TravelDetailsPage = () => {
                 <div className="buttonsContainer">
 
                     <Link to={`/travels/All`}>
-                        <Button variant="danger" size="lg">
+                        <Button className="color" size="lg">
                             Back
                         </Button>
                     </Link>
