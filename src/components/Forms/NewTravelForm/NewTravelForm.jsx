@@ -176,7 +176,7 @@ const NewTravelForm = () => {
         <Form onSubmit={handleFormSubmit} className="NewTravelForm">
             <Row className="NewTravelFormRow Destination&ContinentForm">
                 <Col>
-                    <Form.Group>
+                    <Form.Group className="group">
                         <Form.Label className="newTravelFormLabel">Destination</Form.Label>
                         <Form.Control
                             type="text"
@@ -187,7 +187,7 @@ const NewTravelForm = () => {
                     </Form.Group>
                 </Col>
                 <Col>
-                    <Form.Group>
+                    <Form.Group className="group">
                         <Form.Label className="newTravelFormLabel">Continent</Form.Label>
                         <Form.Select
                             name="continent"
@@ -369,7 +369,7 @@ const NewTravelForm = () => {
                     </Form.Group>
                 </Col>
             </Row>
-            <Row className="NewTravelFormRow">
+            <Row>
                 <Col>
                     <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Create travel"}</Button>
                 </Col>

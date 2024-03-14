@@ -2,6 +2,18 @@
     margin: 30px auto;
 }
 
+.UserProfilePage h1{
+    padding: 50px 0px 20px 0px;
+    color: #FAA300;
+    font-weight: 600;
+}
+
+.UserProfilePage h2 {
+    padding: 10px 0px;
+    color: #F4538A;
+    font-weight: 600;
+}
+
 
 .TravelCard {
     width: 350px;
@@ -16,18 +28,12 @@
 
 .cardBody {
     height: 125px;
-    text-align: center;
     font-size: 1.2em;
 
 }
 
 .LinkCard {
     text-decoration: none;
-}
-
-.cardTitle {
-    text-align: center;
-
 }
 
 .cardText {
