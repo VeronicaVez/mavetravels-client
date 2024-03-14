@@ -26,7 +26,7 @@ const ItineraryList = () => {
 
     return (
 
-        <Accordion>
+        <Accordion className='ItineraryList'>
             {
                 travel.itinerary?.map((day, idx) => <Accordion.Item key={idx}><ItineraryDay {...day} /></Accordion.Item>)
             }

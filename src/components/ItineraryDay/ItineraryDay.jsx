@@ -7,7 +7,7 @@ const ItineraryDay = ({ day, title, activities, dayDescription }) => {
 
     return (
         <Accordion.Item eventKey="0">
-            <Accordion.Header>Day {day} - {title}</Accordion.Header>
+            <Accordion.Header className='accordionHeader'>Day {day} - {title}</Accordion.Header>
             <Accordion.Body>
                 {dayDescription}
                 {
