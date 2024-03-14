@@ -4,16 +4,3 @@ body {
     font-weight: 300;
     font-style: normal;
 }
-
-
-Button {
-    margin: 20px 0px 0px 0px;
-    background-color: #FAA300;
-    border: #FAA300;
-}
-
-Button:hover {
-    margin: 20px 0px 0px 0px;
-    background-color: #F4538A;
-    border: #F4538A;
-}
