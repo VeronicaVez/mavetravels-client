@@ -11,8 +11,39 @@
     font-weight: 600;
 }
 
-.TDtext {
-    font-size: 1.2em;
+.textContainer {
+    font-size: 1.15em;
     font-weight: 350;
-    width: 80%;
+    border: none;
+    text-align: justify;
+}
+
+.textContainer .card.body {
+    width: 100%;
+}
+
+.textFavThemesContainer {
+    width: 100%;
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.favThemesContainer {
+    width: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+}
+
+.textContainer {
+    width: 90%;
+}
+
+.favThemesContainer Button {
+    width: 40px;
+}
+
+.TravelDetailsRow {
+    margin-bottom: 50px;
 }

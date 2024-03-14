@@ -50,67 +50,63 @@ const TravelDetailsPage = () => {
 
     return (
         <Container className="TravelDetailsPage">
-            <Row>
+            <Row className="TravelDetailsRow">
                 <Col>
                     <h1> {travel.destination}</h1>
                 </Col>
 
             </Row>
-            <Row>
-                <Col md={10}>
-                    <Card className="TDtext">
-                        <Card.Body>
-                            Embark on a unique journey with our exciting trip to <strong>{travel.destination}</strong>!
-                        </Card.Body>
+            <Row className="TravelDetailsRow">
+                <div className="textFavThemesContainer">
+                    <div className="textContainer">
+                        <Card className="text">
+                            <Card.Body>
+                                Embark on a unique journey with our exciting trip to <strong>{travel.destination}</strong>!
+                            </Card.Body>
 
-                        <Card.Body>
-                            From <strong>{formatDate(travel.dates?.start)} </strong>to <strong>{formatDate(travel.dates?.end)}</strong>, immerse yourself in the culture and beauty of this captivating destination. For just <strong>{travel.price}€</strong>, you'll have the opportunity to explore breathtaking landscapes, savor delicious local cuisine, and engage in thrilling activities.
-                        </Card.Body>
-                        <Card.Body>
-                            Moreover, our package includes accommodation to ensure you feel at home throughout your stay. Don't miss out on this incredible opportunity for adventure and fun! Book now and get ready to experience unforgettable moments in {travel.destination}.
-                        </Card.Body>
-                    </Card>
-                </Col>
+                            <Card.Body>
+                                From <strong>{formatDate(travel.dates?.start)} </strong>to <strong>{formatDate(travel.dates?.end)}</strong>, immerse yourself in the culture and beauty of this captivating destination. For just <strong>{travel.price}€</strong>, you'll have the opportunity to explore breathtaking landscapes, savor delicious local cuisine, and engage in thrilling activities.
+                            </Card.Body>
+                            <Card.Body>
+                                Moreover, our package includes accommodation to ensure you feel at home throughout your stay. Don't miss out on this incredible opportunity for adventure and fun! Book now and get ready to experience unforgettable moments in {travel.destination}.
+                            </Card.Body>
+                        </Card>
+                    </div>
+                    <div className="favThemesContainer">
 
-                <Col md={2}>
-                    <Row>
-                        <Col>
+                        {
+                            isLoggedIn && <OverlayTrigger
+                                placement="right"
+                                delay={{ show: 250, hide: 400 }}
+                                overlay={renderTooltip}
+                            >
+                                <Button variant="danger" onClick={handleAddFavTravel}>♡</Button>
+                            </OverlayTrigger>
+                        }
+
+
+                        <Card>
                             {
-                                isLoggedIn && <OverlayTrigger
-                                    placement="right"
-                                    delay={{ show: 250, hide: 400 }}
-                                    overlay={renderTooltip}
-                                >
-                                    <Button variant="danger" onClick={handleAddFavTravel}>♡</Button>
-                                </OverlayTrigger>
+                                travel.themes?.map((theme, idx) => {
+                                    return <Card.Body key={idx}>{theme}</Card.Body>
+                                })
                             }
-                        </Col>
-                    </Row>
+                        </Card>
 
-                    <Row>
-                        <Col>
-                            <Card>
-                                {
-                                    travel.themes?.map((theme, idx) => {
-                                        return <Card.Body key={idx}>{theme}</Card.Body>
-                                    })
-                                }
-                            </Card>
-                        </Col>
-                    </Row>
-                </Col>
+                    </div>
+                </div>
             </Row>
-            <Row>
+            <Row className="TravelDetailsRow">
                 <Col>
                     <ItineraryList />
                 </Col>
             </Row>
-            <Row>
+            <Row className="TravelDetailsRow">
                 <Col>
                     <ReviewsList />
                 </Col>
             </Row>
-            <Row>
+            <Row className="TravelDetailsRow">
                 <Col>
                     <Link to={`/travels`}>
                         <Button variant="secondary" size="lg">
@@ -122,7 +118,6 @@ const TravelDetailsPage = () => {
                     <NewReviewModal />
                 </Col>
             </Row>
-
 
         </Container >
     )

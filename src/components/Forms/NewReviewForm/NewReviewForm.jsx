@@ -115,7 +115,7 @@ const NewReviewForm = () => {
             <Form.Group>
                 <Form.Control type="file" onChange={handleFileUpload} />
             </Form.Group>
-            <Button type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Create review"}</Button>
+            <Button variant="danger" type="submit" disabled={loadingImg}>{loadingImg ? "Loading Image..." : "Create review"}</Button>
         </Form>
 
     )

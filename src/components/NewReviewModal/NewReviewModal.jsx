@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Modal } from 'react-bootstrap'
 
 import NewReviewForm from '../Forms/NewReviewForm/NewReviewForm'
+import './NewReviewModal.css'
 
 const NewReviewModal = () => {
     const [show, setShow] = useState(false)
@@ -11,7 +12,7 @@ const NewReviewModal = () => {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="danger" onClick={handleShow} className='addReviewButton'>
                 Add Review
             </Button>
 
