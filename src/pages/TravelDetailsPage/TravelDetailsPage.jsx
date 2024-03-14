@@ -84,9 +84,10 @@ const TravelDetailsPage = () => {
 
 
                         <Card>
+                            <Card.Body className="themeTitle">Interests:</Card.Body>
                             {
                                 travel.themes?.map((theme, idx) => {
-                                    return <Card.Body key={idx}>{theme}</Card.Body>
+                                    return <Card.Body key={idx} className="theme">{theme}</Card.Body>
                                 })
                             }
                         </Card>
@@ -101,22 +102,21 @@ const TravelDetailsPage = () => {
             </Row>
             <Row className="TravelDetailsRow">
                 <Col>
-                
+
                     <ReviewsList travelId={travelId} />
 
                 </Col>
             </Row>
             <Row className="TravelDetailsRow">
-                <Col>
-                    <Link to={`/travels`}>
-                        <Button variant="secondary" size="lg">
+                <div className="buttonsContainer">
+
+                    <Link to={`/travels/All`}>
+                        <Button variant="danger" size="lg">
                             Back
                         </Button>
                     </Link>
-                </Col>
-                <Col>
                     <NewReviewModal />
-                </Col>
+                </div>
             </Row>
 
         </Container >

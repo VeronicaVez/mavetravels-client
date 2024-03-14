@@ -1,6 +1,43 @@
-.accordionHeader {}
-
 .accordion-button:not(.collapsed) {
-    color: black !important;
+    color: white !important;
     background-color: #fcd284 !important;
+}
+
+.accordion-item:last-of-type>.accordion-header .accordion-button.collapsed {
+    color: #FAA300 !important;
+
+}
+
+.noActivitiesContainer {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #ffa0c0 !important;
+    color: white !important;
+    border: none !important;
+    align-self: flex-end;
+}
+
+.dayDEscriptionitinerary {
+    text-align: justify;
+    text-indent: 9px;
+    font-size: .8em;
+    margin: 10px auto;
+}
+
+.activitiesitinerary {
+    display: flex;
+    justify-content: end;
+}
+
+.dropdown-menu.show {
+    border: none !important;
+}
+
+.dropdown-item {
+    color: #323232 !important;
+    font-size: .9em;
 }
