@@ -44,7 +44,7 @@ const NewTravelForm = () => {
 
         TravelsServices
             .createTravel(newTravel)
-            .then(() => navigate(`/alltravels`))
+            .then(() => navigate(`/travels/All`))
             .catch(err => console.log(err))
     }
 
