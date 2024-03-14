@@ -18,15 +18,6 @@ const NewTravelFormPage = () => {
                     <NewTravelForm />
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    <Link to={`/admin-profile/edit-travel/${travelId}`}>
-                        <Button>
-                            Edit form
-                        </Button>
-                    </Link>
-                </Col>
-            </Row>
         </Container>
     )
 }
