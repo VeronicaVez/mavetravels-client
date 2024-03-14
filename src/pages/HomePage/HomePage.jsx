@@ -38,9 +38,7 @@ const HomePage = () => {
             </Container>
             <Col>
                 <h2>Your Experiences</h2>
-                <Row className="carousel-reviews">
-                    <ReviewsCarousel />
-                </Row>
+                    <ReviewsCarousel/>
             </Col>
             <Container>
                 <Col>

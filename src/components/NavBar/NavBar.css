@@ -5,8 +5,6 @@
     height: 80px;
 }
 
-
-
 .NavBar a {
     text-decoration: none;
     color: #F4538A;
@@ -18,7 +16,6 @@
 .NavBar a:hover {
     text-decoration: none;
     color: #FAA300;
-    background-color: transparent
 }
 
 .NavBar .navbar-nav:hover {
@@ -35,8 +32,6 @@
 }
 
 .navBarTags {
-    display: flex;
     justify-content: end;
     margin-right: 20px;
-    align-items: baseline;
 }

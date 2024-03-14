@@ -46,8 +46,6 @@ const TravelDetailsPage = () => {
         </Tooltip>
     )
 
-
-
     return (
         <Container className="TravelDetailsPage">
             <Row className="TravelDetailsRow">
@@ -103,7 +101,9 @@ const TravelDetailsPage = () => {
             </Row>
             <Row className="TravelDetailsRow">
                 <Col>
-                    <ReviewsList />
+                
+                    <ReviewsList travelId={travelId} />
+
                 </Col>
             </Row>
             <Row className="TravelDetailsRow">
