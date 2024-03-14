@@ -1,31 +1,43 @@
 .NewTravelForm {
-    margin: 30px auto;
+    padding: 20px;
+    font-size: 1.2em;
+}
+
+.NewTravelForm .form-label{
+    font-size: 1.5em;
 }
 
 .newTravelFormLabel {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 500;
+    padding: 20px;
+    margin: 10px;
 }
 
 .newTravelFormLabelItinerary {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 400;
+    padding: 20px;
+    margin: 10px;
 }
 
 .NewTravelFormRow {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #FAA300;
+    padding: 20px;
 }
 
 .themeContainer {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px auto;
+    padding: 20px;
+    margin: 10px;
 }
 
 .themesCheckbox {
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .ItineraryForm {
-    border: 1px solid rgb(186, 186, 186);
+    border: 1px solid #FAA300;
+    padding: 20px;
+    margin: 10px;
 }

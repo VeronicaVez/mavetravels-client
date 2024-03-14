@@ -21,7 +21,7 @@ const NewTravelFormPage = () => {
             <Row>
                 <Col>
                     <Link to={`/admin-profile/edit-travel/${travelId}`}>
-                        <Button variant="secondary" size="lg">
+                        <Button>
                             Edit form
                         </Button>
                     </Link>
