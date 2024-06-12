@@ -3,6 +3,7 @@
 Welcome to MaVe Adventures, the last project during my Bootcamp studies at Ironhack. This interactive platform is designed for travel enthusiasts to share their adventures, add their favorite journeys, and discover new destinations!
 
 **Technologies used**
+
 HTML, CSS, React.js, Bootstrap, Node.js, MongoDB, Express, Mongoose
 
 | URL                         | Description       | Protected   |
@@ -21,4 +22,5 @@ HTML, CSS, React.js, Bootstrap, Node.js, MongoDB, Express, Mongoose
 
 
 # Deploy
+
 Check [here](https://mavetravels.netlify.app/).
