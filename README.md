@@ -6,18 +6,18 @@ Welcome to MaVe Adventures, the last project during my Bootcamp studies at Ironh
 
 HTML, CSS, React.js, Bootstrap, Node.js, MongoDB, Express, Mongoose
 
-| URL                         | Description       | Protected   |
-|-----------------------------|-------------------|-------------|
-| /                           |Homepage           | No          |
-| /travels/:continentId       |Travels Page       | No          |
-| /travels/details/:travelId  |Travels Page       | No          |
-| /reviews                    |Reviews Page       | No          |
-| /about-us                   |About us Page      | No          |
-| /users/:userName            |Profile Page       | Yes         |
-| /create-travel              |Create Travel Page | Yes         |
-| /signup                     |Sign up Page       | No          |
-| /login                      |Login Page         | No          |
-| /*                          |404 Page           | No          |
+| URL                         | Description       | Protected  |
+|-----------------------------|-------------------|------------|
+| /                           |Homepage           | No         |
+| /travels/:continentId       |Travels Page       | No         |
+| /travels/details/:travelId  |Travels Page       | No         |
+| /reviews                    |Reviews Page       | No         |
+| /about-us                   |About us Page      | No         |
+| /users/:userName            |Profile Page       | Yes        |
+| /create-travel              |Create Travel Page | Yes        |
+| /signup                     |Sign up Page       | No         |
+| /login                      |Login Page         | No         |
+| /*                          |404 Page           | No         |
 
 
 
